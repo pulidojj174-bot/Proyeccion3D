@@ -1,13 +1,14 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-mobile-toggle',
   templateUrl: './mobile-toggle.html',
-  styleUrl: './mobile-toggle.scss'
+  styleUrl: './mobile-toggle.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MobileToggle {
-  @Input() isOpen: boolean = false;
-  @Output() toggle = new EventEmitter<void>();
+  isOpen = input(false);
+  toggle = output<void>();
 
   onToggle(): void {
     this.toggle.emit();

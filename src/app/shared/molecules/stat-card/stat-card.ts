@@ -1,4 +1,4 @@
-import { Component, inject, input, PLATFORM_ID } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, input, PLATFORM_ID } from '@angular/core';
 import { NgxNumberTickerComponent } from '@omnedia/ngx-number-ticker';
 import { StatData } from '../../../core/models/interfaces/DatosEstadistica.interface';
 import { isPlatformBrowser } from '@angular/common';
@@ -7,7 +7,8 @@ import { isPlatformBrowser } from '@angular/common';
   selector: 'app-stat-card',
   imports: [NgxNumberTickerComponent],
   templateUrl: './stat-card.html',
-  styleUrl: './stat-card.scss'
+  styleUrl: './stat-card.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StatCard {
   private platformId = inject(PLATFORM_ID);

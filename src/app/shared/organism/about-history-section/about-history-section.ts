@@ -1,10 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 
 @Component({
   selector: 'app-about-history-section',
   imports: [],
   templateUrl: './about-history-section.html',
-  styleUrl: './about-history-section.scss'
+  styleUrl: './about-history-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutHistorySection {
   title = input<string>('Nuestra Historia');

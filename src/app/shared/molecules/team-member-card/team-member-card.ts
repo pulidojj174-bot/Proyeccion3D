@@ -1,11 +1,12 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { TeamMemberData } from '../../../core/models/interfaces/TeamMember.interface';
 
 @Component({
   selector: 'app-team-member-card',
   imports: [],
   templateUrl: './team-member-card.html',
-  styleUrl: './team-member-card.scss'
+  styleUrl: './team-member-card.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TeamMemberCard {
   member = input.required<TeamMemberData>();

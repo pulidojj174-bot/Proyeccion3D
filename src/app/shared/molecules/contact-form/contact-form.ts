@@ -1,8 +1,9 @@
 
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FloatLabelModule } from "primeng/floatlabel"
 import { InputTextModule } from 'primeng/inputtext';
+import { inject } from '@angular/core';
 
 export interface ContactFormData {
   firstName: string;
@@ -20,19 +21,20 @@ export interface ServiceOption {
 
 @Component({
   selector: 'app-contact-form',
-  standalone: true,
   imports: [ReactiveFormsModule, FloatLabelModule, InputTextModule],
   templateUrl: './contact-form.html',
-  styleUrl: './contact-form.scss'
+  styleUrl: './contact-form.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactForm {
-  @Input() title: string = 'Envianos un mensaje';
-  @Input() serviceOptions: ServiceOption[] = [];
+  title = input('Envianos un mensaje');
+  serviceOptions = input<ServiceOption[]>([]);
 
+  private fb = inject(FormBuilder);
   contactForm: FormGroup;
   isDropdownOpen = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.contactForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-ZÀ-ÿ\s]+$/)]],
       lastName: ['', [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-ZÀ-ÿ\s]+$/)]],
@@ -63,7 +65,7 @@ export class ContactForm {
 
   getSelectedServiceLabel(): string {
     const serviceValue = this.contactForm.get('service')?.value;
-    const selected = this.serviceOptions.find(option => option.value === serviceValue);
+    const selected = this.serviceOptions().find(option => option.value === serviceValue);
     return selected ? selected.label : 'Selecciona un servicio';
   }
 

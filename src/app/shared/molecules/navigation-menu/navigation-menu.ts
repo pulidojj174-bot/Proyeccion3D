@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NavigationLink } from '../../../core/models/interfaces/NavigationLink.inteface';
 
@@ -7,7 +7,8 @@ import { NavigationLink } from '../../../core/models/interfaces/NavigationLink.i
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './navigation-menu.html',
   styleUrl: './navigation-menu.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationMenu {
-  @Input() links: NavigationLink[] = [];
+  links = input<NavigationLink[]>([]);
 }

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { ServiceItem, ServiceItemData } from '../../molecules/service-item/service-item';
@@ -7,7 +7,8 @@ import { ServiceItem, ServiceItemData } from '../../molecules/service-item/servi
   selector: 'app-services-section',
   imports: [RouterModule, ServiceItem],
   templateUrl: './services-section.html',
-  styleUrl: './services-section.scss'
+  styleUrl: './services-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServicesSection {
   services = input.required<ServiceItemData[]>();

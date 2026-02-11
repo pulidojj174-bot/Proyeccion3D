@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 
@@ -14,13 +13,14 @@ export interface CTAButton {
   selector: 'app-cta-section',
   imports: [RouterModule, ButtonModule],
   templateUrl: './cta-section.html',
-  styleUrl: './cta-section.scss'
+  styleUrl: './cta-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CTASection {
-  @Input() title!: string;
-  @Input() description!: string;
-  @Input() backgroundImage?: string;
-  @Input() button?: CTAButton;
-  @Input() highlightedWord?: string;
-  @Input() overlay?: boolean = true;
+  title = input.required<string>();
+  description = input.required<string>();
+  backgroundImage = input<string>();
+  button = input<CTAButton>();
+  highlightedWord = input<string>();
+  overlay = input(true);
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HeroHeaderComponent } from "../../molecules/hero-header/hero-header";
 
 import { CTASection } from "../../molecules/cta-section/cta-section";
@@ -24,6 +24,7 @@ import { MissionValuesSection } from "../../organism/mission-values-section/miss
 ],
   templateUrl: './about-template.html',
   styleUrl: './about-template.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutTemplate {
   // Hero con fondo (About)

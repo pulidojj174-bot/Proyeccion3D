@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { ProjectCategory, ProjectData } from '../../../core/models/interfaces/ProjectData.interface';
 
 
@@ -6,7 +6,8 @@ import { ProjectCategory, ProjectData } from '../../../core/models/interfaces/Pr
   selector: 'app-project-card',
   imports: [],
   templateUrl: './project-card.html',
-  styleUrl: './project-card.scss'
+  styleUrl: './project-card.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectCard {
   project = input.required<ProjectData>();

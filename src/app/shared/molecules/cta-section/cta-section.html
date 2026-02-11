@@ -1,29 +1,29 @@
-<section class="cta-section" [class.cta-section--overlay]="overlay">
-  <div class="cta-section__background" [style.background-image]="backgroundImage ? 'url(' + backgroundImage + ')' : 'none'"></div>
+<section class="cta-section" [class.cta-section--overlay]="overlay()">
+  <div class="cta-section__background" [style.background-image]="backgroundImage() ? 'url(' + backgroundImage() + ')' : 'none'"></div>
 
-  @if (overlay) {
+  @if (overlay()) {
     <div class="cta-section__overlay"></div>
   }
 
   <div class="cta-section__container">
     <div class="cta-section__content">
       <h2 class="cta-section__title">
-        {{ title }}
-        @if (highlightedWord) {
-          <span class="cta-section__highlight">{{ highlightedWord }}</span>
+        {{ title() }}
+        @if (highlightedWord()) {
+          <span class="cta-section__highlight">{{ highlightedWord() }}</span>
         }
       </h2>
 
-      <p class="cta-section__description">{{ description }}</p>
+      <p class="cta-section__description">{{ description() }}</p>
 
-      @if (button) {
+      @if (button()) {
         <div class="cta-section__actions">
-          <a [routerLink]="button.path"
-            [class]="'cta-section__button cta-section__button--' + (button.variant || 'primary')">
-            @if (button.icon) {
-              <i [class]="button.icon"></i>
+          <a [routerLink]="button()!.path"
+            [class]="'cta-section__button cta-section__button--' + (button()!.variant || 'primary')">
+            @if (button()!.icon) {
+              <i [class]="button()!.icon"></i>
             }
-            {{ button.label }}
+            {{ button()!.label }}
             <i class="pi pi-arrow-right cta-section__arrow"></i>
           </a>
         </div>

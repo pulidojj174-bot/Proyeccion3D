@@ -5,7 +5,7 @@
     </p>
 
     <div class="legal-links">
-      @for (link of legalLinks; track link.path) {
+      @for (link of legalLinks(); track link.path) {
         <a [routerLink]="[link.path]" class="legal-link">
           {{ link.label }}
         </a>

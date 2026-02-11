@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { SocialLink } from '../../../core/models/interfaces/SocialLink.interface';
 
 @Component({
   selector: 'app-social-links',
   templateUrl: './social-links.html',
-  styleUrl: './social-links.scss'
+  styleUrl: './social-links.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SocialLinks {
   socialLinks: SocialLink[] = [

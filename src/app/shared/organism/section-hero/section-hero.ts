@@ -1,5 +1,5 @@
 
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 export interface AboutHeroButton {
@@ -13,7 +13,8 @@ export interface AboutHeroButton {
   selector: 'app-section-hero',
   imports: [RouterModule],
   templateUrl: './section-hero.html',
-  styleUrl: './section-hero.scss'
+  styleUrl: './section-hero.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SectionHero {
   title = input.required<string>();

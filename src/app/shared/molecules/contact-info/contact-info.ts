@@ -1,5 +1,5 @@
 
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 
 export interface ContactInfoItem {
   icon: string;
@@ -12,7 +12,8 @@ export interface ContactInfoItem {
   selector: 'app-contact-info',
   imports: [],
   templateUrl: './contact-info.html',
-  styleUrl: './contact-info.scss'
+  styleUrl: './contact-info.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactInfo {
   title = input<string>('Contact Information');

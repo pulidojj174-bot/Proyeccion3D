@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -6,15 +6,16 @@ import { NgOptimizedImage } from '@angular/common';
   selector: 'app-brand-logo',
   imports: [RouterLink, NgOptimizedImage],
   templateUrl: './brand-logo.html',
-  styleUrl: './brand-logo.scss'
+  styleUrl: './brand-logo.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BrandLogo {
-  @Input() text: string = 'Proyección3DBIC';
-  @Input() href: string = '/';
-  @Input() logo: string = 'assets/images/logos/P3D.png'; // ✅ Agregar logo
-  @Input() logoAlt: string = 'Logo Proyección 3D';
-  @Input() showLogo: boolean = true;
-  @Input() showText: boolean = false; // Por defecto solo logo
-  @Input() logoWidth: number = 50;
-  @Input() logoHeight: number = 50;
+  text = input('Proyección3DBIC');
+  href = input('/');
+  logo = input('assets/images/logos/P3D.png');
+  logoAlt = input('Logo Proyección 3D');
+  showLogo = input(true);
+  showText = input(false);
+  logoWidth = input(50);
+  logoHeight = input(50);
 }

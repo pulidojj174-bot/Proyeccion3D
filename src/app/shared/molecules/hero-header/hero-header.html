@@ -1,4 +1,4 @@
-<section [class]="containerClasses()" [ngStyle]="containerStyles">
+<section [class]="containerClasses()" [style]="containerStyles()">
   <!-- Background image -->
   @if (config().backgroundImage && config().layout === 'hero-with-background') {
   <article class="page-hero__background page-hero__fade-in" [style.background-image]="'url(' + config().backgroundImage + ')'">
@@ -7,7 +7,7 @@
 
   <!-- Overlay -->
   @if (config().hasOverlay) {
-  <article class="page-hero__overlay page-hero__fade-in" [ngStyle]="overlayStyles">
+  <article class="page-hero__overlay page-hero__fade-in" [style]="overlayStyles()">
   </article>
   }
 

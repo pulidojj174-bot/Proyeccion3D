@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FooterLink } from '../../../core/models/interfaces/FooterLink.interface';
 
@@ -6,10 +6,11 @@ import { FooterLink } from '../../../core/models/interfaces/FooterLink.interface
   selector: 'app-footer-copyright',
   imports: [RouterLink],
   templateUrl: './footer-copyright.html',
-  styleUrl: './footer-copyright.scss'
+  styleUrl: './footer-copyright.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterCopyright {
-  @Input() legalLinks: FooterLink[] = [];
+  legalLinks = input<FooterLink[]>([]);
 
   currentYear = new Date().getFullYear();
 }

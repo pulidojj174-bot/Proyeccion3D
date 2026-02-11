@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { ValueCard } from '../../molecules/value-card/value-card';
 import { ValueData } from '../../../core/models/interfaces/DatosEstadistica.interface';
 
@@ -6,7 +6,8 @@ import { ValueData } from '../../../core/models/interfaces/DatosEstadistica.inte
   selector: 'app-mission-values-section',
   imports: [ValueCard],
   templateUrl: './mission-values-section.html',
-  styleUrl: './mission-values-section.scss'
+  styleUrl: './mission-values-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MissionValuesSection {
   title = input<string>('Nuestra Misión y Valores');

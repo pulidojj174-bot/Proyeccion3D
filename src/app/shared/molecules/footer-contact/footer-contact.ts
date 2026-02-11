@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-footer-contact',
   templateUrl: './footer-contact.html',
-  styleUrl: './footer-contact.scss'
+  styleUrl: './footer-contact.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterContact {
   contactInfo = {

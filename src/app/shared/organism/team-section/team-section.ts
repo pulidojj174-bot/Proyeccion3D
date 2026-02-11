@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, signal } from '@angular/core';
 import { TeamMemberCard } from '../../molecules/team-member-card/team-member-card';
 import { TeamMemberData } from '../../../core/models/interfaces/TeamMember.interface';
 
@@ -6,7 +6,8 @@ import { TeamMemberData } from '../../../core/models/interfaces/TeamMember.inter
   selector: 'app-team-section',
   imports: [TeamMemberCard],
   templateUrl: './team-section.html',
-  styleUrl: './team-section.scss'
+  styleUrl: './team-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TeamSection {
   teamMembers = input<TeamMemberData[]>([]);

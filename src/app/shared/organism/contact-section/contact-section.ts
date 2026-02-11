@@ -1,5 +1,5 @@
 
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { ContactForm, ServiceOption } from '../../molecules/contact-form/contact-form';
 import { BusinessHour, BusinessHours } from '../../molecules/business-hours/business-hours';
 import { ContactInfo, ContactInfoItem } from '../../molecules/contact-info/contact-info';
@@ -8,7 +8,8 @@ import { ContactInfo, ContactInfoItem } from '../../molecules/contact-info/conta
   selector: 'app-contact-section',
   imports: [ContactInfo, ContactForm, BusinessHours],
   templateUrl: './contact-section.html',
-  styleUrl: './contact-section.scss'
+  styleUrl: './contact-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactSection {
   contactTitle = input<string>('Información de Contacto');

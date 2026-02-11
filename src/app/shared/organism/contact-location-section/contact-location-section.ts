@@ -1,11 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { EmbeddedMapData, EmbeddedMap } from '../../molecules/embedded-map/embedded-map';
 
 @Component({
   selector: 'app-contact-location-section',
   imports: [EmbeddedMap],
   templateUrl: './contact-location-section.html',
-  styleUrl: './contact-location-section.scss'
+  styleUrl: './contact-location-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactLocationSection {
   mapData = signal<EmbeddedMapData>({

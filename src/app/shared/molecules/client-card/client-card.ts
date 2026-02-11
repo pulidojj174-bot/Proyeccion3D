@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { ClientData } from '../../../core/models/interfaces/ClientData.interface';
 
@@ -6,7 +6,8 @@ import { ClientData } from '../../../core/models/interfaces/ClientData.interface
   selector: 'app-client-card',
   imports: [NgOptimizedImage],
   templateUrl: './client-card.html',
-  styleUrl: './client-card.scss'
+  styleUrl: './client-card.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClientCard {
   client = input.required<ClientData>();

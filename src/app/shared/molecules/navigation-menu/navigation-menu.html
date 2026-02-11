@@ -1,5 +1,5 @@
 <ul class="navbar-nav">
-  @for (link of links; track link.path) {
+  @for (link of links(); track link.path) {
     <li class="nav-item">
       <a
         [routerLink]="[link.path]"

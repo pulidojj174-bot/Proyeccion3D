@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 
 import { BrandLogo } from "../../molecules/brand-logo/brand-logo";
 import { NavigationMenu } from "../../molecules/navigation-menu/navigation-menu";
@@ -10,7 +10,8 @@ import { NavigationLink } from '../../../core/models/interfaces/NavigationLink.i
   selector: 'app-navbar',
   imports: [BrandLogo, NavigationMenu, MobileToggle, MobileMenu],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.scss'
+  styleUrl: './navbar.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Navbar {
   isMobileMenuOpen = signal(false);

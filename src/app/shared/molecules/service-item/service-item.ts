@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 
@@ -15,7 +15,8 @@ export interface ServiceItemData {
   selector: 'app-service-item',
   imports: [RouterModule],
   templateUrl: './service-item.html',
-  styleUrl: './service-item.scss'
+  styleUrl: './service-item.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServiceItem {
   service = input.required<ServiceItemData>();

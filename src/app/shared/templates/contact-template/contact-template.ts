@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { HeroHeaderComponent } from "../../molecules/hero-header/hero-header";
 import { ContactFormData } from '../../molecules/contact-form/contact-form';
 import { ContactSection } from "../../organism/contact-section/contact-section";
@@ -8,7 +8,8 @@ import { ContactLocationSection } from "../../organism/contact-location-section/
   selector: 'app-contact-template',
   imports: [HeroHeaderComponent, ContactSection, ContactLocationSection],
   templateUrl: './contact-template.html',
-  styleUrl: './contact-template.scss'
+  styleUrl: './contact-template.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactTemplate {
   // Contact

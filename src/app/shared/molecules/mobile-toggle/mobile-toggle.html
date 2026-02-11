@@ -1,9 +1,9 @@
 <button
   class="mobile-toggle"
   (click)="onToggle()"
-  [attr.aria-expanded]="isOpen"
+  [attr.aria-expanded]="isOpen()"
   aria-label="Toggle navigation menu">
-  <span class="hamburger-line" [class.active]="isOpen"></span>
-  <span class="hamburger-line" [class.active]="isOpen"></span>
-  <span class="hamburger-line" [class.active]="isOpen"></span>
+  <span class="hamburger-line" [class.active]="isOpen()"></span>
+  <span class="hamburger-line" [class.active]="isOpen()"></span>
+  <span class="hamburger-line" [class.active]="isOpen()"></span>
 </button>

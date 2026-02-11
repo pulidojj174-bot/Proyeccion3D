@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { computed, input } from '@angular/core';
@@ -27,7 +27,8 @@ export interface PageHeroConfig {
   selector: 'app-hero-header',
   imports: [CommonModule, RouterModule],
   templateUrl: './hero-header.html',
-  styleUrl: './hero-header.scss'
+  styleUrl: './hero-header.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroHeaderComponent {
   title = input.required<string>();

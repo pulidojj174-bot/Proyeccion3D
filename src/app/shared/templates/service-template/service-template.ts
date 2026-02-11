@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CTASection } from "../../molecules/cta-section/cta-section";
 import { signal } from '@angular/core';
 import { HeroHeaderComponent } from "../../molecules/hero-header/hero-header";
@@ -11,7 +11,8 @@ import { ProcessSection } from "../../organism/process-section/process-section";
   selector: 'app-service-template',
   imports: [CTASection, HeroHeaderComponent, ServicesSectionItem, ProcessSection],
   templateUrl: './service-template.html',
-  styleUrl: './service-template.scss'
+  styleUrl: './service-template.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServiceTemplate {
 

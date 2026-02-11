@@ -1,4 +1,4 @@
-import { Component, Input, signal, computed, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, signal, computed, OnInit, OnDestroy, Inject, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ServiceCard } from '../../molecules/service-card/service-card';
 import { Service } from '../../../core/models/interfaces/Service.interface';
@@ -7,24 +7,23 @@ import { Service } from '../../../core/models/interfaces/Service.interface';
   selector: 'app-service-carousel',
   imports: [ServiceCard],
   templateUrl: './service-carousel.html',
-  styleUrl: './service-carousel.scss'
+  styleUrl: './service-carousel.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServiceCarousel implements OnInit, OnDestroy {
-  @Input() title: string = 'Nuestros Servicios';
-  @Input() subtitle: string = 'Descubre nuestras soluciones completas de impresión 3D y diseño digital.';
-  @Input() autoPlay: boolean = true;
-  @Input() autoPlayInterval: number = 5000; // 5 segundos
-  @Input() pauseOnHover: boolean = true;
+  title = input('Nuestros Servicios');
+  subtitle = input('Descubre nuestras soluciones completas de impresión 3D y diseño digital.');
+  autoPlay = input(true);
+  autoPlayInterval = input(5000);
+  pauseOnHover = input(true);
 
   public currentIndex = signal(0);
   private isAnimating = signal(false);
   private autoPlayTimer: number | null = null;
   private isPaused = signal(false);
 
-  // Inyectar PLATFORM_ID para verificar si estamos en el navegador
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-
-  @Input() services = signal<Service[]>([
+  private platformId = inject(PLATFORM_ID);
+  services = input<Service[]>([
     {
       id: 1,
       title: 'Escaneo 3D e Ingeniería Inversa',
@@ -119,7 +118,7 @@ export class ServiceCarousel implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      if (this.autoPlay && this.totalServices() > 1) {
+      if (this.autoPlay() && this.totalServices() > 1) {
         this.startAutoPlay();
       }
     }
@@ -135,7 +134,7 @@ export class ServiceCarousel implements OnInit, OnDestroy {
 
   private startAutoPlay() {
     if (!isPlatformBrowser(this.platformId)) return;
-    if (!this.autoPlay || this.totalServices() <= 1) return;
+    if (!this.autoPlay() || this.totalServices() <= 1) return;
 
     this.stopAutoPlay();
 
@@ -143,7 +142,7 @@ export class ServiceCarousel implements OnInit, OnDestroy {
       if (!this.isPaused() && !this.isAnimating()) {
         this.goToNext();
       }
-    }, this.autoPlayInterval);
+    }, this.autoPlayInterval());
   }
 
   private stopAutoPlay() {
@@ -154,7 +153,7 @@ export class ServiceCarousel implements OnInit, OnDestroy {
   }
 
   private resetAutoPlay() {
-    if (this.autoPlay && isPlatformBrowser(this.platformId)) {
+    if (this.autoPlay() && isPlatformBrowser(this.platformId)) {
       this.stopAutoPlay();
       setTimeout(() => {
         this.startAutoPlay();
@@ -167,13 +166,13 @@ export class ServiceCarousel implements OnInit, OnDestroy {
   // ===============================
 
   onMouseEnter() {
-    if (this.pauseOnHover) {
+    if (this.pauseOnHover()) {
       this.isPaused.set(true);
     }
   }
 
   onMouseLeave() {
-    if (this.pauseOnHover) {
+    if (this.pauseOnHover()) {
       this.isPaused.set(false);
     }
   }
@@ -246,7 +245,7 @@ export class ServiceCarousel implements OnInit, OnDestroy {
   }
 
   getTitleWords() {
-    return this.title.split(' ').map((word, index) => ({
+    return this.title().split(' ').map((word, index) => ({
       word,
       delay: index * 0.05
     }));

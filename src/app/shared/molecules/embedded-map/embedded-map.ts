@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, signal } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 export interface EmbeddedMapData {
@@ -12,7 +12,8 @@ export interface EmbeddedMapData {
   selector: 'app-embedded-map',
   imports: [],
   templateUrl: './embedded-map.html',
-  styleUrl: './embedded-map.scss'
+  styleUrl: './embedded-map.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmbeddedMap {
   mapData = input.required<EmbeddedMapData>();

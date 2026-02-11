@@ -1,6 +1,6 @@
 <div class="contact-form">
   <div class="contact-form__container">
-    <h3 class="contact-form__title">{{ title }}</h3>
+    <h3 class="contact-form__title">{{ title() }}</h3>
 
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form__form">
       <!-- Nombres -->
@@ -84,7 +84,7 @@
 
           @if (isDropdownOpen) {
             <div class="contact-form__dropdown">
-              @for (option of serviceOptions; track option.value) {
+              @for (option of serviceOptions(); track option.value) {
                 <button
                   type="button"
                   (click)="selectService(option)"

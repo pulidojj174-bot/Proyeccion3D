@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { ServiceFeatureItem } from '../service-feature-item/service-feature-item';
 import { ServiceData } from '../../../core/models/interfaces/serviceData.interface';
 
@@ -6,7 +6,8 @@ import { ServiceData } from '../../../core/models/interfaces/serviceData.interfa
   selector: 'app-service-card-item',
   imports: [ServiceFeatureItem],
   templateUrl: './service-card-item.html',
-  styleUrl: './service-card-item.scss'
+  styleUrl: './service-card-item.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServiceCardItem {
   service = input.required<ServiceData>();

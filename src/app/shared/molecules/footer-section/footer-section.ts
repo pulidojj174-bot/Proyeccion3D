@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FooterLink } from '../../../core/models/interfaces/FooterLink.interface';
 
@@ -6,9 +6,10 @@ import { FooterLink } from '../../../core/models/interfaces/FooterLink.interface
   selector: 'app-footer-section',
   imports: [RouterLink],
   templateUrl: './footer-section.html',
-  styleUrl: './footer-section.scss'
+  styleUrl: './footer-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterSection {
-  @Input() title: string = '';
-  @Input() links: FooterLink[] = [];
+  title = input('');
+  links = input<FooterLink[]>([]);
 }

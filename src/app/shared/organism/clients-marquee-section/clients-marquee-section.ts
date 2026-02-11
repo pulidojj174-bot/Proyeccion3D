@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { NgxMarqueeComponent } from '@omnedia/ngx-marquee';
 import { ClientCard } from '../../molecules/client-card/client-card';
 
@@ -6,7 +6,8 @@ import { ClientCard } from '../../molecules/client-card/client-card';
   selector: 'app-clients-marquee-section',
   imports: [NgxMarqueeComponent, ClientCard],
   templateUrl: './clients-marquee-section.html',
-  styleUrl: './clients-marquee-section.scss'
+  styleUrl: './clients-marquee-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClientsMarqueeSection {
   // Solo necesitas estos inputs, ya no necesitas 'data'

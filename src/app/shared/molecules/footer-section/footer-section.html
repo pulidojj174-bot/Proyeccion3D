@@ -1,7 +1,7 @@
 <div class="footer-section">
-  <h4 class="section-title">{{ title }}</h4>
+  <h4 class="section-title">{{ title() }}</h4>
   <ul class="section-links">
-    @for (link of links; track link.path) {
+    @for (link of links(); track link.path) {
       <li class="link-item">
         <a [routerLink]="[link.path]" class="footer-link">
           {{ link.label }}

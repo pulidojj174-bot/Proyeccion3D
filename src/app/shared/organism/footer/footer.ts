@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { FooterBrand } from '../../molecules/footer-brand/footer-brand';
 import { FooterSection } from '../../molecules/footer-section/footer-section';
 import { FooterContact } from '../../molecules/footer-contact/footer-contact';
@@ -11,6 +11,7 @@ import { FooterSectionData } from '../../../core/models/interfaces/FooterSection
   imports: [FooterBrand, FooterSection, FooterContact, FooterCopyright],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Footer {
   quickLinks = signal<FooterSectionData>({

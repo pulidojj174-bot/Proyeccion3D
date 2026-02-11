@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { StatCard } from '../../molecules/stat-card/stat-card';
 import { StatData } from '../../../core/models/interfaces/DatosEstadistica.interface';
 
@@ -6,7 +6,8 @@ import { StatData } from '../../../core/models/interfaces/DatosEstadistica.inter
   selector: 'app-stats-section',
   imports: [StatCard],
   templateUrl: './stats-section.html',
-  styleUrl: './stats-section.scss'
+  styleUrl: './stats-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StatsSection {
   stats = input<StatData[]>([]);

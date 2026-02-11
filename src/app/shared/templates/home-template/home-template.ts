@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestimonialCarousel } from '../../organism/testimonial-carousel/testimonial-carousel';
 import { ServiceCarousel } from "../../organism/service-carousel/service-carousel";
 import { HeroHeaderComponent } from "../../molecules/hero-header/hero-header";
@@ -23,6 +23,7 @@ import { ClientsSectionData } from '../../../core/models/interfaces/ClientData.i
   ],
   templateUrl: './home-template.html',
   styleUrl: './home-template.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeTemplate {
   // Hero con imagen (Home)

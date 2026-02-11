@@ -1,8 +1,8 @@
-<section class="testimonial-carousel" 
-         (mouseenter)="onMouseEnter()" 
+<section class="testimonial-carousel"
+         (mouseenter)="onMouseEnter()"
          (mouseleave)="onMouseLeave()">
   <div class="testimonial-carousel__container">
-    
+
     <!-- Header con animación staggered -->
     <div class="testimonial-carousel__header">
       <div class="testimonial-carousel__title">
@@ -14,19 +14,19 @@
           }
         </div>
       </div>
-      
+
       <div class="testimonial-carousel__subtitle">
-        <p class="testimonial-carousel__subtitle-text">{{ subtitle }}</p>
+        <p class="testimonial-carousel__subtitle-text">{{ subtitle() }}</p>
       </div>
     </div>
 
     <!-- Carousel Container -->
     <div class="testimonial-carousel__carousel-container">
       <div class="testimonial-carousel__carousel">
-        
+
         <!-- Testimonial Content -->
         <div class="testimonial-carousel__content">
-          <app-testimonial-card 
+          <app-testimonial-card
             [testimonial]="currentTestimonial()"
             [isActive]="true">
           </app-testimonial-card>
@@ -34,8 +34,8 @@
 
         <!-- Previous Button -->
         @if (canGoPrev()) {
-          <button 
-            type="button" 
+          <button
+            type="button"
             class="testimonial-carousel__nav-button testimonial-carousel__nav-button--prev"
             (click)="goToPrev()"
             [attr.aria-label]="'Previous testimonial'"
@@ -47,8 +47,8 @@
 
         <!-- Next Button -->
         @if (canGoNext()) {
-          <button 
-            type="button" 
+          <button
+            type="button"
             class="testimonial-carousel__nav-button testimonial-carousel__nav-button--next"
             (click)="goToNext()"
             [attr.aria-label]="'Next testimonial'"
@@ -62,7 +62,7 @@
         @if (totalTestimonials() > 1) {
           <div class="testimonial-carousel__indicators">
             @for (index of getIndicators(); track index) {
-              <button 
+              <button
                 type="button"
                 class="testimonial-carousel__indicator"
                 [class.testimonial-carousel__indicator--active]="index === currentIndex()"
@@ -76,7 +76,7 @@
         }
 
         <!-- Indicador de reproducción (opcional) -->
-        @if (autoPlay) {
+        @if (autoPlay()) {
           <div class="testimonial-carousel__play-indicator" [class.testimonial-carousel__play-indicator--playing]="isPlaying()">
             <div class="testimonial-carousel__play-progress"></div>
           </div>

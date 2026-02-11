@@ -1,5 +1,5 @@
 
-import { Component, input, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, Input } from '@angular/core';
 
 export interface BusinessHour {
   day: string;
@@ -10,7 +10,8 @@ export interface BusinessHour {
   selector: 'app-business-hours',
   imports: [],
   templateUrl: './business-hours.html',
-  styleUrl: './business-hours.scss'
+  styleUrl: './business-hours.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BusinessHours {
   title = input<string>('Nuestro Horario');

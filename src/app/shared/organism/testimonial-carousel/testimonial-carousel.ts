@@ -1,4 +1,4 @@
-import { Component, Input, signal, computed, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, signal, computed, OnInit, OnDestroy, Inject, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TestimonialCard } from '../../molecules/testimonial-card/testimonial-card';
 import { Testimonial } from '../../../core/models/interfaces/testimonial.interface';
@@ -6,27 +6,25 @@ import { Testimonial } from '../../../core/models/interfaces/testimonial.interfa
 
 @Component({
   selector: 'app-testimonial-carousel',
-  standalone: true,
   imports: [TestimonialCard],
   templateUrl: './testimonial-carousel.html',
-  styleUrl: './testimonial-carousel.scss'
+  styleUrl: './testimonial-carousel.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TestimonialCarousel implements OnInit, OnDestroy {
-  @Input() title: string = 'Lo Que Dicen Nuestros Clientes';
-  @Input() subtitle: string = 'Hemos ayudado a empresas de diversas industrias a dar vida a sus ideas.';
-  @Input() autoPlay: boolean = true; // Activado por defecto
-  @Input() autoPlayInterval: number = 5000; // 5 segundos
-  @Input() pauseOnHover: boolean = true; // Pausa al hacer hover
+  title = input('Lo Que Dicen Nuestros Clientes');
+  subtitle = input('Hemos ayudado a empresas de diversas industrias a dar vida a sus ideas.');
+  autoPlay = input(true);
+  autoPlayInterval = input(5000);
+  pauseOnHover = input(true);
 
   public currentIndex = signal(0);
   private isAnimating = signal(false);
   private autoPlayTimer: number | null = null;
   private isPaused = signal(false);
 
-  // Inyectar PLATFORM_ID para verificar si estamos en el navegador
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-
-  @Input() testimonials = signal<Testimonial[]>([
+  private platformId = inject(PLATFORM_ID);
+  testimonials = input<Testimonial[]>([
     {
       id: 1,
       name: 'Sarah Johnson',
@@ -51,7 +49,10 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   ]);
 
   // Computed properties
-  currentTestimonial = computed(() => this.testimonials()[this.currentIndex()]);
+  currentTestimonial = computed(() => {
+    const testimonials = this.testimonials();
+    return testimonials[this.currentIndex()] || testimonials[0];
+  });
   totalTestimonials = computed(() => this.testimonials().length);
 
   // Para navegación infinita, los botones siempre están habilitados (si hay más de 1 testimonio)
@@ -59,9 +60,8 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   canGoNext = computed(() => this.totalTestimonials() > 1);
 
   ngOnInit() {
-    // Solo iniciar autoplay si window existe
-    if (typeof window !== 'undefined') {
-      if (this.autoPlay && this.totalTestimonials() > 1) {
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.autoPlay() && this.totalTestimonials() > 1) {
         this.startAutoPlay();
       }
     }
@@ -79,7 +79,7 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   private startAutoPlay() {
     // Verificar que window existe (estamos en el navegador)
     if (typeof window === 'undefined') return;
-    if (!this.autoPlay || this.totalTestimonials() <= 1) return;
+    if (!this.autoPlay() || this.totalTestimonials() <= 1) return;
 
     this.stopAutoPlay(); // Asegurar que no haya múltiples timers
 
@@ -87,7 +87,7 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
       if (!this.isPaused() && !this.isAnimating()) {
         this.goToNext();
       }
-    }, this.autoPlayInterval);
+    }, this.autoPlayInterval());
   }
 
   private stopAutoPlay() {
@@ -99,7 +99,7 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
 
   private resetAutoPlay() {
     if (typeof window === 'undefined') return;
-    if (this.autoPlay) {
+    if (this.autoPlay()) {
       this.stopAutoPlay();
       // Usar setTimeout solo si window existe
       setTimeout(() => {
@@ -113,13 +113,13 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   // ===============================
 
   onMouseEnter() {
-    if (this.pauseOnHover) {
+    if (this.pauseOnHover()) {
       this.isPaused.set(true);
     }
   }
 
   onMouseLeave() {
-    if (this.pauseOnHover) {
+    if (this.pauseOnHover()) {
       this.isPaused.set(false);
     }
   }
@@ -198,7 +198,7 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
 
   // Método para obtener palabras del título con animación staggered
   getTitleWords() {
-    return this.title.split(' ').map((word, index) => ({
+    return this.title().split(' ').map((word, index) => ({
       word,
       delay: index * 0.05 // 50ms de delay entre palabras
     }));

@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, signal } from '@angular/core';
 import { ServiceData } from '../../../core/models/interfaces/serviceData.interface';
 import { ServiceCardItem } from '../../molecules/service-card-item/service-card-item';
 
@@ -7,7 +7,8 @@ import { ServiceCardItem } from '../../molecules/service-card-item/service-card-
   selector: 'app-services-section-item',
   imports: [ServiceCardItem],
   templateUrl: './services-section-item.html',
-  styleUrl: './services-section-item.scss'
+  styleUrl: './services-section-item.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServicesSectionItem {
   services = input<ServiceData[]>([]);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CTASection } from "../../molecules/cta-section/cta-section";
 import { signal } from '@angular/core';
 import { HeroHeaderComponent } from "../../molecules/hero-header/hero-header";
@@ -9,7 +9,8 @@ import { ProjectsSection } from "../../organism/projects-section/projects-sectio
   selector: 'app-projects-template',
   imports: [CTASection, HeroHeaderComponent, ProjectsSection],
   templateUrl: './projects-template.html',
-  styleUrl: './projects-template.scss'
+  styleUrl: './projects-template.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectsTemplate {
 
