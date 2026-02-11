@@ -1,0 +1,45 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.social-links {
+  display: flex;
+  gap: vars.$spacing-sm;
+  margin-top: vars.$spacing-md;
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: vars.$borderRadius;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: vars.color('gray8');
+    text-decoration: none;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: vars.color('primary');
+      color: vars.color('white1');
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    span {
+      font-size: 1.2rem;
+      &:hover {
+        font-size: 2.5rem;
+      }
+    }
+
+    @include mixins.mobile() {
+      width: 36px;
+      height: 36px;
+      
+      span {
+        font-size: 1rem;
+      }
+    }
+  }
+}

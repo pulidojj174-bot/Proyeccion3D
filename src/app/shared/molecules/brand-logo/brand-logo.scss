@@ -1,0 +1,100 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.navbar-brand {
+  .brand-link {
+    text-decoration: none;
+    color: vars.color('black2');
+    display: flex;
+    align-items: center;
+    gap: vars.$spacing-sm;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+
+    // Logo styles
+    .brand-logo {
+      width: auto;
+      height: auto;
+      max-width: 50px;
+      max-height: 50px;
+      object-fit: contain;
+      transition: transform vars.$transitionDuration vars.$transitionEasing;
+
+      @include mixins.tablet-up() {
+        max-width: 60px;
+        max-height: 60px;
+      }
+    }
+
+    // Text styles (si se muestra junto al logo)
+    .brand-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: vars.color('blue600');
+      line-height: 1.2;
+
+      @include mixins.tablet-up() {
+        font-size: 1.5rem;
+      }
+    }
+
+    // Hover effects - Solo en dispositivos con hover
+    @media (hover: hover) {
+      &:hover {
+        .brand-logo {
+          transform: scale(1.05);
+        }
+
+        .brand-text {
+          color: vars.color('primary');
+        }
+      }
+    }
+
+    // Focus state para accesibilidad
+    &:focus {
+      @include mixins.focused();
+    }
+  }
+}
+
+// Responsive adjustments
+@include mixins.mobile-only() {
+  .navbar-brand {
+    .brand-link {
+      .brand-logo {
+        max-width: 40px;
+        max-height: 40px;
+      }
+
+      .brand-text {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .navbar-brand {
+    .brand-link {
+      .brand-logo {
+        print-color-adjust: exact;
+      }
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .navbar-brand {
+    .brand-link {
+      .brand-logo {
+        transition: none;
+      }
+
+      &:hover .brand-logo {
+        transform: none;
+      }
+    }
+  }
+}

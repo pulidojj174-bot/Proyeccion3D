@@ -1,0 +1,28 @@
+<section class="contact-section">
+  <article class="contact-section__container">
+    <section class="contact-section__grid">
+      <!-- Información de contacto -->
+      <article class="contact-section__info">
+        <app-contact-info
+          [title]="contactTitle()"
+          [subtitle]="contactSubtitle()"
+          [contactItems]="contactItems()">
+        </app-contact-info>
+
+        @if (showBusinessHours()) {
+          <app-business-hours
+            [hours]="businessHours()">
+          </app-business-hours>
+        }
+      </article>
+
+      <!-- Formulario -->
+      <article class="contact-section__form">
+        <app-contact-form
+          [title]="formTitle()"
+          [serviceOptions]="serviceOptions()">
+        </app-contact-form>
+      </article>
+    </section>
+  </article>
+</section>

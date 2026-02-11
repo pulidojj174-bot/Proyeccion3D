@@ -1,0 +1,35 @@
+<section class="about-history-section">
+  <div class="about-history-section__container">
+    <div class="about-history-section__content">
+      <!-- Image -->
+      <div class="about-history-section__image-container">
+        <div class="about-history-section__image-wrapper">
+          <img
+            class="about-history-section__image"
+            [src]="image()"
+            [alt]="imageAlt()"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="about-history-section__text">
+        <div class="about-history-section__title">
+          <div class="about-history-section__title-animated">
+            <span class="about-history-section__title-word">Nuestra</span>
+            <span class="about-history-section__title-word">Historia</span>
+          </div>
+        </div>
+
+        <div class="about-history-section__paragraphs">
+          @for (paragraph of paragraphs(); track $index) {
+            <div class="about-history-section__paragraph-wrapper" [style.animation-delay]="(0.2 + ($index * 0.1)) + 's'">
+              <p class="about-history-section__paragraph">{{ paragraph }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

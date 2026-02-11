@@ -1,0 +1,53 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.footer-section {
+  .section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: vars.color('white1');
+    margin-bottom: vars.$spacing-md;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .section-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .link-item {
+      margin-bottom: vars.$spacing-sm;
+
+      .footer-link {
+        color: vars.color('gray8');
+        text-decoration: none;
+        font-size: vars.$font-size-sm;
+        transition: all vars.$transitionDuration vars.$transitionEasing;
+        display: inline-block;
+        position: relative;
+
+        &:hover {
+          color: vars.color('primary');
+          transform: translateX(4px);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: -12px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 0;
+          height: 1px;
+          background-color: vars.color('primary');
+          transition: width vars.$transitionDuration vars.$transitionEasing;
+        }
+
+        &:hover::before {
+          width: 8px;
+        }
+      }
+    }
+  }
+}

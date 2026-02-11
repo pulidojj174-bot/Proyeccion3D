@@ -1,0 +1,11 @@
+<section class="quote-section">
+  <div class="quote-section__background" [style.background-image]="'url(' + backgroundImage() + ')'"></div>
+  <div class="quote-section__overlay"></div>
+
+  <div class="quote-section__container">
+    <div class="quote-section__content">
+      <blockquote class="quote-section__quote">{{ quote() }}</blockquote>
+      <p class="quote-section__author">— {{ author() }}</p>
+    </div>
+  </div>
+</section>

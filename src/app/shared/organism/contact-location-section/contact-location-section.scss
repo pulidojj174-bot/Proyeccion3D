@@ -1,0 +1,116 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.contact-location-section {
+  // Mobile First - Base styles
+  background: vars.color(white1);
+  padding: 0;
+  position: relative;
+
+  // BEM Elements
+  &__container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__content {
+    display: block;
+    width: 100%;
+  }
+
+  &__map-container {
+    width: 100vw;
+    height: 60vh;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+
+    @include mixins.mobile-only() {
+      height: 50vh;
+      min-height: 350px;
+    }
+
+    @include mixins.tablet-up() {
+      height: 65vh;
+      min-height: 500px;
+    }
+
+    @include mixins.desktop-up() {
+      height: 70vh;
+      min-height: 600px;
+      max-height: 800px;
+    }
+  }
+
+  // Loading state
+  &--loading {
+    .contact-location-section__map-container {
+      background: vars.color(bg-gray1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::after {
+        content: 'Cargando mapa...';
+        color: vars.color(gray6);
+        font-size: vars.$font-size-text;
+      }
+    }
+  }
+
+  // Error state
+  &--error {
+    .contact-location-section__map-container {
+      background: vars.color(bg-gray1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed vars.color(gray0);
+      flex-direction: column;
+      gap: vars.$spacing-md;
+
+      &::before {
+        content: '⚠️';
+        font-size: 2rem;
+      }
+
+      &::after {
+        content: 'Error al cargar el mapa';
+        color: vars.color(gray6);
+        font-size: vars.$font-size-sm;
+      }
+    }
+  }
+}
+
+// Keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+// Print styles
+@media print {
+  .contact-location-section {
+    &__map-container {
+      display: none;
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .contact-location-section {
+    &__map-container {
+      animation: none;
+    }
+  }
+}

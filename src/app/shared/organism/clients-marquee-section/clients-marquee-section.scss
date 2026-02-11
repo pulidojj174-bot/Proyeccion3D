@@ -1,0 +1,223 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.clients-marquee-section {
+  // Mobile First - Base styles
+  background: vars.color(white1);
+  padding: vars.$spacing-xxl 0;
+  position: relative;
+  overflow: hidden;
+
+  @include mixins.tablet-up() {
+    padding: 4rem 0;
+  }
+
+  @include mixins.desktop-up() {
+    padding: 5rem 0;
+  }
+
+  // BEM Elements
+  &__container {
+    max-width: vars.$container-max-width;
+    margin: 0 auto;
+    padding: vars.$padding-box;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: vars.$spacing-xxl;
+
+    @include mixins.tablet-up() {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__title {
+    font-size: vars.$font-size-title-mobile;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0 0 vars.$spacing-sm 0;
+    line-height: 1.2;
+
+    @include mixins.tablet-up() {
+      font-size: 2.5rem;
+    }
+
+    @include mixins.desktop-up() {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: vars.$font-size-text-mobile;
+    color: vars.color(gray6);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  &__marquee {
+    position: relative;
+    overflow: hidden;
+
+    // Mobile First - Ancho base para móviles
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+
+    // Small Mobile (480px)
+    @media (min-width: 480px) {
+      max-width: 450px;
+    }
+
+    // Tablet Portrait (768px)
+    @include mixins.tablet-up() {
+      max-width: 700px;
+    }
+
+    // Tablet Landscape (1024px)
+    @media (min-width: 1024px) {
+      max-width: 900px;
+    }
+
+    // Desktop (1200px)
+    @include mixins.desktop-up() {
+      max-width: 1100px;
+    }
+
+    // Large Desktop (1440px)
+    @media (min-width: 1440px) {
+      max-width: 1300px;
+    }
+
+    // Extra Large Desktop (1920px)
+    @media (min-width: 1920px) {
+      max-width: 1600px;
+    }
+
+    // Gradientes para crear efecto fade en los bordes
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+
+      // Mobile - Gradientes más pequeños
+      width: 30px;
+
+      // Small Mobile
+      @media (min-width: 480px) {
+        width: 40px;
+      }
+
+      // Tablet
+      @include mixins.tablet-up() {
+        width: 60px;
+      }
+
+      // Desktop
+      @include mixins.desktop-up() {
+        width: 80px;
+      }
+
+      // Large Desktop
+      @media (min-width: 1440px) {
+        width: 100px;
+      }
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, vars.color(white1), transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, vars.color(white1), transparent);
+    }
+  }
+
+  &__marquee-component {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// Responsive adjustments específicos
+@include mixins.mobile-only() {
+  .clients-marquee-section {
+    padding: vars.$spacing-xl 0;
+
+    &__header {
+      margin-bottom: vars.$spacing-lg;
+    }
+
+    &__title {
+      font-size: vars.$font-size-title-mobile;
+    }
+
+    &__subtitle {
+      font-size: vars.$font-size-text-mobile;
+      padding: 0 vars.$spacing-sm;
+    }
+
+    &__marquee {
+      max-width: 280px;
+
+      &::before,
+      &::after {
+        width: 20px;
+      }
+    }
+  }
+}
+
+// Tablet específico
+@media (min-width: 768px) and (max-width: 1023px) {
+  .clients-marquee-section {
+    &__marquee {
+      max-width: 650px;
+    }
+  }
+}
+
+// Desktop específico
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .clients-marquee-section {
+    &__marquee {
+      max-width: 850px;
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .clients-marquee-section {
+    &__marquee {
+      max-width: 100%;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee-section {
+    &__marquee-component {
+      animation-duration: 0s !important;
+    }
+  }
+}

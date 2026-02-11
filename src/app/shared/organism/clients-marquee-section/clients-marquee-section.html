@@ -1,0 +1,170 @@
+<section class="clients-marquee-section">
+  <div class="clients-marquee-section__container">
+
+    @if (showTitle()) {
+      <div class="clients-marquee-section__header">
+        <h2 class="clients-marquee-section__title">{{ title() }}</h2>
+        @if (subtitle()) {
+          <p class="clients-marquee-section__subtitle">{{ subtitle() }}</p>
+        }
+      </div>
+    }
+
+    <div class="clients-marquee-section__marquee">
+      <om-marquee
+        [animationDuration]="speed() + 's'"
+        [marqueeGap]="gap() + 'px'"
+        [reverse]="reverse()"
+        [pauseOnHover]="pauseOnHover()"
+        class="clients-marquee-section__marquee-component"
+      >
+        <!-- ✅ LOGOS MANUALES - Sin loops ni ng-template -->
+        <ng-template>
+          <!-- Ecoplantas -->
+          <app-client-card
+            [client]="{
+              id: 'ecoplantas',
+              name: 'Ecoplantas',
+              logo: 'assets/images/logos/ecoplantas.png',
+              alt: 'Logo Ecoplantas'
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
+
+        <ng-template>
+          <!-- Industrias Tiagho -->
+          <app-client-card
+            [client]="{
+              id: 'industrias-tiagho',
+              name: 'Industrias Tiagho',
+            logo: 'assets/images/logos/industriasTiagho.png',
+            alt: 'Logo Industrias Tiagho'
+          }"
+          [showName]="showClientNames()"
+        />
+        </ng-template>
+
+        <ng-template>
+          <!-- Interpesaje 1 -->
+          <app-client-card
+            [client]="{
+              id: 'interpesaje1',
+            name: 'Interpesaje División Industrial',
+            logo: 'assets/images/logos/interpesaje1.png',
+            alt: 'Logo Interpesaje División Industrial'
+          }"
+          [showName]="showClientNames()"
+        />
+        </ng-template>
+
+        <ng-template>
+          <!-- Payán & CIA -->
+          <app-client-card
+            [client]="{
+              id: 'payan-cia',
+              name: 'Payán & CIA',
+              logo: 'assets/images/logos/Payan_CIA.png',
+              alt: 'Logo Payán & CIA'
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
+
+        <ng-template>
+          <!-- PCI -->
+          <app-client-card
+            [client]="{
+              id: 'pci',
+              name: 'PCI',
+              logo: 'assets/images/logos/PCI.png',
+              alt: 'Logo PCI'
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
+               <ng-template>
+          <!-- Buen Café -->
+          <app-client-card
+            [client]="{
+              id: 'buenCafe',
+              name: 'BUEN CAFÉ',
+              logo: 'assets/images/logos/buen-cafe-cl.png',
+              alt: 'Logo Buen Café'
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
+               <ng-template>
+          <!-- Meals -->
+          <app-client-card
+            [client]="{
+              id: 'meals',
+              name: 'MEALS',
+              logo: 'assets/images/logos/MealsDeColombia.png',
+              alt: 'Logo MEALS'
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
+               <ng-template>
+          <!-- ARME -->
+          <app-client-card
+            [client]="{
+              id: 'arme',
+              name: 'ARME',
+              logo: 'assets/images/logos/LOGO-ARME-1024x352.png',
+              alt: 'Logo ARME'
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
+
+        <!-- Pimec -->
+        <!-- <app-client-card
+          [client]="{
+            id: 'pimec',
+            name: 'Pimec',
+            logo: 'assets/images/logos/pimec.png',
+            alt: 'Logo Pimec'
+          }"
+          [showName]="showClientNames()"
+        /> -->
+
+        <!-- Super -->
+        <!-- <app-client-card
+          [client]="{
+            id: 'super',
+            name: 'Super',
+            logo: 'assets/images/logos/Super.png',
+            alt: 'Logo Super'
+          }"
+          [showName]="showClientNames()"
+        /> -->
+
+        <!-- Ternium -->
+        <!-- <app-client-card
+          [client]="{
+            id: 'ternium',
+            name: 'Ternium',
+            logo: 'assets/images/logos/Ternium.png',
+            alt: 'Logo Ternium'
+          }"
+          [showName]="showClientNames()"
+        /> -->
+
+        <!-- WTT -->
+        <!-- <app-client-card
+          [client]="{
+            id: 'wtt',
+            name: 'WTT',
+            logo: 'assets/images/logos/Wtt.png',
+            alt: 'Logo WTT'
+          }"
+          [showName]="showClientNames()"
+        /> -->
+
+      </om-marquee>
+    </div>
+  </div>
+</section>

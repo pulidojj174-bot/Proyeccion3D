@@ -1,0 +1,38 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.business-hours {
+  margin-top: 3rem;
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: vars.color('black2');
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  &__row {
+    border-bottom: 1px solid #e5e7eb;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__day {
+    padding: 0.75rem 0;
+    font-weight: 500;
+    color: vars.color('black2');
+  }
+
+  &__time {
+    padding: 0.75rem 0;
+    color: vars.color('gray6');
+    text-align: right;
+  }
+}

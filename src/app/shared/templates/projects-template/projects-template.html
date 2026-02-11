@@ -1,0 +1,7 @@
+<app-hero-header [title]="portfolioHeroData().title" [description]="portfolioHeroData().description"
+  [config]="portfolioHeroData().config" />
+<app-projects-section [projects]="projectsData()" [sectionTitle]="'Nuestros Proyectos'" />
+<app-cta-section [title]="ctaData().title" [description]="ctaData().description"
+  [backgroundImage]="ctaData().backgroundImage" [button]="ctaData().button"
+  [highlightedWord]="ctaData().highlightedWord">
+</app-cta-section>

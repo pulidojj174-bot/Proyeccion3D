@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <section class="navbar-container">
+    <!-- Logo personalizado -->
+    <app-brand-logo logo="assets/images/logos/P3DOriginal.png" logoAlt="P3D Original Logo" [logoWidth]="60"
+      [logoHeight]="60" [showText]="true" text="Proyección3D" />
+
+    <!-- Navigation Links -->
+    <app-navigation-menu [links]="navigationLinks" />
+
+    <!-- Mobile Menu Toggle -->
+    <app-mobile-toggle (toggle)="toggleMobileMenu()" [isOpen]="isMobileMenuOpen()" />
+  </section>
+
+  <!-- Mobile Menu -->
+  <app-mobile-menu [links]="navigationLinks" [isOpen]="isMobileMenuOpen()" (linkClick)="closeMobileMenu()" />
+
+</nav>

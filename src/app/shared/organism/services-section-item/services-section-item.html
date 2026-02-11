@@ -1,0 +1,21 @@
+<section class="services-section">
+  <div class="services-section__container">
+
+    @if (showTitle()) {
+      <div class="services-section__header">
+        <h2 class="services-section__title">{{ sectionTitle() }}</h2>
+      </div>
+    }
+
+    <div class="services-section__content">
+      @for (service of services(); track service.id; let i = $index) {
+        <div class="services-section__service">
+          <app-service-card-item
+            [service]="service"
+            [animationDelay]="i * 0.2"
+          />
+        </div>
+      }
+    </div>
+  </div>
+</section>

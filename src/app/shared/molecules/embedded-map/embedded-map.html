@@ -1,0 +1,43 @@
+<div class="embedded-map" [class.embedded-map--hide-info-card]="!isInfoCardVisible">
+  <div class="embedded-map__container">
+    <iframe class="embedded-map__frame" [src]="sanitizedSrc" [title]="mapData().title" [style.height]="height()"
+      allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <!-- Nueva info card overlay -->
+    @if (isInfoCardVisible) {
+      <div class="embedded-map__info-card">
+        <button
+          class="embedded-map__info-card-close"
+          (click)="closeInfoCard()"
+          [attr.aria-label]="'Cerrar información'"
+          type="button"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+
+        <h3 class="embedded-map__info-card-title">Visita Nuestras Instalaciones</h3>
+        <p class="embedded-map__info-card-description">
+          Te invitamos a conocer nuestro taller de impresión 3D de última generación.
+          Por favor agenda una cita con anticipación.
+        </p>
+
+        <div class="embedded-map__info-card-address">
+          <i class="bi bi-geo-alt embedded-map__info-card-icon"></i>
+          <p class="embedded-map__info-card-text">{{ mapData().address }}</p>
+        </div>
+      </div>
+    }
+
+    <!-- Overlay original (mantenido para compatibilidad) -->
+    <div class="embedded-map__overlay" [class.embedded-map__overlay--visible]="showOverlay()">
+      <div class="embedded-map__info">
+        <h4 class="embedded-map__info-title">{{ mapData().title }}</h4>
+        <p class="embedded-map__info-address">{{ mapData().address }}</p>
+        @if (mapData().description) {
+        <p class="embedded-map__info-description">{{ mapData().description }}</p>
+        }
+      </div>
+    </div>
+  </div>
+</div>

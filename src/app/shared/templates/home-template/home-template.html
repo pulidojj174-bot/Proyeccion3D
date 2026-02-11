@@ -1,0 +1,23 @@
+<!-- Home -->
+<app-hero-header [title]="homeHeroData().title" [highlightedWords]="homeHeroData().highlightedWords"
+  [subtitle]="homeHeroData().subtitle" [description]="homeHeroData().description" [heroImage]="homeHeroData().heroImage"
+  [buttons]="homeHeroData().buttons"  [config]="homeHeroData().config">
+</app-hero-header>
+<app-section-hero [title]="aboutHeroData().title" [description]="aboutHeroData().description"
+  [image]="aboutHeroData().image" [imageAlt]="aboutHeroData().imageAlt" [button]="aboutHeroData().button">
+</app-section-hero>
+<app-services-section [services]="myServicesArray()" [ctaText]="'Explorar Servicios'" [ctaLink]="'/service'"
+  [sectionTitle]="'Nuestros Servicios'" [sectionSubtitle]="'Descripción personalizada'" />
+<!-- Personalizado -->
+<app-service-carousel title="Soluciones Integrales" subtitle="Desde diseño mecánico hasta manufactura aditiva: tecnología de precisión para la industria"
+  [autoPlay]="true" [autoPlayInterval]="5000" [pauseOnHover]="true">
+</app-service-carousel>
+<!-- Carrusel de Clientes que Confían en Nosotros -->
+<app-clients-marquee-section [title]="'Clientes que Confían en Nosotros'"
+  [subtitle]="'Empresas líderes que han elegido nuestros servicios.'" [showTitle]="true" [speed]="20" [gap]="24"
+  [pauseOnHover]="true" [reverse]="false" [showClientNames]="false" />
+<app-testimonial-carousel [autoPlay]="true" [autoPlayInterval]="3000" [pauseOnHover]="true" />
+<app-cta-section [title]="ctaData().title" [description]="ctaData().description"
+  [backgroundImage]="ctaData().backgroundImage" [button]="ctaData().button"
+  [highlightedWord]="ctaData().highlightedWord">
+</app-cta-section>

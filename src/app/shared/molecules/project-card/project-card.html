@@ -1,0 +1,38 @@
+<div class="project-card" [class.project-card--featured]="project().featured">
+  <div class="project-card__image-container">
+    <div class="project-card__image-wrapper">
+      <img 
+        class="project-card__image"
+        [src]="project().image"
+        [alt]="project().imageAlt"
+        loading="lazy"
+      />
+      
+      <!-- Overlay hover -->
+      <div class="project-card__overlay">
+        <div class="project-card__overlay-content">
+          <span class="project-card__overlay-text">Ver Detalles</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Category icon -->
+    <div class="project-card__category-icon">
+      <i class="bi bi-cuboid"></i>
+    </div>
+  </div>
+
+  <div class="project-card__content">
+    <span class="project-card__category">{{ getCategoryLabel(project().category) }}</span>
+    <h3 class="project-card__title">{{ project().title }}</h3>
+    <p class="project-card__description">{{ project().description }}</p>
+    
+    <!-- <a [href]="project().link" class="project-card__link">
+      <span class="project-card__link-background"></span>
+      <span class="project-card__link-content">
+        Ver Detalles
+        <i class="bi bi-arrow-right project-card__link-icon"></i>
+      </span>
+    </a> -->
+  </div>
+</div>

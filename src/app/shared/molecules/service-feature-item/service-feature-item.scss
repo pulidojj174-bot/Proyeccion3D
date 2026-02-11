@@ -1,0 +1,57 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.service-feature-item {
+  // Mobile First - Base styles
+  display: flex;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: slideInLeft 0.6s ease-out both;
+
+  // BEM Elements
+  &__icon {
+    margin-right: vars.$spacing-sm;
+    margin-top: vars.$spacing-xs;
+    flex-shrink: 0;
+  }
+
+  &__check {
+    width: 20px;
+    height: 20px;
+    color: vars.color(success);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &__text {
+    font-size: vars.$font-size-text;
+    color: vars.color(black2);
+    line-height: 1.5;
+
+    @include mixins.mobile-only() {
+      font-size: vars.$font-size-sm;
+    }
+  }
+}
+
+// Keyframes
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .service-feature-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

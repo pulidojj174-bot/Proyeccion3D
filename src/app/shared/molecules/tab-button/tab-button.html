@@ -1,0 +1,14 @@
+<button 
+  type="button"
+  class="tab-button"
+  [class.tab-button--active]="isActive()"
+  (click)="onTabClick()"
+  [attr.aria-selected]="isActive()"
+  [attr.aria-controls]="'tab-content-' + tab().id"
+  [attr.id]="'tab-' + tab().id"
+>
+  {{ tab().label }}
+  @if (tab().count && tab().count! > 0) {
+    <span class="tab-button__count">({{ tab().count }})</span>
+  }
+</button>

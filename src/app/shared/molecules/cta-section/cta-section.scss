@@ -1,0 +1,251 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.cta-section {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  @include mixins.mobile-only() {
+    min-height: 350px;
+    padding: vars.$spacing-xl 0;
+  }
+  
+  @include mixins.tablet-up() {
+    min-height: 450px;
+    padding: vars.$spacing-xxl 0;
+  }
+  
+  @include mixins.desktop-up() {
+    min-height: 500px;
+  }
+  
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    
+    // Efecto parallax sutil
+    @include mixins.desktop-up() {
+      background-attachment: fixed;
+    }
+  }
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    
+    // Gradiente para mejor legibilidad
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+  
+  &__container {
+    position: relative;
+    z-index: 3;
+    max-width: vars.$container-max-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 vars.$spacing-md;
+    
+    @include mixins.tablet-up() {
+      padding: 0 vars.$spacing-lg;
+    }
+  }
+  
+  &__content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: vars.color('white1');
+  }
+  
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: vars.$spacing-md;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    @include mixins.mobile-only() {
+      font-size: 1.75rem;
+      margin-bottom: vars.$spacing-sm;
+    }
+    
+    @include mixins.tablet-up() {
+      font-size: 2.5rem;
+      margin-bottom: vars.$spacing-lg;
+    }
+    
+    @include mixins.desktop-up() {
+      font-size: 3rem;
+    }
+  }
+  
+  &__highlight {
+    color: vars.color('primary');
+    font-weight: 800;
+  }
+  
+  &__description {
+    font-size: vars.$font-size-text;
+    line-height: 1.6;
+    margin-bottom: vars.$spacing-xl;
+    color: vars.color('gray100');
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    
+    @include mixins.mobile-only() {
+      font-size: vars.$font-size-text-mobile;
+      margin-bottom: vars.$spacing-lg;
+    }
+    
+    @include mixins.tablet-up() {
+      font-size: 1.125rem;
+      margin-bottom: vars.$spacing-xxl;
+    }
+    
+    @include mixins.desktop-up() {
+      font-size: 1.25rem;
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: vars.$spacing-md;
+    
+    @include mixins.mobile-only() {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: vars.$spacing-sm;
+    padding: vars.$spacing-md vars.$spacing-xl;
+    border-radius: vars.$borderRadius;
+    font-weight: 600;
+    font-size: vars.$font-size-text;
+    text-decoration: none;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+    position: relative;
+    overflow: hidden;
+    
+    @include mixins.mobile-only() {
+      padding: vars.$spacing-sm vars.$spacing-lg;
+      font-size: vars.$font-size-text-mobile;
+    }
+    
+    @include mixins.tablet-up() {
+      padding: vars.$spacing-lg vars.$spacing-xxl;
+      font-size: 1.125rem;
+    }
+    
+    // Variantes de botones
+    &--primary {
+      background: linear-gradient(135deg, vars.color('primary') 0%, #2563eb 100%);
+      color: vars.color('white1');
+      border: 2px solid transparent;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      
+      &:hover {
+        background: linear-gradient(135deg, #2563eb 0%, vars.color('primary') 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+      }
+      
+      &:active {
+        transform: translateY(-1px);
+      }
+    }
+    
+    &--secondary {
+      background: vars.color('white1');
+      color: vars.color('black2');
+      border: 2px solid vars.color('white1');
+      
+      &:hover {
+        background: vars.color('gray100');
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+      }
+    }
+    
+    &--outline {
+      background: transparent;
+      color: vars.color('white1');
+      border: 2px solid vars.color('white1');
+      
+      &:hover {
+        background: vars.color('white1');
+        color: vars.color('black2');
+        transform: translateY(-2px);
+      }
+    }
+  }
+  
+  &__arrow {
+    transition: transform vars.$transitionDuration vars.$transitionEasing;
+    font-size: 0.875rem;
+  }
+  
+  &__button:hover &__arrow {
+    transform: translateX(4px);
+  }
+  
+  // Animaciones
+  &__content {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  // Responsive adjustments
+  @include mixins.mobile-only() {
+    &__content {
+      padding: 0 vars.$spacing-sm;
+    }
+  }
+  
+  // Efectos adicionales
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    z-index: 2;
+    pointer-events: none;
+  }
+}

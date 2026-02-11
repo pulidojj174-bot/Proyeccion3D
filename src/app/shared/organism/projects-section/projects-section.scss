@@ -1,0 +1,459 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.projects-section {
+  // 📱 MOBILE FIRST - Base styles (320px+)
+  background: vars.color(white1);
+  padding: vars.$spacing-xl 0;
+  position: relative;
+  overflow: hidden;
+
+  // 📱 Small Mobile (480px+)
+  @media (min-width: 480px) {
+    padding: vars.$spacing-xxl 0;
+  }
+
+  // 📱 Large Mobile (640px+)
+  @media (min-width: 640px) {
+    padding: 4rem 0;
+  }
+
+  // 📱 Tablet (768px+)
+  @include mixins.tablet-up() {
+    padding: 5rem 0;
+  }
+
+  // 📱 Desktop (1024px+)
+  @include mixins.desktop-up() {
+    padding: 6rem 0;
+  }
+
+  // 📱 Large Desktop (1440px+)
+  @media (min-width: 1440px) {
+    padding: 8rem 0;
+  }
+
+  // BEM Elements
+  &__container {
+    // 📱 Mobile First Container
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 vars.$spacing-sm;
+
+    // 📱 Small Mobile
+    @media (min-width: 480px) {
+      padding: 0 vars.$spacing-md;
+    }
+
+    // 📱 Large Mobile
+    @media (min-width: 640px) {
+      padding: 0 vars.$spacing-lg;
+      max-width: 620px;
+    }
+
+    // 📱 Tablet
+    @include mixins.tablet-up() {
+      padding: 0 vars.$spacing-xl;
+      max-width: 750px;
+    }
+
+    // 📱 Desktop
+    @include mixins.desktop-up() {
+      padding: vars.$padding-box;
+      max-width: vars.$container-max-width;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: vars.$spacing-xl;
+
+    @media (min-width: 480px) {
+      margin-bottom: vars.$spacing-xxl;
+    }
+
+    @include mixins.tablet-up() {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__title {
+    font-size: vars.$font-size-title-mobile;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0 0 vars.$spacing-sm 0;
+    line-height: 1.2;
+
+    @media (min-width: 480px) {
+      font-size: 2rem;
+    }
+
+    @include mixins.tablet-up() {
+      font-size: 2.5rem;
+    }
+
+    @include mixins.desktop-up() {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: vars.$font-size-text-mobile;
+    color: vars.color(gray6);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: vars.$spacing-xl;
+
+    @media (min-width: 480px) {
+      margin-bottom: vars.$spacing-xxl;
+    }
+
+    @include mixins.tablet-up() {
+      margin-bottom: 2.5rem;
+    }
+
+    @include mixins.desktop-up() {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__tabs-container {
+    // 📱 Mobile: Scroll horizontal
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 vars.$spacing-xs vars.$spacing-xs 0;
+    
+    // Smooth scrolling
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    // Ocultar scrollbar pero mantener funcionalidad
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    // 📱 Tablet: Sin scroll
+    @include mixins.tablet-up() {
+      overflow: visible;
+      padding: 0;
+    }
+  }
+
+  &__tabs-list {
+    // 📱 Mobile: Flexbox con scroll
+    display: flex;
+    gap: vars.$spacing-xs;
+    background: vars.color(bg-gray1);
+    padding: vars.$spacing-xs;
+    border-radius: vars.$borderRadius;
+    min-width: max-content;
+    width: auto;
+
+    // Scroll snap para mejor UX en mobile
+    scroll-snap-type: x mandatory;
+    
+    & > * {
+      scroll-snap-align: center;
+      flex-shrink: 0;
+    }
+
+    // 📱 Small Mobile: Más padding
+    @media (min-width: 480px) {
+      padding: vars.$spacing-sm;
+      gap: vars.$spacing-sm;
+    }
+
+    // 📱 Tablet: Grid layout
+    @include mixins.tablet-up() {
+      display: grid;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    // 📱 Desktop: Más columnas
+    @include mixins.desktop-up() {
+      max-width: 700px;
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__tab-panel {
+    outline: none;
+    
+    &:focus-visible {
+      @include mixins.focused();
+    }
+  }
+
+  &__grid {
+    // 📱 Mobile: Una columna
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: vars.$spacing-lg;
+
+    // 📱 Small Mobile: Mejor spacing
+    @media (min-width: 480px) {
+      gap: vars.$spacing-xl;
+    }
+
+    // 📱 Large Mobile: Dos columnas
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vars.$spacing-lg;
+    }
+
+    // 📱 Tablet: Dos columnas con mejor spacing
+    @include mixins.tablet-up() {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vars.$spacing-xl;
+    }
+
+    // 📱 Desktop: Tres columnas
+    @include mixins.desktop-up() {
+      grid-template-columns: repeat(3, 1fr);
+      gap: vars.$spacing-xl;
+    }
+
+    // 📱 Large Desktop: Cuatro columnas (opcional)
+    @media (min-width: 1440px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  &__project {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.6s ease-out both;
+
+    // Animación escalonada responsive
+    @include mixins.mobile-only() {
+      &:nth-child(n) {
+        animation-delay: calc(var(--index, 0) * 0.1s);
+      }
+    }
+
+    @media (min-width: 640px) {
+      &:nth-child(2n+1) {
+        animation-delay: 0s;
+      }
+      
+      &:nth-child(2n) {
+        animation-delay: 0.1s;
+      }
+    }
+
+    @include mixins.desktop-up() {
+      &:nth-child(3n+1) {
+        animation-delay: 0s;
+      }
+      
+      &:nth-child(3n+2) {
+        animation-delay: 0.1s;
+      }
+      
+      &:nth-child(3n) {
+        animation-delay: 0.2s;
+      }
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    padding: vars.$spacing-xxl vars.$spacing-md;
+    max-width: 100%;
+    margin: 0 auto;
+
+    @media (min-width: 480px) {
+      padding: vars.$spacing-xxl vars.$spacing-lg;
+      max-width: 400px;
+    }
+
+    @include mixins.tablet-up() {
+      padding: 3rem vars.$spacing-xl;
+      max-width: 500px;
+    }
+  }
+
+  &__empty-icon {
+    font-size: 2.5rem;
+    color: vars.color(gray4);
+    margin-bottom: vars.$spacing-lg;
+
+    @media (min-width: 480px) {
+      font-size: 3rem;
+    }
+
+    @include mixins.tablet-up() {
+      font-size: 3.5rem;
+      margin-bottom: vars.$spacing-xl;
+    }
+
+    i {
+      display: block;
+    }
+  }
+
+  &__empty-title {
+    font-size: vars.$font-size-text-mobile;
+    font-weight: 600;
+    color: vars.color(gray7);
+    margin: 0 0 vars.$spacing-sm 0;
+    line-height: 1.3;
+
+    @media (min-width: 480px) {
+      font-size: vars.$font-size-text;
+    }
+
+    @include mixins.tablet-up() {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__empty-description {
+    font-size: vars.$font-size-sm;
+    color: vars.color(gray6);
+    line-height: 1.5;
+    margin: 0;
+
+    @media (min-width: 480px) {
+      font-size: vars.$font-size-text-mobile;
+    }
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+      line-height: 1.6;
+    }
+  }
+
+  // Loading state
+  &--loading {
+    .projects-section__project {
+      opacity: 0.6;
+      animation-play-state: paused;
+    }
+  }
+}
+
+// Keyframes optimizadas
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Breakpoints específicos para casos edge
+@media (max-width: 374px) {
+  .projects-section {
+    &__container {
+      padding: 0 vars.$spacing-xs;
+    }
+
+    &__tabs-list {
+      padding: 6px;
+      gap: 4px;
+    }
+
+    &__grid {
+      gap: vars.$spacing-md;
+    }
+  }
+}
+
+// Landscape phone específico
+@media (orientation: landscape) and (max-height: 500px) {
+  .projects-section {
+    padding: vars.$spacing-lg 0;
+
+    &__header {
+      margin-bottom: vars.$spacing-lg;
+    }
+
+    &__tabs {
+      margin-bottom: vars.$spacing-lg;
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .projects-section {
+    &__project {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    &__tabs-container {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .projects-section {
+    padding: 2rem 0;
+
+    &__tabs {
+      display: none;
+    }
+
+    &__grid {
+      display: block;
+      gap: 0;
+    }
+
+    &__project {
+      page-break-inside: avoid;
+      margin-bottom: 2rem;
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    &__empty {
+      display: none;
+    }
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .projects-section {
+    &__tabs-list {
+      border: 2px solid;
+    }
+
+    &__empty-icon {
+      color: vars.color(black2);
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: vars.$spacing-sm;
+  gap: 4px;
+
+  @include mixins.mobile() {
+    display: flex;
+  }
+
+  .hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: vars.color('gray7');
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+    transform-origin: center;
+
+    &:nth-child(1) {
+      &.active {
+        transform: rotate(45deg) translate(5px, 4px);
+      }
+    }
+
+    &:nth-child(2) {
+      &.active {
+        opacity: 0;
+      }
+    }
+
+    &:nth-child(3) {
+      &.active {
+        transform: rotate(-45deg) translate(4px, -4px);
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.testimonial-card {
+  // Mobile First - Base styles
+  text-align: center;
+  padding: 2rem 1rem;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0.7;
+
+  @include mixins.tablet-up() {
+    padding: 2rem 3rem;
+  }
+
+  @include mixins.desktop-up() {
+    padding: 2rem 4rem;
+  }
+
+  // BEM Modifier - Active state
+  &--active {
+    opacity: 1;
+  }
+
+  // BEM Elements
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 4xl;
+    margin: 0 auto;
+  }
+
+  &__avatar {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto 1.5rem;
+
+    @include mixins.tablet-up() {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
+  &__avatar-image {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border: 4px solid #dbeafe; // blue-100 equivalent
+    display: block;
+  }
+
+  &__quote {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+    color: #1e293b; // slate-800 equivalent
+    max-width: 100%;
+
+    @include mixins.tablet-up() {
+      font-size: 1.5rem;
+      line-height: 1.5;
+    }
+
+    @include mixins.desktop-up() {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: #0f172a; // slate-900 equivalent
+    margin: 0;
+
+    @include mixins.tablet-up() {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__title {
+    color: #475569; // slate-600 equivalent
+    margin: 0;
+    font-size: 1rem;
+  }
+}

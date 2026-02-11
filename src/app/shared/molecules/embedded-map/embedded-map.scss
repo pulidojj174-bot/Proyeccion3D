@@ -1,0 +1,312 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.embedded-map {
+  // Mobile First - Base styles
+  width: 100%;
+  height: 100%;
+  border-radius: vars.$borderRadius-lg;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid vars.color(gray0);
+  transition: all vars.$transitionDuration vars.$transitionEasing;
+
+  // BEM Elements
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: vars.$borderRadius-lg;
+    overflow: hidden;
+  }
+
+  &__frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: vars.$borderRadius-lg;
+    transition: filter vars.$transitionDuration vars.$transitionEasing;
+
+    &:focus {
+      outline: 2px solid vars.color(primary);
+      outline-offset: 2px;
+    }
+  }
+
+  // Nueva info card overlay - Similar al ejemplo
+  &__info-card {
+    position: absolute;
+    top: vars.$spacing-lg;
+    left: vars.$spacing-lg;
+    background: vars.color(white1);
+    padding: vars.$spacing-lg;
+    border-radius: vars.$borderRadius-lg;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    max-width: 320px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(vars.color(gray0), 0.8);
+    transform: translateY(-10px);
+    opacity: 0;
+    animation: slideInDown 0.8s ease-out 1s both;
+    z-index: 10;
+
+    @include mixins.mobile-only() {
+      top: vars.$spacing-md;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+      max-width: none;
+      padding: vars.$spacing-md;
+    }
+
+    @include mixins.tablet-up() {
+      padding: vars.$spacing-xl;
+    }
+
+    &:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__info-card-title {
+    font-size: vars.$font-size-text;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0 0 vars.$spacing-sm 0;
+    line-height: 1.3;
+
+    @include mixins.tablet-up() {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__info-card-description {
+    font-size: vars.$font-size-sm;
+    color: vars.color(gray6);
+    line-height: 1.5;
+    margin: 0 0 vars.$spacing-md 0;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  &__info-card-address {
+    display: flex;
+    align-items: flex-start;
+    gap: vars.$spacing-xs;
+    font-size: vars.$font-size-sm;
+    color: vars.color(gray7);
+    line-height: 1.4;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  &__info-card-icon {
+    color: vars.color(primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-size: 1rem;
+
+    @include mixins.tablet-up() {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__info-card-text {
+    flex: 1;
+    margin: 0;
+  }
+
+  // Close button for the info card
+  &__info-card-close {
+    position: absolute;
+    top: vars.$spacing-sm;
+    right: vars.$spacing-sm;
+    background: transparent;
+    border: none;
+    color: vars.color(gray6);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: vars.$spacing-xs;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+
+    &:hover {
+      background: vars.color(bg-gray1);
+      color: vars.color(black2);
+    }
+
+    &:focus {
+      @include mixins.focused();
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(75, 185, 167, 0.9) 0%,
+      rgba(194, 65, 12, 0.9) 100%
+    );
+    color: vars.color(white1);
+    padding: vars.$spacing-lg;
+    transform: translateY(-100%);
+    transition: transform vars.$transitionDuration vars.$transitionEasing;
+    border-radius: vars.$borderRadius-lg vars.$borderRadius-lg 0 0;
+
+    @include mixins.tablet-up() {
+      padding: vars.$spacing-xl;
+    }
+
+    // BEM Modifier
+    &--visible {
+      transform: translateY(0);
+    }
+  }
+
+  &__info {
+    max-width: 100%;
+  }
+
+  &__info-title {
+    font-size: vars.$font-size-text;
+    font-weight: 700;
+    margin: 0 0 vars.$spacing-xs 0;
+    color: vars.color(white1);
+
+    @include mixins.tablet-up() {
+      font-size: 1.375rem;
+    }
+  }
+
+  &__info-address {
+    font-size: vars.$font-size-sm;
+    margin: 0 0 vars.$spacing-xs 0;
+    opacity: 0.9;
+    line-height: 1.4;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  &__info-description {
+    font-size: vars.$font-size-sm;
+    margin: 0;
+    opacity: 0.8;
+    line-height: 1.4;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  // Hover effects
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+    .embedded-map__frame {
+      filter: brightness(1.02) contrast(1.02);
+    }
+  }
+
+  // Loading state
+  &--loading {
+    background: vars.color(bg-gray1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: vars.$spacing-md;
+
+    &::before {
+      content: '';
+      width: 40px;
+      height: 40px;
+      border: 4px solid vars.color(gray0);
+      border-top: 4px solid vars.color(primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    &::after {
+      content: 'Cargando mapa...';
+      color: vars.color(gray6);
+      font-size: vars.$font-size-sm;
+    }
+  }
+
+  // BEM Modifier - Hide info card
+  &--hide-info-card {
+    .embedded-map__info-card {
+      display: none;
+    }
+  }
+
+  // Responsive adjustments
+  @include mixins.mobile-only() {
+    border-radius: vars.$borderRadius;
+
+    &__overlay {
+      padding: vars.$spacing-md;
+      border-radius: vars.$borderRadius vars.$borderRadius 0 0;
+    }
+
+    &__info-title {
+      font-size: vars.$font-size-text;
+    }
+
+    &__info-address,
+    &__info-description {
+      font-size: vars.$font-size-sm;
+    }
+  }
+}
+
+// Keyframes
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .embedded-map {
+    &__info-card {
+      animation: none;
+    }
+
+    // Envuelve en & {} para el nuevo comportamiento
+    & {
+      transition: none;
+    }
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

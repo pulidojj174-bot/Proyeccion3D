@@ -1,0 +1,28 @@
+<section class="mission-values-section">
+  <div class="mission-values-section__container">
+    <!-- Header -->
+    <div class="mission-values-section__header">
+      <div class="mission-values-section__title">
+        <div class="mission-values-section__title-animated">
+          <span class="mission-values-section__title-word">Nuestra</span>
+          <span class="mission-values-section__title-word">Misión</span>
+          <span class="mission-values-section__title-word">y</span>
+          <span class="mission-values-section__title-word">Valores</span>
+        </div>
+      </div>
+
+      <div class="mission-values-section__subtitle">
+        <p class="mission-values-section__subtitle-text">{{ subtitle() }}</p>
+      </div>
+    </div>
+
+    <!-- Values Grid -->
+    <div class="mission-values-section__grid">
+      @for (value of values(); track value.id) {
+        <div class="mission-values-section__item">
+          <app-value-card [value]="value" [animationDelay]="$index * 0.1" />
+        </div>
+      }
+    </div>
+  </div>
+</section>

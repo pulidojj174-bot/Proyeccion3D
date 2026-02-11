@@ -1,0 +1,170 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.process-step-card {
+  // Mobile First - Base styles
+  background: vars.color(white1);
+  padding: vars.$spacing-xl;
+  border-radius: vars.$borderRadius-lg;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all vars.$transitionDuration vars.$transitionEasing;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s ease-out both;
+  position: relative;
+
+  @include mixins.tablet-up() {
+    padding: 2rem;
+  }
+
+  // BEM Elements
+  &__number {
+    background: vars.color(black2);
+    color: vars.color(white1);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: vars.$font-size-text;
+    font-weight: 700;
+    margin-bottom: vars.$spacing-lg;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+
+    @include mixins.tablet-up() {
+      width: 56px;
+      height: 56px;
+      font-size: 1.375rem;
+    }
+  }
+
+  &__title {
+    font-size: vars.$font-size-text;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0 0 vars.$spacing-sm 0;
+    line-height: 1.3;
+
+    @include mixins.tablet-up() {
+      font-size: 1.375rem;
+    }
+  }
+
+  &__description {
+    font-size: vars.$font-size-text-mobile;
+    color: vars.color(gray6);
+    line-height: 1.6;
+    margin: 0;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  // Hover effects
+  &:hover:not(&--no-hover) {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    .process-step-card__number {
+      background: vars.color(black3);
+      transform: scale(1.1);
+    }
+  }
+
+  // BEM Modifier - Featured step
+  &--featured {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    .process-step-card__number {
+      background: vars.color(black3);
+      transform: scale(1.1);
+    }
+
+    &:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+
+      .process-step-card__number {
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  // BEM Modifier - No hover effects
+  &--no-hover {
+    &:hover {
+      transform: translateY(0);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+      .process-step-card__number {
+        background: vars.color(black2);
+        transform: none;
+      }
+    }
+  }
+}
+
+// Keyframes
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive adjustments
+@include mixins.mobile-only() {
+  .process-step-card {
+    padding: vars.$spacing-lg;
+
+    &__number {
+      width: 44px;
+      height: 44px;
+      font-size: vars.$font-size-text-mobile;
+    }
+
+    &__title {
+      font-size: vars.$font-size-text;
+    }
+
+    &__description {
+      font-size: vars.$font-size-text-mobile;
+    }
+
+    &:hover,
+    &--featured {
+      transform: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+      .process-step-card__number {
+        transform: none;
+      }
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .process-step-card {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+
+    &:hover,
+    &--featured {
+      transform: translateY(0);
+
+      .process-step-card__number {
+        transform: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<footer class="footer">
+  <section class="footer-container">
+    <article class="footer-content">
+      <!-- Brand Section -->
+      <section class="footer-brand-section">
+        <!-- Ejemplo de uso con logo personalizado -->
+        <app-footer-brand title="Proyección 3D S.A.S. BIC"
+          description="Líderes en impresión 3D y diseño mecánico. Transformamos ideas en realidad con tecnología de vanguardia."
+          logo="assets/images/logos/P3D.png" logoAlt="Logo Proyección 3D" [showLogo]="true" [logoWidth]="70"
+          [logoHeight]="70" />
+      </section>
+
+      <!-- Quick Links -->
+      <section class="footer-links-section">
+        <app-footer-section [title]="quickLinks().title" [links]="quickLinks().links">
+        </app-footer-section>
+      </section>
+
+      <!-- Services -->
+      <section class="footer-links-section">
+        <app-footer-section [title]="services().title" [links]="services().links">
+        </app-footer-section>
+      </section>
+
+      <!-- Contact Info -->
+      <section class="footer-contact-section">
+        <app-footer-contact></app-footer-contact>
+      </section>
+    </article>
+
+    <!-- Copyright -->
+    <app-footer-copyright [legalLinks]="legalLinks()">
+    </app-footer-copyright>
+    </section>
+</footer>

@@ -1,0 +1,42 @@
+<section class="services-section">
+  <div class="services-section__container">
+    <!-- Header -->
+    <div class="services-section__header">
+      <div class="services-section__title-container">
+        <h2 class="services-section__title">
+          <span class="services-section__title-word">Nuestros</span>
+          <span class="services-section__title-word">Servicios</span>
+        </h2>
+      </div>
+      
+      <div class="services-section__subtitle-container">
+        <p class="services-section__subtitle">
+          {{ sectionSubtitle() }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-section__grid-container">
+      <div class="services-section__grid">
+        @for (service of services(); track service.id) {
+          <app-service-item [service]="service" />
+        }
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="services-section__cta-container">
+      <div class="services-section__cta">
+        <a 
+          [routerLink]="ctaLink()" 
+          class="services-section__cta-button"
+          [attr.aria-label]="ctaText()"
+        >
+          <span class="services-section__cta-text">{{ ctaText() }}</span>
+          <i class="bi bi-arrow-right services-section__cta-icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

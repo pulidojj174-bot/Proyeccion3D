@@ -1,0 +1,122 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.footer-brand {
+  // BEM Elements
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: vars.$spacing-md;
+    margin-bottom: vars.$spacing-lg;
+
+    @include mixins.mobile-only() {
+      flex-direction: column;
+      text-align: center;
+      gap: vars.$spacing-sm;
+    }
+  }
+
+  &__logo-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__logo {
+    width: auto;
+    height: auto;
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: contain;
+    transition: transform vars.$transitionDuration vars.$transitionEasing;
+
+    @include mixins.tablet-up() {
+      max-width: 70px;
+      max-height: 70px;
+    }
+
+    // Hover effect solo en dispositivos con hover
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__text {
+    flex: 1;
+    min-width: 0; // Para que el texto se pueda truncar si es necesario
+  }
+
+  // Brand Title
+  .brand-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: vars.color('white1');
+    margin: 0;
+    line-height: 1.2;
+
+    @include mixins.tablet-up() {
+      font-size: 1.5rem;
+    }
+
+    &__main {
+      display: block;
+    }
+
+    .highlight {
+      color: vars.color('primary');
+    }
+  }
+
+  // Brand Description
+  .brand-description {
+    color: vars.color('gray8');
+    line-height: 1.6;
+    margin: 0 0 vars.$spacing-lg 0;
+    font-size: vars.$font-size-text-mobile;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+}
+
+// Responsive adjustments
+@include mixins.mobile-only() {
+  .footer-brand {
+    text-align: center;
+
+    &__header {
+      justify-content: center;
+    }
+
+    &__logo {
+      max-width: 50px;
+      max-height: 50px;
+    }
+
+    .brand-title {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .footer-brand {
+    &__logo {
+      print-color-adjust: exact;
+    }
+  }
+}
+
+// Dark mode support (si lo tienes)
+@media (prefers-color-scheme: dark) {
+  .footer-brand {
+    &__logo {
+      filter: brightness(1.1);
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.tab-button {
+  // Mobile First - Base styles
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: vars.$borderRadius;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  font-size: vars.$font-size-sm;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  color: vars.color(gray6);
+  cursor: pointer;
+  transition: all vars.$transitionDuration vars.$transitionEasing;
+  gap: vars.$spacing-xs;
+  position: relative;
+
+  @include mixins.tablet-up() {
+    font-size: vars.$font-size-text;
+    padding: vars.$spacing-sm vars.$spacing-lg;
+  }
+
+  // BEM Elements
+  &__count {
+    font-size: 0.85em;
+    opacity: 0.7;
+  }
+
+  // Hover state
+  &:hover:not(&--active) {
+    background: rgba(vars.color(primary), 0.1);
+    color: vars.color(primary);
+  }
+
+  // Focus state
+  &:focus {
+    @include mixins.focused();
+  }
+
+  // Active state
+  &--active {
+    background: vars.color(white1);
+    color: vars.color(black2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    .tab-button__count {
+      opacity: 1;
+    }
+  }
+
+  // Disabled state
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .tab-button {
+    transition: none;
+  }
+}

@@ -1,0 +1,16 @@
+<div class="mobile-menu" [class.open]="isOpen">
+  <ul class="mobile-nav">
+    @for (link of links; track link.path) {
+      <li class="mobile-nav-item">
+        <a
+          [routerLink]="[link.path]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="mobile-nav-link"
+          (click)="onLinkClick()">
+          {{ link.label }}
+        </a>
+      </li>
+    }
+  </ul>
+</div>

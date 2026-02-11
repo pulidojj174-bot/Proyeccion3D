@@ -1,0 +1,111 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.stat-card {
+  // Mobile First - Base styles
+  background: vars.color(white1);
+  padding: vars.$spacing-xl;
+  border-radius: vars.$borderRadius-lg;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all vars.$transitionDuration ease-out;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s ease-out both;
+
+  @include mixins.tablet-up() {
+    padding: vars.$spacing-xxl;
+  }
+
+  // BEM Elements
+  &__icon-container {
+    background: rgba(vars.color(primary), 0.1);
+    color: vars.color(primary);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto vars.$spacing-md;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+
+    @include mixins.tablet-up() {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  &__icon {
+    font-size: 2rem;
+
+    @include mixins.tablet-up() {
+      font-size: 2.25rem;
+    }
+  }
+
+  &__value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0 0 vars.$spacing-xs 0;
+    line-height: 1.1;
+
+    @include mixins.tablet-up() {
+      font-size: 3rem;
+    }
+  }
+
+  &__label {
+    font-size: vars.$font-size-sm;
+    color: vars.color(gray6);
+    margin: 0;
+    line-height: 1.4;
+    white-space: pre-line;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  // Hover effects
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+    .stat-card__icon-container {
+      background: vars.color(primary);
+      color: vars.color(white1);
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Keyframes
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .stat-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+
+    &:hover {
+      transform: none;
+
+      .stat-card__icon-container {
+        transform: none;
+      }
+    }
+  }
+}

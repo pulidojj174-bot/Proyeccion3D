@@ -1,0 +1,42 @@
+<article class="service-card"
+         [class.service-card--active]="isActive()"
+         [style.background-image]="'url(' + service().image + ')'">
+
+  <!-- Overlay con gradiente -->
+  <div class="service-card__overlay"></div>
+
+  <!-- Contenido principal -->
+  <section class="service-card__content">
+
+    <!-- Header con título y descripción -->
+    <div class="service-card__header">
+      <h3 class="service-card__title">{{ service().title }}</h3>
+      <p class="service-card__description">{{ service().description }}</p>
+    </div>
+
+    <!-- Features con animación -->
+    <nav class="service-card__features">
+      <ul class="service-card__features-list">
+        @for (feature of service().features; track feature; let i = $index) {
+          <li class="service-card__feature"
+              [style.animation-delay]="(i * 0.1) + 's'">
+            <span class="service-card__feature-icon">✓</span>
+            <span class="service-card__feature-text">{{ feature }}</span>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- Footer con precio -->
+    @if (service().price) {
+      <footer class="service-card__footer">
+        <div class="service-card__price-container">
+          <span class="service-card__price">{{ service().price }}</span>
+        </div>
+      </footer>
+    }
+  </section>
+
+  <!-- Indicador de estado activo -->
+  <div class="service-card__active-indicator"></div>
+</article>

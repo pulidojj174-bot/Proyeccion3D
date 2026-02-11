@@ -1,0 +1,39 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.stats-section {
+  // Mobile First - Base styles
+  background: vars.color(bg-gray1);
+  padding: vars.$spacing-xxl 0;
+
+  @include mixins.tablet-up() {
+    padding: 4rem 0;
+  }
+
+  // BEM Elements
+  &__container {
+    max-width: vars.$container-max-width;
+    margin: 0 auto;
+    padding: vars.$padding-box;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: vars.$spacing-xl;
+
+    @include mixins.mobile-up() {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vars.$spacing-lg;
+    }
+
+    @include mixins.desktop-up() {
+      grid-template-columns: repeat(4, 1fr);
+      gap: vars.$spacing-xl;
+    }
+  }
+
+  &__item {
+    width: 100%;
+  }
+}

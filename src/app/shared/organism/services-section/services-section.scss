@@ -1,0 +1,224 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.services-section {
+  // Mobile First - Base styles
+  background: vars.color(bg-gray1);
+  padding: vars.$spacing-xxl 0;
+
+  @include mixins.tablet-up() {
+    padding: 6rem 0;
+  }
+
+  // BEM Elements
+  &__container {
+    max-width: vars.$container-max-width;
+    margin: 0 auto;
+    padding: vars.$padding-box;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: vars.$spacing-xxl;
+
+    @include mixins.tablet-up() {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__title-container {
+    margin-bottom: vars.$spacing-md;
+
+    @include mixins.tablet-up() {
+      margin-bottom: vars.$spacing-lg;
+    }
+  }
+
+  &__title {
+    font-size: vars.$font-size-title-mobile;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0;
+    line-height: 1.2;
+
+    @include mixins.tablet-up() {
+      font-size: 3rem;
+    }
+
+    @include mixins.desktop-up() {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__title-word {
+    display: inline-block;
+    margin-right: 0.25em;
+    overflow: hidden;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+
+    // Animación de entrada
+    animation: fadeInUp 0.8s ease-out;
+
+    &:nth-child(2) {
+      animation-delay: 0.05s;
+    }
+  }
+
+  &__subtitle-container {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+  }
+
+  &__subtitle {
+    font-size: vars.$font-size-text-mobile;
+    color: vars.color(gray6);
+    line-height: 1.6;
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 0 vars.$spacing-md;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+      padding: 0;
+    }
+  }
+
+  &__grid-container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: vars.$spacing-lg;
+
+    @include mixins.tablet-up() {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vars.$spacing-xl;
+    }
+
+    @include mixins.desktop-up() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    // Loading state
+    &--loading {
+      pointer-events: none;
+    }
+  }
+
+  &__cta-container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+  }
+
+  &__cta {
+    text-align: center;
+    margin-top: vars.$spacing-xl;
+
+    @include mixins.tablet-up() {
+      margin-top: vars.$spacing-xxl;
+    }
+  }
+
+  &__cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: vars.$spacing-sm;
+    background: transparent;
+    color: vars.color(blue600);
+    border: 2px solid vars.color(blue600);
+    padding: vars.$spacing-md vars.$spacing-lg;
+    border-radius: vars.$borderRadius;
+    font-weight: 500;
+    font-size: vars.$font-size-sm;
+    text-decoration: none;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+    position: relative;
+    overflow: hidden;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+      padding: vars.$spacing-lg vars.$spacing-xl;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: vars.color(blue600);
+      transition: left vars.$transitionDuration vars.$transitionEasing;
+      z-index: 0;
+    }
+
+    &:hover {
+      color: vars.color(white1);
+      border-color: vars.color(blue700);
+
+      &::before {
+        left: 0;
+      }
+
+      .services-section__cta-icon {
+        transform: translateX(4px);
+      }
+    }
+
+    &:focus {
+      @include mixins.focused();
+    }
+  }
+
+  &__cta-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cta-icon {
+    font-size: 1rem;
+    transition: transform vars.$transitionDuration vars.$transitionEasing;
+    position: relative;
+    z-index: 1;
+
+    @include mixins.tablet-up() {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+// Keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive adjustments
+@include mixins.mobile-only() {
+  .services-section {
+    &__grid {
+      gap: vars.$spacing-md;
+    }
+
+    &__cta-button {
+      width: 100%;
+      justify-content: center;
+      max-width: 280px;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.value-card {
+  // Mobile First - Base styles
+  background: vars.color(bg-gray1);
+  padding: vars.$spacing-xl;
+  border-radius: vars.$borderRadius-lg;
+  transition: all vars.$transitionDuration ease-out;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s ease-out both;
+
+  @include mixins.tablet-up() {
+    padding: vars.$spacing-xxl;
+  }
+
+  // BEM Elements
+  &__title {
+    font-size: vars.$font-size-text;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0 0 vars.$spacing-md 0;
+    line-height: 1.3;
+
+    @include mixins.tablet-up() {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__description {
+    font-size: vars.$font-size-sm;
+    color: vars.color(gray6);
+    line-height: 1.6;
+    margin: 0;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  // Hover effects
+  &:hover {
+    transform: translateY(-2px);
+    background: vars.color(white1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    .value-card__title {
+      color: vars.color(primary);
+    }
+  }
+}
+
+// Keyframes
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .value-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

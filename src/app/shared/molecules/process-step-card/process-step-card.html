@@ -1,0 +1,13 @@
+<div 
+  class="process-step-card" 
+  [class.process-step-card--featured]="step().featured"
+  [style.animation-delay]="animationDelay() + 's'"
+>
+  <div class="process-step-card__number">
+    {{ step().step.toString().padStart(2, '0') }}
+  </div>
+  
+  <h3 class="process-step-card__title">{{ step().title }}</h3>
+  
+  <p class="process-step-card__description">{{ step().description }}</p>
+</div>

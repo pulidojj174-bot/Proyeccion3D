@@ -1,0 +1,84 @@
+<section class="service-carousel"
+         (mouseenter)="onMouseEnter()"
+         (mouseleave)="onMouseLeave()">
+  <div class="service-carousel__container">
+
+    <!-- Header -->
+    <div class="service-carousel__header">
+      <div class="service-carousel__title">
+        <div class="service-carousel__title-animated">
+          @for (titleWord of getTitleWords(); track titleWord.word; let i = $index) {
+            <span class="service-carousel__title-word" [style.transition-delay]="titleWord.delay + 's'">
+              <span class="service-carousel__title-word-inner">{{ titleWord.word }}</span>
+            </span>
+          }
+        </div>
+      </div>
+
+      <div class="service-carousel__subtitle">
+        <p class="service-carousel__subtitle-text">{{ subtitle }}</p>
+      </div>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="service-carousel__carousel-container">
+      <div class="service-carousel__carousel">
+
+        <!-- Single Service Card -->
+        <div class="service-carousel__content">
+          <app-service-card
+            [service]="currentService()"
+            [isActive]="true">
+          </app-service-card>
+        </div>
+
+        <!-- Previous Button -->
+        @if (canGoPrev()) {
+          <button
+            type="button"
+            class="service-carousel__nav-button service-carousel__nav-button--prev"
+            (click)="goToPrev()"
+            [attr.aria-label]="'Previous service'"
+            [title]="'Previous service'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="service-carousel__nav-icon">
+              <path d="m15 18-6-6 6-6"></path>
+            </svg>
+            <span class="sr-only">Previous</span>
+          </button>
+        }
+
+        <!-- Next Button -->
+        @if (canGoNext()) {
+          <button
+            type="button"
+            class="service-carousel__nav-button service-carousel__nav-button--next"
+            (click)="goToNext()"
+            [attr.aria-label]="'Next service'"
+            [title]="'Next service'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="service-carousel__nav-icon">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+            <span class="sr-only">Next</span>
+          </button>
+        }
+
+        <!-- Indicators -->
+        @if (totalServices() > 1) {
+          <div class="service-carousel__indicators">
+            @for (index of getIndicators(); track index) {
+              <button
+                type="button"
+                class="service-carousel__indicator"
+                [class.service-carousel__indicator--active]="index === currentIndex()"
+                (click)="goToSlide(index)"
+                [attr.aria-label]="'Go to service ' + (index + 1)"
+                [title]="'Go to service ' + (index + 1)">
+                <span class="sr-only">Go to service {{ index + 1 }}</span>
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

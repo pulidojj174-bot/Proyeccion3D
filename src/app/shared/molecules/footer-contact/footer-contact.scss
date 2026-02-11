@@ -1,0 +1,56 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.footer-contact {
+  .contact-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: vars.color('white1');
+    margin-bottom: vars.$spacing-md;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-info {
+    .contact-item {
+      margin-bottom: vars.$spacing-md;
+
+      .contact-address {
+        p {
+          color: vars.color('gray8');
+          margin: 0;
+          font-size: vars.$font-size-sm;
+          line-height: 1.5;
+        }
+      }
+
+      .contact-link {
+        color: vars.color('gray8');
+        text-decoration: none;
+        font-size: vars.$font-size-sm;
+        transition: all vars.$transitionDuration vars.$transitionEasing;
+        display: inline-flex;
+        align-items: center;
+        gap: vars.$spacing-xs;
+
+        &:hover {
+          color: vars.color('primary');
+        }
+
+        &[href^="tel:"] {
+          &::before {
+            content: "📞";
+            font-size: 0.875rem;
+          }
+        }
+
+        &[href^="mailto:"] {
+          &::before {
+            content: "✉️";
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+  }
+}

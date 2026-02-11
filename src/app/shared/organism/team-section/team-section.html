@@ -1,0 +1,28 @@
+<section class="team-section">
+  <div class="team-section__container">
+    <!-- Header -->
+    <div class="team-section__header">
+      <div class="team-section__title">
+        <div class="team-section__title-animated">
+          <span class="team-section__title-word">Conoce</span>
+          <span class="team-section__title-word">a</span>
+          <span class="team-section__title-word">Nuestro</span>
+          <span class="team-section__title-word">Equipo</span>
+        </div>
+      </div>
+
+      <div class="team-section__subtitle">
+        <p class="team-section__subtitle-text">{{ sectionSubtitle() }}</p>
+      </div>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="team-section__grid">
+      @for (member of teamMembers(); track member.id) {
+        <div class="team-section__member">
+          <app-team-member-card [member]="member" [showHoverEffects]="true" />
+        </div>
+      }
+    </div>
+  </div>
+</section>

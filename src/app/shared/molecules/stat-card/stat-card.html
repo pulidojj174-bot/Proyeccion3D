@@ -1,0 +1,10 @@
+<div class="stat-card" [style.animation-delay]="animationDelay() + 's'">
+  <div class="stat-card__icon-container">
+    <i [class]="'bi ' + stat().icon + ' stat-card__icon'"></i>
+  </div>
+
+  @if (isBrowser) {
+  <om-number-ticker [countTo]="+stat().value" [countDuration]="7500" class="stat-card__value"></om-number-ticker>
+  <p class="stat-card__label">{{ stat().label }}</p>
+  }
+</div>

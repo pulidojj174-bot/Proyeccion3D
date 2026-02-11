@@ -1,0 +1,11 @@
+<!-- Services -->
+<app-hero-header [title]="servicesHeroData().title" [description]="servicesHeroData().description"
+  [config]="servicesHeroData().config">
+</app-hero-header>
+<!-- Nueva sección de servicios -->
+<app-services-section-item [services]="servicesData()" [showTitle]="false" />
+<!-- Nueva sección de proceso -->
+<app-process-section [processData]="processData()" />
+<app-cta-section [title]="ctaData().title" [description]="ctaData().description" [backgroundImage]="ctaData().backgroundImage"
+  [button]="ctaData().button" [highlightedWord]="ctaData().highlightedWord">
+</app-cta-section>

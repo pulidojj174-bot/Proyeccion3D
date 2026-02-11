@@ -1,0 +1,11 @@
+<section class="stats-section">
+  <div class="stats-section__container">
+    <div class="stats-section__grid">
+      @for (stat of stats(); track stat.id) {
+        <div class="stats-section__item">
+          <app-stat-card [stat]="stat" [animationDelay]="$index * 0.1" />
+        </div>
+      }
+    </div>
+  </div>
+</section>

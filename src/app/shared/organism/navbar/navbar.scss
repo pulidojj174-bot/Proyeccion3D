@@ -1,0 +1,26 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins.scss' as mixins;
+
+.navbar {
+  background-color: vars.color('white1');
+  border-bottom: 1px solid vars.color('gray0');
+  position: sticky;
+  top: 0;
+  z-index: vars.$z-dropdown;
+  transition: all vars.$transitionDuration vars.$transitionEasing;
+  width: 100%; // Ensure sticky works across the viewport
+
+  &-container {
+    max-width: vars.$container-max-width;
+    margin: 0 auto;
+    padding: vars.$padding-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+
+    @include mixins.mobile() {
+      padding: 0 vars.$spacing-md;
+    }
+  }
+}

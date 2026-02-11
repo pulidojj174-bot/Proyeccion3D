@@ -1,0 +1,24 @@
+<div class="footer-contact">
+  <h4 class="contact-title">{{ contactInfo.title }}</h4>
+  <div class="contact-info">
+    <div class="contact-item">
+      <div class="contact-address">
+        <p>{{ contactInfo.address.street }}</p>
+        <p>{{ contactInfo.address.suite }}</p>
+        <p>{{ contactInfo.address.city }}</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <a [href]="'tel:' + contactInfo.phone" class="contact-link">
+        {{ contactInfo.phone }}
+      </a>
+    </div>
+
+    <div class="contact-item">
+      <a [href]="'mailto:' + contactInfo.email" class="contact-link">
+        {{ contactInfo.email }}
+      </a>
+    </div>
+  </div>
+</div>

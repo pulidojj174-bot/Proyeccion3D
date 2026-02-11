@@ -1,0 +1,47 @@
+<div class="team-member-card" [class.team-member-card--no-hover]="!showHoverEffects()">
+  <div class="team-member-card__image-container">
+    <div class="team-member-card__image-wrapper">
+      <img
+        class="team-member-card__image"
+        [src]="member().image"
+        [alt]="member().name"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <div class="team-member-card__content">
+    <h3 class="team-member-card__name">{{ member().name }}</h3>
+    <p class="team-member-card__position">{{ member().position }}</p>
+
+    @if (member().bio) {
+      <p class="team-member-card__bio">{{ member().bio }}</p>
+    }
+
+    @if (member().email || member().linkedin) {
+      <div class="team-member-card__links">
+        @if (member().email) {
+          <a
+            [href]="'mailto:' + member().email"
+            class="team-member-card__link"
+            [attr.aria-label]="'Enviar email a ' + member().name"
+          >
+            <i class="pi pi-envelope"></i>
+          </a>
+        }
+
+        @if (member().linkedin) {
+          <a
+            [href]="member().linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-member-card__link"
+            [attr.aria-label]="'Ver perfil de LinkedIn de ' + member().name"
+          >
+            <i class="pi pi-linkedin"></i>
+          </a>
+        }
+      </div>
+    }
+  </div>
+</div>

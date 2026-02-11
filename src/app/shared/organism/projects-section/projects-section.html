@@ -1,0 +1,75 @@
+<section class="projects-section" [attr.data-testid]="'projects-section'">
+  <div class="projects-section__container">
+    
+    <!-- Header opcional -->
+    @if (sectionTitle()) {
+      <div class="projects-section__header">
+        <h2 class="projects-section__title">{{ sectionTitle() }}</h2>
+      </div>
+    }
+    
+    <!-- Tab Navigation -->
+    <div class="projects-section__tabs">
+      <div class="projects-section__tabs-container">
+        <div 
+          class="projects-section__tabs-list" 
+          role="tablist" 
+          aria-orientation="horizontal"
+          aria-label="Filtros de proyectos"
+        >
+          @for (tab of availableTabs(); track tab.id) {
+            <app-tab-button 
+              [tab]="tab"
+              [isActive]="activeTab() === tab.id"
+              (tabClick)="onTabChange($event)"
+              [attr.aria-controls]="'tab-content-' + tab.id"
+            />
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="projects-section__content">
+      <div 
+        class="projects-section__tab-panel"
+        role="tabpanel"
+        [attr.aria-labelledby]="'tab-' + activeTab()"
+        [attr.id]="'tab-content-' + activeTab()"
+        [attr.aria-live]="'polite'"
+      >
+        @if (filteredProjects().length > 0) {
+          <div 
+            class="projects-section__grid"
+            [attr.data-count]="filteredProjects().length"
+          >
+            @for (project of filteredProjects(); track project.id; let i = $index) {
+              <div 
+                class="projects-section__project"
+                [style.--index]="i"
+                [style.animation-delay]="(i * 0.1) + 's'"
+                [attr.data-category]="project.category"
+              >
+                <app-project-card 
+                  [project]="project" 
+                  [showHoverEffects]="true"
+                />
+              </div>
+            }
+          </div>
+        } @else {
+          <div class="projects-section__empty" role="status" aria-live="polite">
+            <div class="projects-section__empty-icon" aria-hidden="true">
+              <i class="bi bi-folder2-open"></i>
+            </div>
+            <h3 class="projects-section__empty-title">No hay proyectos disponibles</h3>
+            <p class="projects-section__empty-description">
+              Actualmente no tenemos proyectos en esta categoría. 
+              Intenta seleccionar otra categoría o vuelve más tarde.
+            </p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,259 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.project-card {
+  // Mobile First - Base styles
+  background: vars.color(white1);
+  border-radius: vars.$borderRadius-lg;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  // BEM Elements
+  &__image-container {
+    position: relative;
+    height: 256px;
+    overflow: hidden;
+    border-radius: vars.$borderRadius-lg vars.$borderRadius-lg 0 0;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-out;
+    filter: none;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+
+  &__overlay-content {
+    color: vars.color(white1);
+    text-align: center;
+    padding: vars.$spacing-md;
+    transform: translateY(20px);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+  }
+
+  &__overlay-text {
+    font-size: vars.$font-size-text;
+    font-weight: 500;
+  }
+
+  &__category-icon {
+    position: absolute;
+    top: vars.$spacing-sm;
+    right: vars.$spacing-sm;
+    background: rgba(vars.color(white1), 0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    padding: vars.$spacing-xs;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: vars.color(primary);
+    font-size: 1rem;
+  }
+
+  &__content {
+    padding: vars.$spacing-lg;
+  }
+
+  &__category {
+    font-size: vars.$font-size-sm;
+    color: vars.color(gray5);
+    display: block;
+    margin-bottom: vars.$spacing-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__title {
+    font-size: vars.$font-size-text;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0 0 vars.$spacing-sm 0;
+    line-height: 1.3;
+
+    @include mixins.tablet-up() {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__description {
+    font-size: vars.$font-size-sm;
+    color: vars.color(gray6);
+    line-height: 1.5;
+    margin: 0 0 vars.$spacing-md 0;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-size: vars.$font-size-sm;
+    font-weight: 500;
+    color: vars.color(primary);
+    text-decoration: none;
+    overflow: hidden;
+    transition: color 0.3s ease-out;
+    gap: vars.$spacing-xs;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+
+    &:hover {
+      color: vars.color(primary);
+
+      .project-card__link-background {
+        transform: scale(1);
+        opacity: 0.15;
+      }
+
+      .project-card__link-icon {
+        transform: translateX(4px);
+      }
+    }
+
+    &:focus {
+      @include mixins.focused();
+    }
+  }
+
+  &__link-background {
+    position: absolute;
+    inset: -4px;
+    background: vars.color(primary);
+    border-radius: vars.$borderRadius;
+    transform: scale(0);
+    transform-origin: right center;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+  }
+
+  &__link-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: vars.$spacing-xs;
+  }
+
+  &__link-icon {
+    font-size: 1rem;
+    transition: transform 0.3s ease-out;
+  }
+
+  // Hover effects for entire card
+  &:hover:not(&--no-hover) {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 8px 10px rgba(0, 0, 0, 0.1);
+
+    .project-card__image {
+      transform: scale(1.05);
+    }
+
+    .project-card__overlay {
+      opacity: 1;
+    }
+
+    .project-card__overlay-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  // BEM Modifier - Featured project
+  &--featured {
+    border: 2px solid vars.color(primary);
+    
+    .project-card__category-icon {
+      background: vars.color(primary);
+      color: vars.color(white1);
+    }
+  }
+
+  // BEM Modifier - No hover effects
+  &--no-hover {
+    &:hover {
+      transform: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+      .project-card__image {
+        transform: none;
+      }
+
+      .project-card__overlay {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@include mixins.mobile-only() {
+  .project-card {
+    &__image-container {
+      height: 200px;
+    }
+
+    &__content {
+      padding: vars.$spacing-md;
+    }
+
+    &__title {
+      font-size: vars.$font-size-text;
+    }
+
+    &__description {
+      font-size: vars.$font-size-sm;
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+
+    &__image,
+    &__overlay,
+    &__overlay-content,
+    &__link-background,
+    &__link-icon {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}

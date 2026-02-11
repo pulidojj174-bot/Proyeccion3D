@@ -1,0 +1,261 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.service-card {
+  // Mobile First - Base styles
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInUp 0.8s ease-out both;
+
+  // BEM Elements
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: vars.$spacing-xxl;
+    align-items: center;
+
+    @include mixins.desktop-up() {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  &__text {
+    order: 1;
+
+    @include mixins.desktop-up() {
+      order: 1;
+    }
+  }
+
+  &__icon-container {
+    background: vars.color(bg-gray1);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: vars.$spacing-lg;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+
+    @include mixins.tablet-up() {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  &__icon {
+    font-size: 2rem;
+    color: vars.color(gray7);
+    transition: color vars.$transitionDuration vars.$transitionEasing;
+
+    @include mixins.tablet-up() {
+      font-size: 2.25rem;
+    }
+  }
+
+  &__title {
+    font-size: vars.$font-size-text-mobile;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0 0 vars.$spacing-md 0;
+    line-height: 1.2;
+
+    @include mixins.tablet-up() {
+      font-size: 2rem;
+    }
+  }
+
+  &__description {
+    font-size: vars.$font-size-text-mobile;
+    color: vars.color(gray6);
+    line-height: 1.6;
+    margin: 0 0 vars.$spacing-lg 0;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  &__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-sm;
+
+    @include mixins.tablet-up() {
+      gap: vars.$spacing-md;
+    }
+  }
+
+  &__image-container {
+    order: 2;
+
+    @include mixins.desktop-up() {
+      order: 2;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    height: 300px;
+    border-radius: vars.$borderRadius-lg;
+    overflow: hidden;
+    transform: translateX(0);
+    transition: transform 0.1s ease-out;
+
+    @include mixins.tablet-up() {
+      height: 400px;
+    }
+
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform vars.$transitionDuration ease-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  // BEM Modifier - Reverse layout (image on left)
+  &--reverse {
+    .service-card__text {
+      @include mixins.desktop-up() {
+        order: 2;
+      }
+    }
+
+    .service-card__image-container {
+      @include mixins.desktop-up() {
+        order: 1;
+      }
+    }
+
+    .service-card__image-wrapper {
+      &:hover {
+        transform: translateX(-10px);
+      }
+    }
+  }
+
+  // Hover effects
+  &:hover {
+    .service-card__icon-container {
+      background: vars.color(primary);
+      transform: scale(1.1);
+    }
+
+    .service-card__icon {
+      color: vars.color(white1);
+    }
+  }
+}
+
+// Keyframes
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive adjustments
+@include mixins.mobile-only() {
+  .service-card {
+    &__content {
+      gap: vars.$spacing-xl;
+    }
+
+    &__icon-container {
+      width: 56px;
+      height: 56px;
+    }
+
+    &__icon {
+      font-size: 1.75rem;
+    }
+
+    &__title {
+      font-size: vars.$font-size-text-mobile;
+    }
+
+    &__description {
+      font-size: vars.$font-size-text-mobile;
+    }
+
+    &__image-wrapper {
+      height: 250px;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    &__image {
+      &:hover {
+        transform: none;
+      }
+    }
+
+    &--reverse {
+      .service-card__image-wrapper {
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .service-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+
+    &:hover {
+      .service-card__icon-container {
+        transform: none;
+      }
+    }
+
+    &__image-wrapper {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    &__image {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    &--reverse {
+      .service-card__image-wrapper {
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  }
+}

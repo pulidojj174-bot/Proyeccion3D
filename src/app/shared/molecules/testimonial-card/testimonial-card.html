@@ -1,0 +1,23 @@
+<section class="testimonial-card" [class.testimonial-card--active]="isActive">
+  <article class="testimonial-card__content">
+    
+    <!-- Avatar con borde azul -->
+    <section class="testimonial-card__avatar">
+      <img 
+        [src]="testimonial.avatar" 
+        [alt]="testimonial.name"
+        class="testimonial-card__avatar-image">
+    </section>
+
+    <!-- Quote estilizada -->
+    <blockquote class="testimonial-card__quote">
+      "{{ testimonial.quote }}"
+    </blockquote>
+
+    <!-- Información del autor -->
+    <section class="testimonial-card__author">
+      <h4 class="testimonial-card__name">{{ testimonial.name }}</h4>
+      <p class="testimonial-card__title">{{ testimonial.title }}</p>
+    </section>
+  </article>
+</section>

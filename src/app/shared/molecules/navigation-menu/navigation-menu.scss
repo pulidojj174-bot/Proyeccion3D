@@ -1,0 +1,47 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: vars.$spacing-lg;
+
+  @include mixins.mobile() {
+    display: none;
+  }
+
+  .nav-item {
+    .nav-link {
+      text-decoration: none;
+      color: vars.color('gray7');
+      font-weight: 500;
+      padding: vars.$spacing-sm vars.$spacing-md;
+      border-radius: vars.$borderRadius-sm;
+      transition: all vars.$transitionDuration vars.$transitionEasing;
+      position: relative;
+
+      &:hover {
+        color: vars.color('primary');
+        background-color: vars.color('bg-gray1');
+      }
+
+      &.active {
+        color: vars.color('blue600');
+        background-color: vars.color('bg-gray1');
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          height: 2px;
+          background-color: vars.color('blue600');
+        }
+      }
+    }
+  }
+}

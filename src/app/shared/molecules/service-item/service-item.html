@@ -1,0 +1,18 @@
+<div class="service-item">
+  <div class="service-item__icon-container">
+    <i [class]="service().icon" class="service-item__icon"></i>
+  </div>
+
+  <div class="service-item__content">
+    <h3 class="service-item__title">{{ service().title }}</h3>
+    <p class="service-item__description">{{ service().description }}</p>
+
+    <a [routerLink]="service().linkUrl || '/services'" class="service-item__link"
+      [attr.aria-label]="'Saber más sobre ' + service().title">
+      <span class="service-item__link-text">
+        {{ service().linkText || 'Saber Más' }}
+      </span>
+      <i class="bi bi-arrow-right service-item__link-icon"></i>
+    </a>
+  </div>
+</div>

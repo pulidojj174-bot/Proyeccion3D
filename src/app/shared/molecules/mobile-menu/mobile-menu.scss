@@ -1,0 +1,48 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: vars.color('white1');
+  border-bottom: 1px solid vars.color('gray0');
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all vars.$transitionDuration vars.$transitionEasing;
+
+  @include mixins.tablet-up() {
+    display: none;
+  }
+
+  &.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-nav {
+    list-style: none;
+    margin: 0;
+    padding: vars.$spacing-md 0;
+
+    &-item {
+      .mobile-nav-link {
+        display: block;
+        text-decoration: none;
+        color: vars.color('gray7');
+        font-weight: 500;
+        padding: vars.$spacing-md vars.$spacing-lg;
+        transition: all vars.$transitionDuration vars.$transitionEasing;
+
+        &:hover,
+        &.active {
+          color: vars.color('blue600');
+          background-color: vars.color('bg-gray1');
+        }
+      }
+    }
+  }
+}

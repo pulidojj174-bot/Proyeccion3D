@@ -1,0 +1,89 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.services-section {
+  // Mobile First - Base styles
+  background: vars.color(white1);
+  padding: vars.$spacing-xxl 0;
+
+  @include mixins.tablet-up() {
+    padding: 6rem 0;
+  }
+
+  @include mixins.desktop-up() {
+    padding: 8rem 0;
+  }
+
+  // BEM Elements
+  &__container {
+    max-width: vars.$container-max-width;
+    margin: 0 auto;
+    padding: vars.$padding-box;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: vars.$spacing-xxl;
+
+    @include mixins.tablet-up() {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__title {
+    font-size: vars.$font-size-title-mobile;
+    font-weight: 700;
+    color: vars.color(black2);
+    margin: 0;
+    line-height: 1.2;
+
+    @include mixins.tablet-up() {
+      font-size: 3rem;
+    }
+
+    @include mixins.desktop-up() {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-xxl;
+
+    @include mixins.tablet-up() {
+      gap: 4rem;
+    }
+
+    @include mixins.desktop-up() {
+      gap: 5rem;
+    }
+  }
+
+  &__service {
+    width: 100%;
+  }
+}
+
+// Responsive adjustments
+@include mixins.mobile-only() {
+  .services-section {
+    &__content {
+      gap: vars.$spacing-xl;
+    }
+
+    &__title {
+      font-size: vars.$font-size-title-mobile;
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .services-section {
+    &__service {
+      page-break-inside: avoid;
+      margin-bottom: 2rem;
+    }
+  }
+}

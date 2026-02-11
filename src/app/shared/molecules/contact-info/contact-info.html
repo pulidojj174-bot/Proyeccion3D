@@ -1,0 +1,24 @@
+<section class="contact-info">
+  <article class="contact-info__header">
+    <h3 class="contact-info__title">{{ title() }}</h3>
+    <p class="contact-info__subtitle">{{ subtitle() }}</p>
+  </article>
+
+  <article class="contact-info__items">
+    @for (item of contactItems(); track item.title) {
+      <section class="contact-info__item">
+        <article class="contact-info__icon">
+          <i class="pi {{ item.icon }}"></i>
+        </article>
+        <article class="contact-info__content">
+          <h4 class="contact-info__item-title">{{ item.title }}</h4>
+          <section class="contact-info__item-description">
+            @for (line of item.lines; track line) {
+              <p>{{ line }}</p>
+            }
+          </section>
+        </article>
+      </section>
+    }
+  </article>
+</section>

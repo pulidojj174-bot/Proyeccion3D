@@ -1,0 +1,61 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.footer-copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: vars.$spacing-lg 0;
+  margin-top: vars.$spacing-xl;
+
+  .copyright-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: vars.$spacing-md;
+
+    @include mixins.mobile() {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: vars.$spacing-md;
+    }
+
+    .copyright-text {
+      color: vars.color('gray8');
+      font-size: vars.$font-size-sm;
+      margin: 0;
+    }
+
+    .legal-links {
+      display: flex;
+      gap: vars.$spacing-lg;
+
+      @include mixins.mobile() {
+        flex-direction: column;
+        gap: vars.$spacing-sm;
+      }
+
+      .legal-link {
+        color: vars.color('gray8');
+        text-decoration: none;
+        font-size: vars.$font-size-sm;
+        transition: color vars.$transitionDuration vars.$transitionEasing;
+
+        &:hover {
+          color: vars.color('primary');
+        }
+
+        &:not(:last-child) {
+          position: relative;
+
+          @include mixins.tablet-up() {
+            &::after {
+              content: '|';
+              position: absolute;
+              right: calc(-#{vars.$spacing-lg} / 2);
+              color: vars.color('gray8');
+            }
+          }
+        }
+      }
+    }
+  }
+}

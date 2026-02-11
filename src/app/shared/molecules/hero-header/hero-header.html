@@ -1,0 +1,118 @@
+<section [class]="containerClasses()" [ngStyle]="containerStyles">
+  <!-- Background image -->
+  @if (config().backgroundImage && config().layout === 'hero-with-background') {
+  <article class="page-hero__background page-hero__fade-in" [style.background-image]="'url(' + config().backgroundImage + ')'">
+  </article>
+  }
+
+  <!-- Overlay -->
+  @if (config().hasOverlay) {
+  <article class="page-hero__overlay page-hero__fade-in" [ngStyle]="overlayStyles">
+  </article>
+  }
+
+  <!-- Contenido principal -->
+  <article class="page-hero__container page-hero__fade-in">
+    <section class="page-hero__content" [style.max-width]="config().maxWidth" [style.color]="config().textColor">
+
+      <!-- Layout Hero con imagen -->
+      @if (config().layout === 'hero-with-image') {
+      <article class="page-hero__grid">
+        <!-- Contenido de texto -->
+        <section class="page-hero__text-content page-hero__fade-in">
+          <!-- Título con animación escalonada por palabra -->
+          <h1 class="page-hero__title page-hero__fade-in">
+            @for (part of titleParts(); track part.text; let i = $index) {
+            <span [class.page-hero__title--highlighted]="part.isHighlighted">
+              {{ part.text }}
+            </span>
+            }
+          </h1>
+
+          @if (subtitle()) {
+          <h2 class="page-hero__subtitle page-hero__fade-in">{{ subtitle() }}</h2>
+          }
+
+          @if (description()) {
+          <p class="page-hero__description page-hero__fade-in">{{ description() }}</p>
+          }
+
+          @if (buttons()) {
+          <article class="page-hero__actions page-hero__fade-in">
+            @for (button of buttons(); track button.label; let i = $index) {
+            @if (button.path) {
+            <a [routerLink]="button.path" [class]="'page-hero__button page-hero__button--' + button.variant">
+              {{ button.label }}
+              @if (button.icon) {
+              <i [class]="button.icon"></i>
+              }
+            </a>
+            } @else {
+            <button (click)="button.action?.()" [class]="'page-hero__button page-hero__button--' + button.variant">
+              {{ button.label }}
+              @if (button.icon) {
+              <i [class]="button.icon"></i>
+              }
+            </button>
+            }
+            }
+          </article>
+          }
+        </section>
+
+        <!-- Imagen con animación -->
+        @if (heroImage()) {
+        <section class="page-hero__image-container page-hero__fade-in">
+          <img [src]="heroImage()" [alt]="imageAlt || title" class="page-hero__image">
+          <div class="page-hero__image-overlay"></div>
+        </section>
+        }
+      </article>
+      }
+
+      <!-- Layout simple/centrado -->
+      @if (config().layout === 'simple' || config().layout === 'centered' || config().layout === 'hero-with-background') {
+      <article class="page-hero__simple-content page-hero__fade-in">
+        <!-- Título centrado con animación escalonada -->
+        <h1 class="page-hero__title page-hero__fade-in">
+          @for (part of titleParts(); track part.text; let i = $index) {
+          <span [class.page-hero__title--highlighted]="part.isHighlighted">
+            {{ part.text }}
+          </span>
+          }
+        </h1>
+
+        @if (subtitle()) {
+        <h2 class="page-hero__subtitle page-hero__fade-in">{{ subtitle() }}</h2>
+        }
+
+        @if (description()) {
+        <p class="page-hero__description page-hero__fade-in">{{ description() }}</p>
+        }
+
+        @if (buttons()) {
+        <section class="page-hero__actions page-hero__fade-in">
+          @for (button of buttons(); track button.label; let i = $index) {
+          @if (button.path) {
+          <a [routerLink]="button.path" [class]="'page-hero__button page-hero__button--' + button.variant">
+            {{ button.label }}
+            @if (button.icon) {
+            <i [class]="button.icon"></i>
+            }
+          </a>
+          } @else {
+          <button (click)="button.action?.()" [class]="'page-hero__button page-hero__button--' + button.variant">
+            {{ button.label }}
+            @if (button.icon) {
+            <i [class]="button.icon"></i>
+            }
+          </button>
+          }
+          }
+        </section>
+        }
+      </article>
+      }
+    </section>
+  </article>
+</section>

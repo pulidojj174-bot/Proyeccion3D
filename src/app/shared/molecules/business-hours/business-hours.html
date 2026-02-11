@@ -1,0 +1,14 @@
+<div class="business-hours">
+  <h3 class="business-hours__title">{{ title() }}</h3>
+
+  <table class="business-hours__table">
+    <tbody>
+      @for (hour of hours(); track hour.day; let i = $index) {
+      <tr class="business-hours__row">
+        <td class="business-hours__day">{{ hour.day }}</td>
+        <td class="business-hours__time">{{ hour.hours }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

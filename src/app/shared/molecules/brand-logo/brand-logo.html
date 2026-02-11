@@ -1,0 +1,17 @@
+<div class="navbar-brand">
+  <a [routerLink]="[href]" class="brand-link">
+    @if (showLogo) {
+      <img 
+        [ngSrc]="logo"
+        [alt]="logoAlt"
+        [width]="logoWidth"
+        [height]="logoHeight"
+        class="brand-logo"
+        loading="eager"
+      />
+    }
+    
+    @if (showText) {<span class="brand-text">{{ text }}</span>
+    }
+  </a>
+</div>
