@@ -1,6 +1,5 @@
 <section class="clients-marquee-section">
   <div class="clients-marquee-section__container">
-
     @if (showTitle()) {
       <div class="clients-marquee-section__header">
         <h2 class="clients-marquee-section__title">{{ title() }}</h2>
@@ -26,7 +25,7 @@
               id: 'ecoplantas',
               name: 'Ecoplantas',
               logo: 'assets/images/logos/ecoplantas.png',
-              alt: 'Logo Ecoplantas'
+              alt: 'Logo Ecoplantas',
             }"
             [showName]="showClientNames()"
           />
@@ -38,11 +37,11 @@
             [client]="{
               id: 'industrias-tiagho',
               name: 'Industrias Tiagho',
-            logo: 'assets/images/logos/industriasTiagho.png',
-            alt: 'Logo Industrias Tiagho'
-          }"
-          [showName]="showClientNames()"
-        />
+              logo: 'assets/images/logos/industriasTiagho.png',
+              alt: 'Logo Industrias Tiagho',
+            }"
+            [showName]="showClientNames()"
+          />
         </ng-template>
 
         <ng-template>
@@ -50,12 +49,12 @@
           <app-client-card
             [client]="{
               id: 'interpesaje1',
-            name: 'Interpesaje División Industrial',
-            logo: 'assets/images/logos/interpesaje1.png',
-            alt: 'Logo Interpesaje División Industrial'
-          }"
-          [showName]="showClientNames()"
-        />
+              name: 'Interpesaje División Industrial',
+              logo: 'assets/images/logos/interpesaje1.png',
+              alt: 'Logo Interpesaje División Industrial',
+            }"
+            [showName]="showClientNames()"
+          />
         </ng-template>
 
         <ng-template>
@@ -65,7 +64,7 @@
               id: 'payan-cia',
               name: 'Payán & CIA',
               logo: 'assets/images/logos/Payan_CIA.png',
-              alt: 'Logo Payán & CIA'
+              alt: 'Logo Payán & CIA',
             }"
             [showName]="showClientNames()"
           />
@@ -78,92 +77,102 @@
               id: 'pci',
               name: 'PCI',
               logo: 'assets/images/logos/PCI.png',
-              alt: 'Logo PCI'
+              alt: 'Logo PCI',
             }"
             [showName]="showClientNames()"
           />
         </ng-template>
-               <ng-template>
+
+        <ng-template>
           <!-- Buen Café -->
           <app-client-card
             [client]="{
               id: 'buenCafe',
               name: 'BUEN CAFÉ',
               logo: 'assets/images/logos/buen-cafe-cl.png',
-              alt: 'Logo Buen Café'
+              alt: 'Logo Buen Café',
             }"
             [showName]="showClientNames()"
           />
         </ng-template>
-               <ng-template>
+
+        <ng-template>
           <!-- Meals -->
           <app-client-card
             [client]="{
               id: 'meals',
               name: 'MEALS',
               logo: 'assets/images/logos/MealsDeColombia.png',
-              alt: 'Logo MEALS'
+              alt: 'Logo MEALS',
             }"
             [showName]="showClientNames()"
           />
         </ng-template>
-               <ng-template>
+
+        <ng-template>
           <!-- ARME -->
           <app-client-card
             [client]="{
               id: 'arme',
               name: 'ARME',
               logo: 'assets/images/logos/LOGO-ARME-1024x352.png',
-              alt: 'Logo ARME'
+              alt: 'Logo ARME',
             }"
             [showName]="showClientNames()"
           />
         </ng-template>
 
-        <!-- Pimec -->
-        <!-- <app-client-card
-          [client]="{
-            id: 'pimec',
-            name: 'Pimec',
-            logo: 'assets/images/logos/pimec.png',
-            alt: 'Logo Pimec'
-          }"
-          [showName]="showClientNames()"
-        /> -->
+        <ng-template>
+          <!-- Pimec -->
+          <app-client-card
+            [client]="{
+              id: 'pimec',
+              name: 'Pimec',
+              logo: 'assets/images/logos/pimec.png',
+              alt: 'Logo Pimec',
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
 
-        <!-- Super -->
-        <!-- <app-client-card
-          [client]="{
-            id: 'super',
-            name: 'Super',
-            logo: 'assets/images/logos/Super.png',
-            alt: 'Logo Super'
-          }"
-          [showName]="showClientNames()"
-        /> -->
+        <ng-template>
+          <!-- Super -->
+          <app-client-card
+            [client]="{
+              id: 'super',
+              name: 'Super',
+              logo: 'assets/images/logos/Super.png',
+              alt: 'Logo Super',
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
 
-        <!-- Ternium -->
-        <!-- <app-client-card
-          [client]="{
-            id: 'ternium',
-            name: 'Ternium',
-            logo: 'assets/images/logos/Ternium.png',
-            alt: 'Logo Ternium'
-          }"
-          [showName]="showClientNames()"
-        /> -->
+        <ng-template>
+          <!-- Ternium -->
+          <app-client-card
+            [client]="{
+              id: 'ternium',
+              name: 'Ternium',
+              logo: 'assets/images/logos/Ternium.png',
+              alt: 'Logo Ternium',
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
 
-        <!-- WTT -->
-        <!-- <app-client-card
-          [client]="{
-            id: 'wtt',
-            name: 'WTT',
-            logo: 'assets/images/logos/Wtt.png',
-            alt: 'Logo WTT'
-          }"
-          [showName]="showClientNames()"
-        /> -->
-
+        <ng-template>
+          <!-- WTT -->
+          <app-client-card
+            [client]="{
+              id: 'wtt',
+              name: 'WTT',
+              logo: 'assets/images/logos/Wtt.png',
+              alt: 'Logo WTT',
+            }"
+            [showName]="showClientNames()"
+          />
+        </ng-template>
       </om-marquee>
     </div>
   </div>

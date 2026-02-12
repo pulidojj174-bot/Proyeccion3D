@@ -60,10 +60,17 @@
           }
         </section>
 
-        <!-- Imagen con animación -->
-        @if (heroImage()) {
+        <!-- Video o Imagen con animación -->
+        @if (heroVideo() || heroImage()) {
         <section class="page-hero__image-container page-hero__fade-in">
-          <img [src]="heroImage()" [alt]="imageAlt || title" class="page-hero__image">
+          @if (heroVideo()) {
+          <video class="page-hero__video" [autoplay]="videoAutoplay()" [muted]="videoMuted()" [loop]="videoLoop()" playsinline>
+            <source [src]="heroVideo()" type="video/mp4">
+            Tu navegador no soporta etiquetas de video.
+          </video>
+          } @else {
+          <img [src]="heroImage()" [alt]="imageAlt || title()" class="page-hero__image">
+          }
           <div class="page-hero__image-overlay"></div>
         </section>
         }

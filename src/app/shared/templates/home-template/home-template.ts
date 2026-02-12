@@ -33,8 +33,11 @@ export class HomeTemplate {
     subtitle: 'Transformando Ideas en Realidad',
     description:
       'Somos especialistas en ingeniería inversa, modelado 3D y soluciones industriales. Ofrecemos escaneo láser, impresión 3D, análisis por elementos finitos (FEA) y diseño mecánico. Servicios a nivel nacional e internacional.',
-    heroImage:
-      'assets/images/projects/HeaderProyeccion.png',
+    heroVideo:
+      'assets/images/projects/HeaderProyeccion.mp4',
+    videoAutoplay: true,
+    videoMuted: true,
+    videoLoop: true,
     buttons: [
       {
         label: 'Nuestros Servicios',
@@ -148,10 +151,15 @@ export class HomeTemplate {
   aboutHeroData = signal({
     title: 'Expertos en Soluciones para la Industria',
     description:
-      'Más de 3 años impulsando la innovación industrial con tecnología de vanguardia. Nuestro equipo de ingenieros certificados han desarrollado más de 500 modelos 3D, 40 análisis FEA, 25 diseños de plantas industriales y más de 80 escaneos 3D para empresas como TERNIUM Colombia, Super de alimentos y Grupo Nutresa.',
+      'Más de 3 años impulsando la innovación industrial con tecnología de vanguardia. Nuestro equipo de ingenieros certificados ha desarrollado más de 500 modelos 3D, 40 análisis FEA, 25 diseños de plantas industriales y más de 80 escaneos 3D para empresas como:',
     image:
       'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2000&auto=format&fit=crop',
     imageAlt: 'Equipo de trabajo colaborando en impresión 3D',
+    companies: [
+      { id: 'ternium', name: 'Ternium', logo: 'assets/images/logos/Ternium.png', alt: 'Logo Ternium' },
+      { id: 'payan', name: 'Payán & CIA', logo: 'assets/images/logos/Payan_logo.jpeg', alt: 'Logo Payán & CIA' },
+      { id: 'super', name: 'Super', logo: 'assets/images/logos/Super.png', alt: 'Logo Super' },
+    ],
     button: {
       label: 'Sobre Nosotros',
       path: '/about',

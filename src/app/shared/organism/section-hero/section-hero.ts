@@ -9,6 +9,13 @@ export interface AboutHeroButton {
   variant?: 'primary' | 'secondary' | 'outline';
 }
 
+export interface CompanyLogo {
+  id: string;
+  name: string;
+  logo: string;
+  alt: string;
+}
+
 @Component({
   selector: 'app-section-hero',
   imports: [RouterModule],
@@ -23,4 +30,5 @@ export class SectionHero {
   imageAlt = input<string>();
   button = input<AboutHeroButton>();
   backgroundColor = input<string>('#f8fafc');
+  companies = input<CompanyLogo[]>([]);
 }

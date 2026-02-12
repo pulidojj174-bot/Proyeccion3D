@@ -102,8 +102,8 @@ export class AboutTemplate {
       id: 'clock',
       icon: 'bi-clock',
       value: '2000',
-      label:   `  Horas de
-      diseño `,
+      label:   `  Premios de la
+      Industria `,
     },
     {
       id: 'experience',

@@ -1,10 +1,10 @@
 <!-- Home -->
 <app-hero-header [title]="homeHeroData().title" [highlightedWords]="homeHeroData().highlightedWords"
-  [subtitle]="homeHeroData().subtitle" [description]="homeHeroData().description" [heroImage]="homeHeroData().heroImage"
+  [subtitle]="homeHeroData().subtitle" [description]="homeHeroData().description" [heroVideo]="homeHeroData().heroVideo"
   [buttons]="homeHeroData().buttons"  [config]="homeHeroData().config">
 </app-hero-header>
 <app-section-hero [title]="aboutHeroData().title" [description]="aboutHeroData().description"
-  [image]="aboutHeroData().image" [imageAlt]="aboutHeroData().imageAlt" [button]="aboutHeroData().button">
+  [image]="aboutHeroData().image" [imageAlt]="aboutHeroData().imageAlt" [button]="aboutHeroData().button" [companies]="aboutHeroData().companies">
 </app-section-hero>
 <app-services-section [services]="myServicesArray()" [ctaText]="'Explorar Servicios'" [ctaLink]="'/service'"
   [sectionTitle]="'Nuestros Servicios'" [sectionSubtitle]="'Descripción personalizada'" />

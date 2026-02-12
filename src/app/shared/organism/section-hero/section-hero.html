@@ -7,6 +7,17 @@
 
         <p class="section-hero__description">{{ description() }}</p>
 
+        <!-- Logos de empresas -->
+        @if (companies() && companies().length > 0) {
+        <div class="section-hero__companies">
+          @for (company of companies(); track company.id) {
+          <div class="section-hero__company-item">
+            <img [src]="company.logo" [alt]="company.alt" class="section-hero__company-logo" title="{{ company.name }}">
+          </div>
+          }
+        </div>
+        }
+
         @if (button()) {
         <div class="section-hero__button-container">
           <a [routerLink]="button()?.path" class="section-hero__button">

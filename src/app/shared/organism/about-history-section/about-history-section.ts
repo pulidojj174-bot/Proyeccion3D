@@ -9,7 +9,7 @@ import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 })
 export class AboutHistorySection {
   title = input<string>('Nuestra Historia');
-  image = input<string>('assets/images/Andres-Mosca.png');
+  image = input<string>('assets/images/logos/P3D.png');
   imageAlt = input<string>('Nuestras instalaciones de impresión 3D');
   paragraphs = input<string[]>([
     'Desde 2022, Proyección 3D impulsa la transformación de la industria colombiana, llevando la ingeniería de precisión más allá de los límites tradicionales. Nuestro propósito es claro: unir tecnología de vanguardia con el talento local para crear soluciones que construyen futuro.',

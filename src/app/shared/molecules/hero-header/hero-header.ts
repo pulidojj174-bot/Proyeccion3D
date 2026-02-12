@@ -37,6 +37,10 @@ export class HeroHeaderComponent {
   description = input<string>();
   heroImage = input<string>();
   imageAlt = input<string>();
+  heroVideo = input<string>();
+  videoAutoplay = input<boolean>(true);
+  videoMuted = input<boolean>(true);
+  videoLoop = input<boolean>(true);
   buttons = input<PageHeroButton[]>([]);
   config = input<PageHeroConfig>({
     layout: 'simple',

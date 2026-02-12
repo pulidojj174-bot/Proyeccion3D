@@ -141,6 +141,53 @@
     }
   }
 
+  &__companies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+    align-items: center;
+
+    @include mixins.tablet-up() {
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &__company-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__company-logo {
+    max-height: 60px;
+    max-width: 120px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(0%);
+    transition: all 0.3s ease;
+
+    @include mixins.mobile-only() {
+      max-height: 45px;
+      max-width: 90px;
+    }
+
+    &:hover {
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+  }
+
   &__image {
     width: 100%;
     height: auto;
