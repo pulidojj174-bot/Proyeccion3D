@@ -16,7 +16,6 @@ import { MissionValuesSection } from "../../organism/mission-values-section/miss
   imports: [
     HeroHeaderComponent,
     CTASection,
-    TeamSection,
     AboutHistorySection,
     StatsSection,
     QuoteSection,
@@ -121,37 +120,37 @@ export class AboutTemplate {
   ]);
 
   valuesData = signal<ValueData[]>([
-    /*     {
-      id: 'innovation',
-      title: 'Innovación',
-      description: 'Fomentamos un entorno donde la creatividad y la innovación tecnológica prosperan, impulsando soluciones de vanguardia para nuestros clientes.'
-    },
-    {
-      id: 'quality',
-      title: 'Calidad',
-      description: 'Nos comprometemos a entregar productos y servicios de la más alta calidad, asegurando la satisfacción total del cliente en cada proyecto.'
-    },
-    {
-      id: 'sustainability',
-      title: 'Sostenibilidad',
-      description: 'Adoptamos prácticas sostenibles en todas nuestras operaciones, minimizando nuestro impacto ambiental y promoviendo un futuro más verde.'
-    } */
     {
       id: 'mission',
       title: 'Misión',
       description:
-        'Nos dedicamos al desarrollo de proyectos basados en diseño mecánico,simulación y análisis de esfuerzos, ingeniería básica, conceptual y de detalle. Así como desarrollo de P&ID, piping, diseño de plantas,memorias de cálculo, impresión 3D, planos de taller, layout 2D y 3D.',
+        'PROYECCIÓN 3D S.A.S. BIC entrega soluciones de diseño básico, conceptual y de detalle para la industria metalmecánica, construcción e ingeniería, suministrando desarrollos inteligentes y conscientes de la importancia de la imagen como fuente de información para socializar proyectos y sus características técnicas, con el fin de llevar los principios de ingeniería a la comprensión del usuario final.',
     },
     {
       id: 'vision',
       title: 'Visión',
       description:
-        'Deseamos ser la empresa consultora y de diseño con mayor empoderamiento técnico, mediante el desarrollo tecnológico y pedagógico para la compresión y visualización de proyectos.',
+        'Ser la empresa consultora y de diseño con mayor empoderamiento técnico, mediante el desarrollo tecnológico y pedagógico para la compresión y visualización de proyectos.',
     },
     {
       id: 'políticas',
-      title: 'Nuestras Políticas',
-      description: 'La suma de los talentos individuales, conforma el conjunto de las capacidades del equipo para conseguir resultados exponencialmente mejores.Es por esta razón que estamos completamente felices de que hayas tomado la decisión de ser parte de PROYECCIÓN 3D SAS BIC, juntos formaremos un gran equipo de trabajo.',
+      title: 'Politica de calidad',
+      description: 'PROYECCIÓN 3D S.A.S. BIC, como empresa líder en el desarrollo de diseños para la industria, proyectos e ingeniería, promueve las buenas prácticas de calidad orientadas a la satisfacción de nuestros clientes y partes interesadas, así como a la mejora continua de la eficacia del Sistema de Gestión de Calidad. Para lograr estos objetivos, PROYECCIÓN 3D S.A.S. BIC, se compromete:',
     },
+    {
+      id: '1',
+      title: '1.',
+      description: 'Comprometidos con la excelencia, cumplimos con los estándares del Sistema de Gestión de Calidad ISO 9001, y trabajamos cada día en mejorar nuestros procesos para ofrecer siempre lo mejor.',
+    },
+    {
+      id: '2',
+      title: '2.',
+      description: 'Cumplir con la satisfacción de nuestros clientes, mediante el cumplimiento de sus necesidades y expectativas.',
+    },
+    {
+      id: '3',
+      title: '3.',
+      description: 'Brindar capacitación continua a todos los colaboradores de Proyección 3D S.A.S BIC, con el propósito de optimizar su desempeño mediante el fortalecimiento de la seguridad y la eficiencia, promoviendo de manera sostenida su motivación y compromiso organizacional.',
+    }
   ]);
 }

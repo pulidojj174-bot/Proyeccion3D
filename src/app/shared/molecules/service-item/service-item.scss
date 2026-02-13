@@ -3,33 +3,41 @@
 
 .service-item {
   // Mobile First - Base styles
-  background: vars.color(white1);
+  background: #e0e0e0;
   padding: vars.$spacing-lg;
-  border-radius: vars.$borderRadius-lg;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all vars.$transitionDuration vars.$transitionEasing;
+  border-radius: 30px;
+  transition: all 0.4s ease-out;
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid vars.color(gray0);
+  border: none;
+
+  /* Neumorfismo clásico - Elevado */
+  box-shadow:
+    5px 5px 4px #5a5a5a,
+    -5px -5px 4px #ffffff;
 
   @include mixins.tablet-up() {
     padding: vars.$spacing-xl;
+    border-radius: 36px;
   }
 
   // Hover effects
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border-color: vars.color(primary);
+    box-shadow:
+      inset 5px 5px 4px #5a5a5a,
+      inset -5px -5px 4px #ffffff;
 
     .service-item__icon-container {
-      background: vars.color(primary);
+      background: var(--color-primary, #0066ff);
       color: vars.color(white1);
+      box-shadow:
+        inset 3px 3px 4px #003a99,
+        inset -3px -3px 4px #0084ff;
     }
 
     .service-item__link {
-      color: vars.color(primary);
+      color: var(--color-primary, #0066ff);
     }
 
     .service-item__link-icon {
@@ -41,26 +49,32 @@
   &__icon-container {
     width: 56px;
     height: 56px;
-    background: vars.color(bg-gray1);
-    color: vars.color(blue600);
-    border-radius: 50%;
+    background: #e0e0e0;
+    color: var(--color-primary, #0066ff);
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: vars.$spacing-md;
-    transition: all vars.$transitionDuration vars.$transitionEasing;
+    transition: all 0.4s ease-out;
     flex-shrink: 0;
+
+    /* Neumorfismo clásico - Elevado */
+    box-shadow:
+      5px 5px 4px #5a5a5a,
+      -5px -5px 4px #ffffff;
 
     @include mixins.tablet-up() {
       width: 64px;
       height: 64px;
       margin-bottom: vars.$spacing-lg;
+      border-radius: 28px;
     }
   }
 
   &__icon {
     font-size: 1.5rem;
-    
+
     @include mixins.tablet-up() {
       font-size: 1.75rem;
     }
@@ -102,11 +116,11 @@
     display: inline-flex;
     align-items: center;
     gap: vars.$spacing-xs;
-    color: vars.color(blue600);
+    color: var(--color-primary, #0066ff);
     text-decoration: none;
     font-weight: 500;
     font-size: vars.$font-size-sm;
-    transition: all vars.$transitionDuration vars.$transitionEasing;
+    transition: all 0.4s ease-out;
     margin-top: auto;
 
     @include mixins.tablet-up() {
@@ -114,7 +128,7 @@
     }
 
     &:hover {
-      color: vars.color(blue700);
+      color: #0052cc;
     }
 
     &:focus {
@@ -129,7 +143,7 @@
 
   &__link-icon {
     font-size: 1rem;
-    transition: transform vars.$transitionDuration vars.$transitionEasing;
+    transition: transform 0.4s ease-out;
 
     @include mixins.tablet-up() {
       font-size: 1.125rem;
@@ -139,13 +153,13 @@
   // Loading state
   &--loading {
     .service-item__icon-container {
-      background: vars.color(gray2);
+      background: #d0d0d0;
       animation: pulse 1.5s infinite;
     }
 
     .service-item__title,
     .service-item__description {
-      background: vars.color(gray2);
+      background: #d0d0d0;
       color: transparent;
       border-radius: vars.$borderRadius-sm;
       animation: pulse 1.5s infinite;

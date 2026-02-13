@@ -6,6 +6,18 @@
   opacity: 0;
   transform: translateY(30px);
   animation: slideInUp 0.8s ease-out both;
+  background: #e0e0e0;
+  padding: vars.$spacing-xxl;
+  border-radius: 50px;
+  transition: all 0.4s ease-out;
+
+  /* Neumorfismo clásico - Elevado */
+  box-shadow:
+    5px 5px 4px #5a5a5a,
+    -5px -5px 4px #ffffff;
+
+  position: relative;
+  overflow: hidden;
 
   // BEM Elements
   &__content {
@@ -29,19 +41,26 @@
   }
 
   &__icon-container {
-    background: vars.color(bg-gray1);
+    background: #e0e0e0;
     width: 64px;
     height: 64px;
-    border-radius: 50%;
+    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: vars.$spacing-lg;
-    transition: all vars.$transitionDuration vars.$transitionEasing;
+    transition: all 0.4s ease-out;
+    position: relative;
+
+    /* Neumorfismo clásico - Elevado */
+    box-shadow:
+      5px 5px 4px #5a5a5a,
+      -5px -5px 4px #ffffff;
 
     @include mixins.tablet-up() {
       width: 72px;
       height: 72px;
+      border-radius: 36px;
     }
   }
 
@@ -102,17 +121,19 @@
   &__image-wrapper {
     position: relative;
     height: 300px;
-    border-radius: vars.$borderRadius-lg;
+    border-radius: 24px;
     overflow: hidden;
     transform: translateX(0);
-    transition: transform 0.1s ease-out;
+    transition: all 0.4s ease-out;
+
+    /* Neumorfismo clásico - Elevado */
+    box-shadow:
+      5px 5px 4px #5a5a5a,
+      -5px -5px 4px #ffffff;
 
     @include mixins.tablet-up() {
       height: 400px;
-    }
-
-    &:hover {
-      transform: translateX(10px);
+      border-radius: 28px;
     }
   }
 
@@ -140,23 +161,35 @@
         order: 1;
       }
     }
+  }
 
-    .service-card__image-wrapper {
-      &:hover {
-        transform: translateX(-10px);
-      }
-    }
+  &--reverse:hover .service-card__image-wrapper {
+    transform: translateX(-15px) scale(1.02);
   }
 
   // Hover effects
   &:hover {
+    box-shadow:
+      inset 5px 5px 4px #5a5a5a,
+      inset -5px -5px 4px #ffffff;
+
     .service-card__icon-container {
-      background: vars.color(primary);
-      transform: scale(1.1);
+      background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+      transform: scale(1.15);
+      box-shadow:
+        inset 3px 3px 4px #003a99,
+        inset -3px -3px 4px #0084ff;
     }
 
     .service-card__icon {
       color: vars.color(white1);
+      transform: scale(1.1);
+    }
+
+    .service-card__image-wrapper {
+      box-shadow:
+        inset 3px 3px 6px rgba(0, 0, 0, 0.15),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.8);
     }
   }
 }
@@ -176,6 +209,8 @@
 // Responsive adjustments
 @include mixins.mobile-only() {
   .service-card {
+    padding: vars.$spacing-lg;
+
     &__content {
       gap: vars.$spacing-xl;
     }
@@ -183,6 +218,7 @@
     &__icon-container {
       width: 56px;
       height: 56px;
+      border-radius: 26px;
     }
 
     &__icon {
@@ -199,23 +235,12 @@
 
     &__image-wrapper {
       height: 250px;
-
-      &:hover {
-        transform: none;
-      }
+      border-radius: 20px;
     }
 
     &__image {
       &:hover {
-        transform: none;
-      }
-    }
-
-    &--reverse {
-      .service-card__image-wrapper {
-        &:hover {
-          transform: none;
-        }
+        transform: scale(1.02);
       }
     }
   }
@@ -229,8 +254,20 @@
     transform: none;
 
     &:hover {
+      box-shadow:
+        inset 5px 5px 4px #5a5a5a,
+        inset -5px -5px 4px #ffffff;
+
       .service-card__icon-container {
-        transform: none;
+        transform: scale(1.15);
+        background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+        box-shadow:
+          inset 3px 3px 4px #003a99,
+          inset -3px -3px 4px #0084ff;
+      }
+
+      .service-card__icon {
+        color: vars.color(white1);
       }
     }
 
@@ -246,15 +283,7 @@
       transition: none;
 
       &:hover {
-        transform: none;
-      }
-    }
-
-    &--reverse {
-      .service-card__image-wrapper {
-        &:hover {
-          transform: none;
-        }
+        transform: scale(1.02);
       }
     }
   }

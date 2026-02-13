@@ -4,16 +4,19 @@
 .service-card {
   // Mobile First - Base styles
   position: relative;
-  border-radius: vars.$borderRadius-lg;
+  border-radius: 40px;
   overflow: hidden;
-/*   height: 450px;
-  min-height: 400px; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease-out;
+
+  /* Neumorfismo clásico - Elevado */
+  box-shadow:
+    5px 5px 4px #5a5a5a,
+    -5px -5px 4px #ffffff;
+
   transform: translateY(0);
 
   @include mixins.tablet-up() {
@@ -28,8 +31,9 @@
 
   // Hover effects
   &:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow:
+      inset 5px 5px 4px #5a5a5a,
+      inset -5px -5px 4px #ffffff;
 
     .service-card__overlay {
       opacity: 0.85;
@@ -57,8 +61,9 @@
 
   // BEM Modifier - Active state
   &--active {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow:
+      inset 5px 5px 4px #5a5a5a,
+      inset -5px -5px 4px #ffffff;
 
     .service-card__active-indicator {
       opacity: 1;
@@ -227,63 +232,50 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    background: #e0e0e0;
     color: vars.color(black2);
     padding: vars.$spacing-md vars.$spacing-lg;
-    border-radius: 12px;
+    border-radius: 30px;
     border: none;
     font-weight: 700;
     font-size: vars.$font-size-sm;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    backdrop-filter: blur(10px);
+    transition: all 0.4s ease-out;
     position: relative;
-    perspective: 1000px;
 
-    /* Efecto 3D base */
+    /* Neumorfismo clásico - Elevado */
     box-shadow:
-      0 8px 0 rgba(0, 0, 0, 0.15),
-      0 12px 25px rgba(0, 0, 0, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      5px 5px 4px #5a5a5a,
+      -5px -5px 4px #ffffff;
 
-    transform: translateZ(0) rotateX(0deg) translateY(0);
     min-width: 100px;
 
     @include mixins.tablet-up() {
       font-size: vars.$font-size-text;
       padding: vars.$spacing-md vars.$spacing-xl;
       min-width: 120px;
+      border-radius: 36px;
     }
 
-    /* Estado hover - Efecto 3D mejorado */
+    /* Estado hover - Efecto push-in */
     &:hover {
-      background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
-      transform: translateZ(25px) rotateX(12deg) translateY(-8px) scale(1.15);
+      background: #e0e0e0;
       box-shadow:
-        0 20px 0 rgba(0, 0, 0, 0.18),
-        0 35px 40px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 1);
-      letter-spacing: 1px;
+        inset 5px 5px 4px #5a5a5a,
+        inset -5px -5px 4px #ffffff;
     }
 
     /* Estado active/presionado */
     &:active {
-      transform: translateZ(4px) rotateX(0deg) translateY(-2px) scale(0.96);
       box-shadow:
-        0 4px 0 rgba(0, 0, 0, 0.12),
-        0 8px 15px rgba(0, 0, 0, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        inset 3px 3px 2px #5a5a5a,
+        inset -3px -3px 2px #ffffff;
     }
 
     /* Estado focus para accesibilidad */
     &:focus-visible {
       outline: 2px solid vars.color(primary);
       outline-offset: 2px;
-      box-shadow:
-        0 8px 0 rgba(0, 0, 0, 0.15),
-        0 12px 25px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8),
-        0 0 0 4px rgba(var(--color-primary-rgb), 0.1);
     }
   }
 

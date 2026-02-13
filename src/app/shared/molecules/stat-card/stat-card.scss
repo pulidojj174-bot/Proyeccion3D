@@ -3,15 +3,19 @@
 
 .stat-card {
   // Mobile First - Base styles
-  background: vars.color(white1);
+  background: #e0e0e0;
   padding: vars.$spacing-xl;
-  border-radius: vars.$borderRadius-lg;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 40px;
+  transition: all 0.4s ease-out;
   text-align: center;
-  transition: all vars.$transitionDuration ease-out;
   opacity: 0;
   transform: translateY(20px);
   animation: slideInUp 0.6s ease-out both;
+
+  /* Neumorfismo clásico - Elevado */
+  box-shadow:
+    5px 5px 4px #5a5a5a,
+    -5px -5px 4px #ffffff;
 
   @include mixins.tablet-up() {
     padding: vars.$spacing-xxl;
@@ -19,20 +23,26 @@
 
   // BEM Elements
   &__icon-container {
-    background: rgba(vars.color(primary), 0.1);
-    color: vars.color(primary);
+    background: #e0e0e0;
+    color: var(--color-primary, #0066ff);
     width: 64px;
     height: 64px;
-    border-radius: 50%;
+    border-radius: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto vars.$spacing-md;
-    transition: all vars.$transitionDuration vars.$transitionEasing;
+    transition: all 0.4s ease-out;
+
+    /* Neumorfismo clásico - Elevado */
+    box-shadow:
+      5px 5px 4px #5a5a5a,
+      -5px -5px 4px #ffffff;
 
     @include mixins.tablet-up() {
       width: 72px;
       height: 72px;
+      border-radius: 32px;
     }
   }
 
@@ -70,13 +80,17 @@
 
   // Hover effects
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      inset 5px 5px 4px #5a5a5a,
+      inset -5px -5px 4px #ffffff;
 
     .stat-card__icon-container {
-      background: vars.color(primary);
+      background: var(--color-primary, #0066ff);
       color: vars.color(white1);
       transform: scale(1.1);
+      box-shadow:
+        inset 3px 3px 4px #003a99,
+        inset -3px -3px 4px #0084ff;
     }
   }
 }
@@ -101,10 +115,16 @@
     transform: none;
 
     &:hover {
-      transform: none;
+      box-shadow:
+        inset 5px 5px 4px #5a5a5a,
+        inset -5px -5px 4px #ffffff;
 
       .stat-card__icon-container {
-        transform: none;
+        transform: scale(1.1);
+        background: var(--color-primary, #0066ff);
+        box-shadow:
+          inset 3px 3px 4px #003a99,
+          inset -3px -3px 4px #0084ff;
       }
     }
   }
