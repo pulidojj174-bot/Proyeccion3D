@@ -31,7 +31,9 @@
     @if (service().price) {
       <footer class="service-card__footer">
         <div class="service-card__price-container">
-          <span class="service-card__price">{{ service().price }}</span>
+          <button class="service-card__price"
+                  type="button"
+                  aria-label="Precio del servicio: {{ service().price }}">{{ service().price }}</button>
         </div>
       </footer>
     }

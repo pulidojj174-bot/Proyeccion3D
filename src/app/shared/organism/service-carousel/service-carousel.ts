@@ -123,7 +123,7 @@ export class ServiceCarousel implements OnInit, OnDestroy {
         'Simulación de cargas',
         'Detalles de conexiones steel-to-steel',
       ],
-      price: 'Cotización personalizada',
+      price: 'Simulacion de cargas',
     },
     {
       id: 8,

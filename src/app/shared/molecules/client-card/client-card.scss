@@ -3,9 +3,9 @@
 
 .client-card {
   // Mobile First - Base styles
-  background: vars.color(primary);
+  background: vars.color(white1);
   border-radius: vars.$borderRadius;
-  border: 1px solid vars.color(gray3);
+  border: 2px solid  #0066cc;
   padding: vars.$spacing-lg;
   transition: all vars.$transitionDuration vars.$transitionEasing;
   cursor: pointer;
@@ -49,14 +49,14 @@
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: grayscale(100%) opacity(0.7);
+    filter: opacity(1);
     transition: all vars.$transitionDuration vars.$transitionEasing;
   }
 
   &__name {
     font-size: vars.$font-size-sm;
     font-weight: 500;
-    color: vars.color(gray6);
+    color: vars.color(primary);
     opacity: 0;
     transition: opacity vars.$transitionDuration vars.$transitionEasing;
     margin-top: vars.$spacing-xs;
@@ -69,18 +69,18 @@
   // Hover effects - Solo en dispositivos con hover
   @media (hover: hover) {
     &:hover {
-      border-color: vars.color(primary);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: var(--color-primary, #0066cc);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
       transform: translateY(-4px);
 
       .client-card__logo {
-        filter: grayscale(0%) opacity(1);
+        filter: opacity(1);
         transform: scale(1.15);
       }
 
       .client-card__name {
         opacity: 1;
-        color: vars.color(black2);
+        color: vars.color(primary);
       }
     }
   }

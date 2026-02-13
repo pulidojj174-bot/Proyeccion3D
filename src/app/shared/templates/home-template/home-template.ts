@@ -212,7 +212,7 @@ export class HomeTemplate {
       {
         id: 'payan-cia',
         name: 'Payán & CIA',
-        logo: 'assets/images/logos/Payan_CIA.png',
+        logo: 'assets/images/logos/Payan_logo.jpeg',
         alt: 'Logo Payán & CIA',
       },
       {

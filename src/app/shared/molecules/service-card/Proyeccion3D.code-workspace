@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "Proyeccion3D",
+			"path": "../../../../.."
+		},
+		{
+			"name": ".github",
+			"path": "../../../../../../project_new/.github"
+		},
+		{
+			"name": ".claude",
+			"path": "../../../../../../project_new/.claude"
+		}
+	],
+	"settings": {}
+}
