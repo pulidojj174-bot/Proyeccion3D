@@ -33,9 +33,9 @@ export class HomeTemplate {
     subtitle: 'Transformamos Ideas en Realidad',
         description:
           `Somos especialistas en ingeniería inversa, modelado 3D y soluciones industriales que impulsan la innovación.
-    
+
     Transformamos ideas en ingeniería de precisión mediante tecnología de vanguardia en escaneo láser, impresión 3D, análisis por elementos finitos (FEA) y diseño mecánico.
-    
+
     Ofrecemos servicios a nivel nacional e internacional.`,
     heroVideo:
       'assets/images/projects/HeaderProyeccion.mp4',

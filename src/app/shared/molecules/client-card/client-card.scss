@@ -3,25 +3,32 @@
 
 .client-card {
   // Mobile First - Base styles
-  background: vars.color(white1);
-  border-radius: vars.$borderRadius;
-  border: 2px solid  #0066cc;
+  background: #e0e0e0;
+  border-radius: 30px;
+  border: none;
   padding: vars.$spacing-lg;
-  transition: all vars.$transitionDuration vars.$transitionEasing;
+  transition: all 0.4s ease-out;
   cursor: pointer;
   min-width: 120px;
   height: 100px;
+
+  /* Neumorfismo clásico - Elevado */
+  box-shadow:
+    5px 5px 4px #5a5a5a,
+    -5px -5px 4px #ffffff;
 
   @include mixins.tablet-up() {
     padding: vars.$spacing-xl;
     min-width: 140px;
     height: 120px;
+    border-radius: 36px;
   }
 
   @include mixins.desktop-up() {
     padding: 1.5rem;
     min-width: 160px;
     height: 140px;
+    border-radius: 40px;
   }
 
   // BEM Elements
@@ -41,24 +48,23 @@
     width: 100%;
     height: 100%;
     flex: 1;
+    position: relative;
   }
 
   &__logo {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     filter: opacity(1);
-    transition: all vars.$transitionDuration vars.$transitionEasing;
+    transition: all 0.4s ease-out;
   }
 
   &__name {
     font-size: vars.$font-size-sm;
     font-weight: 500;
-    color: vars.color(primary);
+    color: var(--color-primary, #0066ff);
     opacity: 0;
-    transition: opacity vars.$transitionDuration vars.$transitionEasing;
+    transition: opacity 0.4s ease-out;
     margin-top: vars.$spacing-xs;
 
     @include mixins.tablet-up() {
@@ -69,9 +75,9 @@
   // Hover effects - Solo en dispositivos con hover
   @media (hover: hover) {
     &:hover {
-      border-color: var(--color-primary, #0066cc);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-      transform: translateY(-4px);
+      box-shadow:
+        inset 5px 5px 4px #5a5a5a,
+        inset -5px -5px 4px #ffffff;
 
       .client-card__logo {
         filter: opacity(1);
@@ -80,7 +86,7 @@
 
       .client-card__name {
         opacity: 1;
-        color: vars.color(primary);
+        color: var(--color-primary, #0066ff);
       }
     }
   }
@@ -97,9 +103,12 @@
     padding: vars.$spacing-md;
     min-width: 100px;
     height: 80px;
+    border-radius: 24px;
 
     &:hover {
-      transform: translateY(-2px);
+      box-shadow:
+        inset 5px 5px 4px #5a5a5a,
+        inset -5px -5px 4px #ffffff;
 
       .client-card__logo {
         transform: scale(1.02);
@@ -114,10 +123,12 @@
     transition: none;
 
     &:hover {
-      transform: none;
+      box-shadow:
+        inset 5px 5px 4px #5a5a5a,
+        inset -5px -5px 4px #ffffff;
 
       .client-card__logo {
-        transform: none;
+        transform: scale(1.02);
       }
     }
 
