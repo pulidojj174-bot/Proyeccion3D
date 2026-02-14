@@ -35,10 +35,8 @@ export class AboutTemplate {
     config: {
       layout: 'hero-with-background' as const,
       backgroundImage:
-        'https://images.unsplash.com/photo-1581093458791-9d2b88c0ed60?q=80&w=2000&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2000&auto=format&fit=crop',
       hasOverlay: true,
-      overlayColor: 'rgb(15, 23, 42)',
-      overlayOpacity: 0.7,
       maxWidth: '48rem',
     },
   });

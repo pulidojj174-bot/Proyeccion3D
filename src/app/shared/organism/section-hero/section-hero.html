@@ -33,10 +33,14 @@
         }
       </article>
 
-      <!-- Imagen -->
+      <!-- Imagen o Video -->
       <article class="section-hero__image-container">
         <div class="section-hero__image-wrapper">
-          <img [src]="image()" [alt]="imageAlt() ?? 'Equipo de trabajo'" class="section-hero__image">
+          @if (videoSrc()) {
+          <video [src]="videoSrc()" [muted]="videoMuted()" [loop]="videoLoop()" autoplay class="section-hero__image"></video>
+          } @else {
+          <!-- <img [src]="image()" [alt]="imageAlt() ?? 'Equipo de trabajo'" class="section-hero__image"> -->
+          }
         </div>
       </article>
     </section>

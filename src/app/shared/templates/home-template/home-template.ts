@@ -156,9 +156,9 @@ export class HomeTemplate {
     title: 'Expertos en Soluciones para la Industria',
     description:
       'Más de 3 años impulsando la innovación industrial con tecnología de vanguardia. Nuestro equipo de ingenieros certificados ha desarrollado más de 500 modelos 3D, 40 análisis FEA, 25 diseños de plantas industriales y más de 80 escaneos 3D para empresas como:',
-    image:
-      'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2000&auto=format&fit=crop',
-    imageAlt: 'Equipo de trabajo colaborando en impresión 3D',
+    videoSrc: 'assets/images/Equipo_de_trabajo.mp4',
+    videoMuted: true,
+    videoLoop: true,
     companies: [
       { id: 'ternium', name: 'Ternium', logo: 'assets/images/logos/Ternium.png', alt: 'Logo Ternium' },
       { id: 'payan', name: 'Payán & CIA', logo: 'assets/images/logos/Payan_logo.jpeg', alt: 'Logo Payán & CIA' },

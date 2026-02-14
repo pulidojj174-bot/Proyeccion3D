@@ -3,7 +3,7 @@
 
 .projects-section {
   // 📱 MOBILE FIRST - Base styles (320px+)
-  background: vars.color(white1);
+  background: linear-gradient(135deg, #f8fafc 0%, #e8ecf1 100%);
   padding: vars.$spacing-xl 0;
   position: relative;
   overflow: hidden;
@@ -100,7 +100,7 @@
 
   &__subtitle {
     font-size: vars.$font-size-text-mobile;
-    color: vars.color(gray6);
+    color: vars.color(primary);
     line-height: 1.6;
     margin: 0;
     max-width: 600px;
@@ -137,15 +137,15 @@
     overflow-x: auto;
     overflow-y: hidden;
     padding: 0 vars.$spacing-xs vars.$spacing-xs 0;
-    
+
     // Smooth scrolling
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    
+
     // Ocultar scrollbar pero mantener funcionalidad
     scrollbar-width: none;
     -ms-overflow-style: none;
-    
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -161,15 +161,17 @@
     // 📱 Mobile: Flexbox con scroll
     display: flex;
     gap: vars.$spacing-xs;
-    background: vars.color(bg-gray1);
+    background: vars.color('bg-gray1');
     padding: vars.$spacing-xs;
-    border-radius: vars.$borderRadius;
+    border-radius: 20px;
+    box-shadow: 5px 5px 4px #5a5a5a, -5px -5px 4px #ffffff;
     min-width: max-content;
     width: auto;
+    transition: all 0.3s ease;
 
     // Scroll snap para mejor UX en mobile
     scroll-snap-type: x mandatory;
-    
+
     & > * {
       scroll-snap-align: center;
       flex-shrink: 0;
@@ -179,6 +181,7 @@
     @media (min-width: 480px) {
       padding: vars.$spacing-sm;
       gap: vars.$spacing-sm;
+      border-radius: 24px;
     }
 
     // 📱 Tablet: Grid layout
@@ -187,11 +190,13 @@
       width: 100%;
       max-width: 600px;
       margin: 0 auto;
+      border-radius: 28px;
     }
 
     // 📱 Desktop: Más columnas
     @include mixins.desktop-up() {
       max-width: 700px;
+      border-radius: 32px;
     }
   }
 
@@ -201,7 +206,7 @@
 
   &__tab-panel {
     outline: none;
-    
+
     &:focus-visible {
       @include mixins.focused();
     }
@@ -259,7 +264,7 @@
       &:nth-child(2n+1) {
         animation-delay: 0s;
       }
-      
+
       &:nth-child(2n) {
         animation-delay: 0.1s;
       }
@@ -269,11 +274,11 @@
       &:nth-child(3n+1) {
         animation-delay: 0s;
       }
-      
+
       &:nth-child(3n+2) {
         animation-delay: 0.1s;
       }
-      
+
       &:nth-child(3n) {
         animation-delay: 0.2s;
       }
@@ -299,7 +304,7 @@
 
   &__empty-icon {
     font-size: 2.5rem;
-    color: vars.color(gray4);
+    color: vars.color(primary);
     margin-bottom: vars.$spacing-lg;
 
     @media (min-width: 480px) {
@@ -449,7 +454,7 @@
 @media (prefers-contrast: high) {
   .projects-section {
     &__tabs-list {
-      border: 2px solid;
+      border: 2px solid #333;
     }
 
     &__empty-icon {

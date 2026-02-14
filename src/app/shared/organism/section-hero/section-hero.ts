@@ -26,8 +26,11 @@ export interface CompanyLogo {
 export class SectionHero {
   title = input.required<string>();
   description = input.required<string>();
-  image = input.required<string>();
+  image = input<string>();
   imageAlt = input<string>();
+  videoSrc = input<string>();
+  videoMuted = input<boolean>(true);
+  videoLoop = input<boolean>(true);
   button = input<AboutHeroButton>();
   backgroundColor = input<string>('#f8fafc');
   companies = input<CompanyLogo[]>([]);
