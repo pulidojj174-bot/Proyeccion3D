@@ -4,13 +4,17 @@
 .contact-info {
   &__header {
     margin-bottom: 3rem;
+    padding: 2rem;
+    background: #e0e0e0;
+    border-radius: 30px;
+    box-shadow: 5px 5px 4px #5a5a5a, -5px -5px 4px #ffffff;
+    color: black;
   }
 
   &__title {
     font-size: 1.875rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: vars.color('black2');
   }
 
   &__subtitle {
@@ -30,11 +34,19 @@
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+    padding: 1.5rem;
+    background: #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 5px 5px 4px #5a5a5a, -5px -5px 4px #ffffff;
     transition: all 0.3s ease;
 
-    &:hover .contact-info__icon {
+    &:hover {
       box-shadow: inset 5px 5px 4px #5a5a5a, inset -5px -5px 4px #ffffff;
-      transform: scale(1.05);
+
+      .contact-info__icon {
+        box-shadow: inset 5px 5px 4px #5a5a5a, inset -5px -5px 4px #ffffff;
+        transform: scale(1.08);
+      }
     }
   }
 
@@ -42,17 +54,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     background-color: #e0e0e0;
     border-radius: 50%;
-    box-shadow: 5px 5px 4px #5a5a5a, -5px -5px 4px #ffffff, inset 2px 2px 2px rgba(255, 255, 255, 0.5);
+    box-shadow: 5px 5px 4px #5a5a5a, -5px -5px 4px #ffffff, inset 1px 1px 1px rgba(255, 255, 255, 0.6);
     flex-shrink: 0;
     transition: all 0.3s ease;
 
     i {
-      font-size: 1.5rem;
-      color: var(--color-primary);
+      font-size: 1.75rem;
+      transition: all 0.3s ease;
     }
   }
 
@@ -64,7 +76,7 @@
     font-size: 1.125rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
-    color: vars.color('black2');
+    color: vars.color('primary');
   }
 
   &__item-description {
@@ -76,6 +88,28 @@
       &:not(:last-child) {
         margin-bottom: 0.25rem;
       }
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .contact-info {
+    &__item {
+      transition: none;
+
+      &:hover {
+        box-shadow: 5px 5px 4px #5a5a5a, -5px -5px 4px #ffffff;
+
+        .contact-info__icon {
+          box-shadow: 5px 5px 4px #5a5a5a, -5px -5px 4px #ffffff, inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+          transform: none;
+        }
+      }
+    }
+
+    &__icon {
+      transition: none;
     }
   }
 }

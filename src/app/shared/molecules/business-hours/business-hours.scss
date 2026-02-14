@@ -3,12 +3,17 @@
 
 .business-hours {
   margin-top: 3rem;
+  padding: 2rem;
+  background: #e0e0e0;
+  border-radius: 24px;
+  box-shadow: 5px 5px 4px #5a5a5a, -5px -5px 4px #ffffff;
+  color: black;
 
   &__title {
     font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-    color: vars.color('black2');
+    margin-bottom: 1.5rem;
+    color: var(primary);
   }
 
   &__table {
@@ -17,22 +22,42 @@
   }
 
   &__row {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid rgba(90, 90, 90, 0.15);
+    transition: all 0.3s ease;
 
     &:last-child {
       border-bottom: none;
     }
+
+    &:hover {
+      background: rgba(224, 224, 224, 0.8);
+      border-radius: 8px;
+    }
   }
 
   &__day {
-    padding: 0.75rem 0;
-    font-weight: 500;
-    color: vars.color('black2');
+    padding: 1rem 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
   }
 
   &__time {
-    padding: 0.75rem 0;
+    padding: 1rem 0.75rem;
     color: vars.color('gray6');
     text-align: right;
+    font-weight: 500;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .business-hours {
+    &__row {
+      transition: none;
+
+      &:hover {
+        background: transparent;
+      }
+    }
   }
 }
