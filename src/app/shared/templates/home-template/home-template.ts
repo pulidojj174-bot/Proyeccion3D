@@ -50,9 +50,11 @@ export class HomeTemplate {
         icon: 'pi pi-arrow-right',
       },
       {
-        label: 'Ver Portafolio',
-        path: '/project',
+        label: 'Descargar PDF',
+        href: 'assets/document/portafolio2026.pdf',
+        download: 'Portafolio_Proyeccion3D_2026.pdf',
         variant: 'secondary' as const,
+        icon: 'pi pi-download',
       },
     ],
     config: {

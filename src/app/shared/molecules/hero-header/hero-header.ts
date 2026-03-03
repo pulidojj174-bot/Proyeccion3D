@@ -6,6 +6,8 @@ import { computed, input } from '@angular/core';
 export interface PageHeroButton {
   label: string;
   path?: string;
+  href?: string;
+  download?: string | boolean;
   action?: () => void;
   variant: 'primary' | 'secondary' | 'outline';
   icon?: string;

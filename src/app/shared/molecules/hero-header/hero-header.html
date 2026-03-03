@@ -40,7 +40,14 @@
           @if (buttons()) {
           <article class="page-hero__actions page-hero__fade-in">
             @for (button of buttons(); track button.label; let i = $index) {
-            @if (button.path) {
+            @if (button.href) {
+            <a [href]="button.href" [download]="button.download || ''" [class]="'page-hero__button page-hero__button--' + button.variant">
+              {{ button.label }}
+              @if (button.icon) {
+              <i [class]="button.icon"></i>
+              }
+            </a>
+            } @else if (button.path) {
             <a [routerLink]="button.path" [class]="'page-hero__button page-hero__button--' + button.variant">
               {{ button.label }}
               @if (button.icon) {
@@ -100,7 +107,14 @@
         @if (buttons()) {
         <section class="page-hero__actions page-hero__fade-in">
           @for (button of buttons(); track button.label; let i = $index) {
-          @if (button.path) {
+          @if (button.href) {
+          <a [href]="button.href" [download]="button.download || ''" [class]="'page-hero__button page-hero__button--' + button.variant">
+            {{ button.label }}
+            @if (button.icon) {
+            <i [class]="button.icon"></i>
+            }
+          </a>
+          } @else if (button.path) {
           <a [routerLink]="button.path" [class]="'page-hero__button page-hero__button--' + button.variant">
             {{ button.label }}
             @if (button.icon) {
