@@ -136,6 +136,15 @@ myServicesArray = signal<ServiceItemData[]>([
       linkText: 'Saber Más',
       linkUrl: '/service',
     },
+    {
+      id: 'escaneo-3d-por-dron',
+      title: 'Escaneo 3D por Dron',
+      description:
+        'Captura tridimensional de terrenos, estructuras y plantas industriales con drones LiDAR y fotogrametría de alta resolución.',
+      icon: 'bi bi-airplane',
+      linkText: 'Saber Más',
+      linkUrl: '/service',
+    },
   ]);
 
   ctaData = signal({
