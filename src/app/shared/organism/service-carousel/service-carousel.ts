@@ -272,18 +272,18 @@ export class ServiceCarousel implements OnInit, OnDestroy {
   // UTILITY METHODS
   // ===============================
 
-  getIndicators() {
-    return Array.from({ length: this.totalServices() }, (_, i) => i);
-  }
+  indicators = computed(() =>
+    Array.from({ length: this.totalServices() }, (_, i) => i)
+  );
 
-  getTitleWords() {
-    return this.title()
+  titleWords = computed(() =>
+    this.title()
       .split(' ')
       .map((word, index) => ({
         word,
         delay: index * 0.05,
-      }));
-  }
+      }))
+  );
 
   isPlaying() {
     return this.autoPlayTimer !== null;

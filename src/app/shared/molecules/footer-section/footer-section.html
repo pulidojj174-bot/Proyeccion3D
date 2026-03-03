@@ -3,7 +3,7 @@
   <ul class="section-links">
     @for (link of links(); track link.path) {
       <li class="link-item">
-        <a [routerLink]="[link.path]" class="footer-link">
+        <a [routerLink]="[link.path]" [fragment]="link.fragment" class="footer-link">
           {{ link.label }}
         </a>
       </li>

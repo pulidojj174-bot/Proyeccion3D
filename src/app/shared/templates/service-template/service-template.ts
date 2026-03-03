@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
 import { CTASection } from "../../molecules/cta-section/cta-section";
 import { signal } from '@angular/core';
 import { HeroHeaderComponent } from "../../molecules/hero-header/hero-header";
@@ -6,6 +6,7 @@ import { ServiceData } from '../../../core/models/interfaces/serviceData.interfa
 import { ServicesSectionItem } from "../../organism/services-section-item/services-section-item";
 import { ProcessData } from '../../../core/models/interfaces/Process.interface';
 import { ProcessSection } from "../../organism/process-section/process-section";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-service-template',
@@ -14,7 +15,8 @@ import { ProcessSection } from "../../organism/process-section/process-section";
   styleUrl: './service-template.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ServiceTemplate {
+export class ServiceTemplate implements OnInit {
+  private activatedRoute = inject(ActivatedRoute);
 
   // Simple (Services)
   servicesHeroData = signal({
@@ -171,6 +173,29 @@ export class ServiceTemplate {
         '✓ Memorias de cálculo.',
         '✓ Anteproyectos ejecutivos.',
       ]
+    },
+    {
+      id: 'impresion-3d-profesional',
+      title: 'Impresión 3D Profesional',
+      description: 'Manufactura aditiva de precisión en materiales técnicos avanzados. Desde prototipos funcionales hasta piezas finales en producción.',
+      icon: 'bi-tools',
+      image: 'assets/images/service/Impresion-3d.jpg',
+      imageAlt: 'Impresión 3D Profesional',
+      imagePosition: 'left',
+      features: [
+        'Tecnologías disponibles:',
+        '✓ FDM (Fused Deposition Modeling) - ULTEM, ABS, Nylon, TPU.',
+        '✓ SLS (Selective Laser Sintering) - Nylon PA12, TPU, aluminio.',
+        '✓ Resinas industriales - Estereolitografía de alta resolución.',
+        'Aplicaciones:',
+        '✓ Prototipos funcionales para validación antes de producción.',
+        '✓ Piezas finales para bajo volumen (1-1000 unidades).',
+        '✓ Herramientas y fixtures especializadas para manufactura.',
+        '✓ Recambios obsoletos para maquinaria industrial.',
+        'Especificaciones:',
+        'Tolerancias hasta ±0.3mm, acabado de producción, post-procesamiento disponible.',
+        'Tiempos: 24-72 horas según volumen y complejidad.',
+      ]
     }
   ]);
 
@@ -212,4 +237,19 @@ export class ServiceTemplate {
       }
     ]
   });
+
+  ngOnInit() {
+    // Escuchar cambios en el fragment de la URL
+    this.activatedRoute.fragment.subscribe(fragment => {
+      if (fragment) {
+        // Esperar a que el DOM se renderice
+        setTimeout(() => {
+          const element = document.getElementById(fragment);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 300);
+      }
+    });
+  }
 }

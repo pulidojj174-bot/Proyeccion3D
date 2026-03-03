@@ -4,7 +4,7 @@ import { ServiceCarousel } from "../../organism/service-carousel/service-carouse
 import { HeroHeaderComponent } from "../../molecules/hero-header/hero-header";
 import { CTASection } from "../../molecules/cta-section/cta-section";
 import { SectionHero } from '../../organism/section-hero/section-hero';
-import { signal } from '@angular/core';
+import { signal, computed } from '@angular/core';
 import { ServicesSection } from "../../organism/services-section/services-section";
 import { ServiceItemData } from '../../molecules/service-item/service-item';
 import { ClientsMarqueeSection } from '../../organism/clients-marquee-section/clients-marquee-section';
@@ -61,9 +61,9 @@ export class HomeTemplate {
     },
   });
 
-  myServicesArray = signal<ServiceItemData[]>([
+myServicesArray = signal<ServiceItemData[]>([
     {
-      id: 'Escaneo 3D e Ingeniería Inversa',
+      id: 'ingenieria-inversa-escaneo-3d',
       title: 'Escaneo 3D e Ingeniería Inversa',
       description:
         'Digitalizamos piezas físicas con escáneres 3D de alta precisión para crear modelos CAD editables. Ideal para replicar componentes obsoletos, mejorar diseños o documentar equipos.',
@@ -72,7 +72,7 @@ export class HomeTemplate {
       linkUrl: '/service',
     },
     {
-      id: 'Simulación FEA (Análisis por Elementos Finitos)',
+      id: 'simulacion-elementos-finitos',
       title: 'Simulación FEA (Análisis por Elementos Finitos)',
       description:
         'Realizamos análisis por elementos finitos (FEA) para evaluar el comportamiento estructural de tus diseños bajo condiciones de carga específicas.',
@@ -81,7 +81,7 @@ export class HomeTemplate {
       linkUrl: '/service',
     },
     {
-      id: 'Diseño Mecánico Personalizado',
+      id: 'diseno-mecanico-personalizado',
       title: 'Diseño Mecánico Personalizado',
       description:
         'Desarrollamos componentes y sistemas mecánicos desde cero, optimizados para fabricación. Incluye planos técnicos, tolerancias y selección de materiales.',
@@ -90,7 +90,7 @@ export class HomeTemplate {
       linkUrl: '/service',
     },
     {
-      id: 'Diseño de Plantas Industriales',
+      id: 'diseno-plantas-industriales',
       title: 'Diseño de Plantas Industriales',
       description:
         'Modelamos layouts 2D/3D para optimizar flujos de producción, espacios y seguridad. Servicios completos: desde distribución de equipos hasta rutas de evacuación.',
@@ -99,7 +99,7 @@ export class HomeTemplate {
       linkUrl: '/service',
     },
     {
-      id: 'Diagramas P&ID y Piping',
+      id: 'ingenieria-piping-diagramas-pid',
       title: 'Diagramas P&ID y Piping',
       description:
         'Elaboramos documentación técnica para sistemas de tuberías e instrumentación, cumpliendo normas ASME/ISO. Incluye tags, flujogramas y especificaciones.',
@@ -108,16 +108,7 @@ export class HomeTemplate {
       linkUrl: '/service',
     },
     {
-      id: 'Impresión 3D Profesional',
-      title: 'Impresión 3D Profesional',
-      description:
-        'Manufactura aditiva en materiales técnicos (ABS, Nylon, resinas industriales). Prototipos funcionales, piezas finales y herramientas de producción.',
-      icon: 'bi bi-tools',
-      linkText: 'Saber Más',
-      linkUrl: '/service',
-    },
-    {
-      id: 'Planos Estructurales y "As Built"',
+      id: 'planos-estructurales-as-built',
       title: 'Planos Estructurales y "As Built"',
       description:
         'Elaboramos planos estructurales y "as built" para proyectos de ingeniería, asegurando precisión y cumplimiento normativo.',
@@ -126,12 +117,20 @@ export class HomeTemplate {
       linkUrl: '/service',
     },
     {
-      id: 'Servicios de Dron, Fotogrametría y Mapas 3D',
-      title: 'Servicios de Dron, Fotogrametría y Mapas 3D',
-      /*       description: 'En PROYECCION 3D ofrecemos soluciones con drones para capturar, procesar y presentar información precisa en mapas 3D, fotogrametría y levantamientos aéreos.Nuestros servicios permiten optimizar tiempos, reducir costos y mejorar la toma de decisiones en sectores como la industria, la construcción y la ingeniería.Transformamos imágenes aéreas en datos útiles y modelos digitales que impulsan la innovación y el control de tus proyectos.', */
+      id: 'ingenieria-conceptual-y-basica',
+      title: 'Ingeniería Conceptual y Básica',
       description:
-        'Servicios con drones para captura y procesamiento de datos geoespaciales: generación de mapas 3D, fotogrametría y levantamientos aéreos que optimizan tiempos, reducen costos y mejoran la precisión en proyectos de industria, construcción e ingeniería.',
-      icon: 'bi bi-images',
+        'Desarrollamos ingeniería conceptual y básica para proyectos industriales, asegurando un diseño eficiente y adaptado a tus necesidades.',
+      icon: 'bi bi-gear',
+      linkText: 'Saber Más',
+      linkUrl: '/service',
+    },
+    {
+      id: 'impresion-3d-profesional',
+      title: 'Impresión 3D Profesional',
+      description:
+        'Manufactura aditiva en materiales técnicos (ABS, Nylon, resinas industriales). Prototipos funcionales, piezas finales y herramientas de producción.',
+      icon: 'bi bi-tools',
       linkText: 'Saber Más',
       linkUrl: '/service',
     },
@@ -152,6 +151,12 @@ export class HomeTemplate {
     },
   });
 
+  aboutHeroCompanies = signal([
+    { id: 'ternium', name: 'Ternium', logo: 'assets/images/logos/Ternium.png', alt: 'Logo Ternium' },
+    { id: 'payan', name: 'Payán & CIA', logo: 'assets/images/logos/Payan_logo.jpeg', alt: 'Logo Payán & CIA' },
+    { id: 'super', name: 'Super', logo: 'assets/images/logos/Super.png', alt: 'Logo Super' },
+  ]);
+
   aboutHeroData = signal({
     title: 'Expertos en Soluciones para la Industria',
     description:
@@ -159,11 +164,6 @@ export class HomeTemplate {
     videoSrc: 'assets/images/Equipo_de_trabajo.mp4',
     videoMuted: true,
     videoLoop: true,
-    companies: [
-      { id: 'ternium', name: 'Ternium', logo: 'assets/images/logos/Ternium.png', alt: 'Logo Ternium' },
-      { id: 'payan', name: 'Payán & CIA', logo: 'assets/images/logos/Payan_logo.jpeg', alt: 'Logo Payán & CIA' },
-      { id: 'super', name: 'Super', logo: 'assets/images/logos/Super.png', alt: 'Logo Super' },
-    ],
     button: {
       label: 'Sobre Nosotros',
       path: '/about',
@@ -252,3 +252,4 @@ export class HomeTemplate {
     ],
   });
 }
+

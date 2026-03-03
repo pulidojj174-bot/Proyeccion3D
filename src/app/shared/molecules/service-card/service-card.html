@@ -17,9 +17,9 @@
     <!-- Features con animación -->
     <nav class="service-card__features">
       <ul class="service-card__features-list">
-        @for (feature of service().features; track feature; let i = $index) {
+        @for (feature of service().features; track $index) {
           <li class="service-card__feature"
-              [style.animation-delay]="(i * 0.1) + 's'">
+              [style.animation-delay]="($index * 0.1) + 's'">
             <span class="service-card__feature-icon">✓</span>
             <span class="service-card__feature-text">{{ feature }}</span>
           </li>

@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy, input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { ServiceFeatureItem } from '../service-feature-item/service-feature-item';
 import { ServiceData } from '../../../core/models/interfaces/serviceData.interface';
 
 @Component({
   selector: 'app-service-card-item',
-  imports: [ServiceFeatureItem],
+  imports: [ServiceFeatureItem, RouterModule],
   templateUrl: './service-card-item.html',
   styleUrl: './service-card-item.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

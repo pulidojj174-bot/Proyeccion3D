@@ -192,17 +192,17 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   // UTILITY METHODS
   // ===============================
 
-  getIndicators() {
-    return Array.from({ length: this.totalTestimonials() }, (_, i) => i);
-  }
+  indicators = computed(() =>
+    Array.from({ length: this.totalTestimonials() }, (_, i) => i)
+  );
 
   // Método para obtener palabras del título con animación staggered
-  getTitleWords() {
-    return this.title().split(' ').map((word, index) => ({
+  titleWords = computed(() =>
+    this.title().split(' ').map((word, index) => ({
       word,
       delay: index * 0.05 // 50ms de delay entre palabras
-    }));
-  }
+    }))
+  );
 
   // ===============================
   // CONTROL METHODS (OPCIONAL)

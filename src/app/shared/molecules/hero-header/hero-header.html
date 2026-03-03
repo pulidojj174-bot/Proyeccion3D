@@ -22,7 +22,7 @@
         <section class="page-hero__text-content page-hero__fade-in">
           <!-- Título con animación escalonada por palabra -->
           <h1 class="page-hero__title page-hero__fade-in">
-            @for (part of titleParts(); track part.text; let i = $index) {
+            @for (part of titleParts(); track part.text + part.isHighlighted; let i = $index) {
             <span [class.page-hero__title--highlighted]="part.isHighlighted">
               {{ part.text }}
             </span>
@@ -64,7 +64,7 @@
         @if (heroVideo() || heroImage()) {
         <section class="page-hero__image-container page-hero__fade-in">
           @if (heroVideo()) {
-          <video class="page-hero__video" [autoplay]="videoAutoplay()" [muted]="videoMuted()" [loop]="videoLoop()" playsinline>
+          <video #videoElement class="page-hero__video" [muted]="videoMuted()" [loop]="videoLoop()" playsinline>
             <source [src]="heroVideo()" type="video/mp4">
             Tu navegador no soporta etiquetas de video.
           </video>
@@ -82,7 +82,7 @@
       <article class="page-hero__simple-content page-hero__fade-in">
         <!-- Título centrado con animación escalonada -->
         <h1 class="page-hero__title page-hero__fade-in">
-          @for (part of titleParts(); track part.text; let i = $index) {
+          @for (part of titleParts(); track part.text + part.isHighlighted; let i = $index) {
           <span [class.page-hero__title--highlighted]="part.isHighlighted">
             {{ part.text }}
           </span>

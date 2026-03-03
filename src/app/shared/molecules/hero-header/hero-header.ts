@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ViewChild, ElementRef, AfterViewInit, effect, inject, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { computed, input } from '@angular/core';
@@ -30,7 +30,10 @@ export interface PageHeroConfig {
   styleUrl: './hero-header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeroHeaderComponent {
+export class HeroHeaderComponent implements AfterViewInit {
+  @ViewChild('videoElement') videoElement?: ElementRef<HTMLVideoElement>;
+  private injector = inject(Injector);
+
   title = input.required<string>();
   highlightedWords = input<string[]>([]);
   subtitle = input<string>();
@@ -49,6 +52,24 @@ export class HeroHeaderComponent {
     textAlign: 'left',
     maxWidth: '48rem'
   });
+
+  ngAfterViewInit() {
+    // Reproducir video automáticamente si está configurado
+    if (this.heroVideo() && this.videoAutoplay()) {
+      setTimeout(() => {
+        try {
+          const videoElement = this.videoElement?.nativeElement;
+          if (videoElement && typeof videoElement.play === 'function') {
+            videoElement.play().catch((err: any) => {
+              console.warn('Autoplay falló:', err);
+            });
+          }
+        } catch (error) {
+          console.warn('Error al intentar reproducir video:', error);
+        }
+      }, 100);
+    }
+  }
 
   titleParts = computed(() => {
     const title = this.title();

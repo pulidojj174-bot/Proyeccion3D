@@ -7,7 +7,7 @@
     <div class="service-carousel__header">
       <div class="service-carousel__title">
         <div class="service-carousel__title-animated">
-          @for (titleWord of getTitleWords(); track titleWord.word; let i = $index) {
+          @for (titleWord of titleWords(); track titleWord.word; let i = $index) {
             <span class="service-carousel__title-word" [style.transition-delay]="titleWord.delay + 's'">
               <span class="service-carousel__title-word-inner">{{ titleWord.word }}</span>
             </span>
@@ -65,7 +65,7 @@
         <!-- Indicators -->
         @if (totalServices() > 1) {
           <div class="service-carousel__indicators">
-            @for (index of getIndicators(); track index) {
+            @for (index of indicators(); track index) {
               <button
                 type="button"
                 class="service-carousel__indicator"

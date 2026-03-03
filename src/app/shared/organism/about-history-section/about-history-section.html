@@ -23,7 +23,7 @@
         </div>
 
         <div class="about-history-section__paragraphs">
-          @for (paragraph of paragraphs(); track $index) {
+          @for (paragraph of paragraphs(); track paragraph) {
             <div class="about-history-section__paragraph-wrapper" [style.animation-delay]="(0.2 + ($index * 0.1)) + 's'">
               <p class="about-history-section__paragraph">{{ paragraph }}</p>
             </div>

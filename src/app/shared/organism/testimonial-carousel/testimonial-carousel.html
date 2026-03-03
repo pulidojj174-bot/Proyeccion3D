@@ -7,7 +7,7 @@
     <div class="testimonial-carousel__header">
       <div class="testimonial-carousel__title">
         <div class="testimonial-carousel__title-animated">
-          @for (titleWord of getTitleWords(); track titleWord.word; let i = $index) {
+          @for (titleWord of titleWords(); track titleWord.word; let i = $index) {
             <span class="testimonial-carousel__title-word" [style.transition-delay]="titleWord.delay + 's'">
               <span class="testimonial-carousel__title-word-inner">{{ titleWord.word }}</span>
             </span>
@@ -61,7 +61,7 @@
         <!-- Indicators -->
         @if (totalTestimonials() > 1) {
           <div class="testimonial-carousel__indicators">
-            @for (index of getIndicators(); track index) {
+            @for (index of indicators(); track index) {
               <button
                 type="button"
                 class="testimonial-carousel__indicator"

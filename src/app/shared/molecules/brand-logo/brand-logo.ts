@@ -18,4 +18,5 @@ export class BrandLogo {
   showText = input(false);
   logoWidth = input(50);
   logoHeight = input(50);
+  priority = input(false);
 }
