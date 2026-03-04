@@ -13,7 +13,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: vars.color('black2');
+    color: vars.color(black2);
   }
 
   &__form {
@@ -35,14 +35,14 @@
   &__field {
     display: flex;
     flex-direction: column;
-    color: vars.color('black2');
+    color: vars.color(black2);
   }
 
   &__label {
     font-size: 0.875rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: vars.color('black2');
+    color: vars.color(black2);
   }
 
   &__input,
@@ -52,7 +52,7 @@
     border-radius: 12px;
     font-size: 0.875rem;
     background-color: #e0e0e0;
-    color: vars.color('black2');
+    color: vars.color(black2);
     box-shadow: 3px 3px 2px #5a5a5a, -3px -3px 2px #ffffff;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 
@@ -63,7 +63,7 @@
     }
 
     &::placeholder {
-      color: vars.color('gray5');
+      color: vars.color(blue600);
     }
 
     // Estado inválido
@@ -113,7 +113,7 @@
 
       &:empty::before {
         content: 'Select a service';
-        color: vars.color('gray5');
+        color: vars.color(blue600);
       }
     }
   }
@@ -161,18 +161,18 @@
 
     &--selected {
       background-color: vars.color('primary');
-      color: vars.color('white1');
+      color: vars.color(black1);
     }
   }
 
   &__submit {
     padding: 0.85rem 1.5rem;
     background-color: #e0e0e0;
-    /* color: var(--color-primary); */
+    color: vars.color(black1);
     border: none;
     border-radius: 12px;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: bolder;
     cursor: pointer;
     box-shadow: 5px 5px 4px #5a5a5a, -5px -5px 4px #ffffff;
     transition: box-shadow 0.3s ease, transform 0.3s ease;

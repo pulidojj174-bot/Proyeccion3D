@@ -239,7 +239,6 @@ export class ServiceTemplate implements OnInit {
         step: 2,
         title: 'Diseño y Optimización',
         description: 'Optimizamos un componente para Ternium, reduciendo un 25% su peso y manteniendo su vida útil.',
-        featured: true // Esta será la tarjeta destacada
       },
       {
         id: 'production',

@@ -41,8 +41,8 @@ export class Footer {
   });
 
   legalLinks = signal<FooterLink[]>([
-    { label: 'Política de Privacidad', path: '/privacy' },
-    { label: 'Términos de Servicio', path: '/terms' },
-    { label: 'Mapa del Sitio', path: '/contact' },
+    /* { label: 'Política de Privacidad', path: '/privacy' },
+    { label: 'Términos de Servicio', path: '/terms' }, */
+    /* { label: 'Mapa del Sitio', path: '/contact' }, */
   ]);
 }
