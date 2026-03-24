@@ -9,7 +9,7 @@ export interface ProjectData {
   featured?: boolean;
 }
 
-export type ProjectCategory = 'all' | 'reverse-engineering' | 'fea' | 'industrial-design' | 'mechanical-design' | 'piping-engineering' | '3d-printing' | 'structural-engineering' | 'conceptual-engineering';
+export type ProjectCategory = 'all' | 'reverse-engineering' | 'fea' | 'industrial-design' | 'mechanical-design' | 'piping-engineering' | '3d-printing' | 'structural-engineering' | 'conceptual-engineering' | 'drone-photogrammetry';
 
 export interface ProjectTab {
   id: ProjectCategory;

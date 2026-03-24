@@ -303,6 +303,26 @@ export class ProjectsTemplate {
       image: 'assets/images/projects/pid.jpg',
       imageAlt: 'Piping Engineering',
       link: '/portfolio/piping-engineering-1'
+    },
+    // 🖨️ IMPRESIÓN 3D
+    {
+      id: '3d-printing-1',
+      title: 'Impresión 3D - Prototipos Funcionales',
+      description: 'Manufactura aditiva de precisión en materiales técnicos avanzados para prototipos funcionales y piezas finales de producción.',
+      category: '3d-printing',
+      image: 'assets/images/service/Impresora-3D.jpg',
+      imageAlt: 'Impresión 3D Profesional',
+      link: '/portfolio/3d-printing-1'
+    },
+    // 🛩️ FOTOGRAMETRÍA POR DRON
+    {
+      id: 'drone-photogrammetry-1',
+      title: 'Fotogrametría por Dron - Levantamiento Industrial',
+      description: 'Captura tridimensional de terrenos y estructuras industriales con drones equipados con sensores LiDAR y fotogrametría de alta resolución.',
+      category: 'drone-photogrammetry',
+      image: 'assets/images/service/Dron.png',
+      imageAlt: 'Fotogrametría por Dron',
+      link: '/portfolio/drone-photogrammetry-1'
     }
   ]);
 }

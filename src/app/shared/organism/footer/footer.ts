@@ -36,7 +36,7 @@ export class Footer {
       { label: 'Impresión 3D Profesional', path: '/service', fragment: 'impresion-3d-profesional' },
       { label: 'Planos Estructurales & As-Built', path: '/service', fragment: 'planos-estructurales-as-built' },
       { label: 'Ingeniería Conceptual y Básica', path: '/service', fragment: 'ingenieria-conceptual-y-basica' },
-      { label: 'Escaneo 3D por Dron', path: '/service', fragment: 'escaneo-3d-por-dron' },
+      { label: 'Fotogrametría por Dron', path: '/service', fragment: 'fotogrametria-por-dron' },
     ],
   });
 

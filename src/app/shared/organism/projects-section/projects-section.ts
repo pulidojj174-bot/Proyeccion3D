@@ -46,6 +46,7 @@ export class ProjectsSection {
       '3d-printing': 'Impresión 3D Industrial',
       'structural-engineering': 'Planos Estructurales & As-Built',
       'conceptual-engineering': 'Ingeniería Conceptual y Básica',
+      'drone-photogrammetry': 'Fotogrametría por Dron',
     };
 
     // Contar proyectos por categoría
@@ -56,15 +57,13 @@ export class ProjectsSection {
       return acc;
     }, {} as Record<string, number>);
 
-    // Agregar tabs dinámicamente solo si hay proyectos
-    Object.entries(categoryCounts).forEach(([category, count]) => {
-      if (count > 0) {
-        tabs.push({
-          id: category as ProjectCategory,
-          label: categoryLabels[category] || category,
-          count: count
-        });
-      }
+    // Agregar tabs para todas las categorías definidas
+    Object.entries(categoryLabels).forEach(([category, label]) => {
+      tabs.push({
+        id: category as ProjectCategory,
+        label,
+        count: categoryCounts[category] || 0
+      });
     });
 
     return tabs;

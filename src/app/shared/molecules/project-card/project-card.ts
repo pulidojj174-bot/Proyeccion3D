@@ -23,7 +23,8 @@ export class ProjectCard {
       'piping-engineering': 'Ingeniería de Tuberías',
       '3d-printing': 'Impresión 3D',
       'structural-engineering': 'Ingeniería Estructural',
-      'conceptual-engineering': 'Ingeniería Conceptual y Básica'
+      'conceptual-engineering': 'Ingeniería Conceptual y Básica',
+      'drone-photogrammetry': 'Fotogrametría por Dron'
     };
     return labels[category] || category;
   }
