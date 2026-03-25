@@ -18,7 +18,7 @@ export const pagesRoutes: Routes = [
           title: 'Ingeniería 3D, Impresión 3D y Diseño Mecánico',
           description: 'Proyección 3D S.A.S. BIC: especialistas en ingeniería inversa, impresión 3D profesional, escaneo láser, simulación FEA, diseño mecánico y fotogrametría por dron. Transformamos ideas en ingeniería de precisión en Colombia.',
           keywords: 'impresión 3D Colombia, ingeniería inversa, escaneo 3D láser, diseño mecánico, simulación FEA, fotogrametría dron, manufactura aditiva, Proyección 3D, prototipado rápido',
-          image: 'https://proyeccion3-d-9wjy.vercel.app/assets/images/projects/HeaderProyeccion.png',
+          image: 'https://proyeccion3-d-9wjy.vercel.app/assets/images/projects/HeaderProyeccion.webp',
           type: 'website',
         }
       },
@@ -29,7 +29,7 @@ export const pagesRoutes: Routes = [
           title: 'Sobre Nosotros',
           description: 'Conoce al equipo de Proyección 3D: más de 3 años impulsando la innovación industrial con +250 proyectos completados, +500 modelos 3D y +50 clientes satisfechos. Ingenieros especializados en manufactura aditiva y diseño mecánico.',
           keywords: 'sobre nosotros, equipo ingenieros, Proyección 3D, Villamaría Caldas, experiencia industrial, Andrés Mosca, ingeniería mecánica Colombia, empresa BIC',
-          image: 'https://proyeccion3-d-9wjy.vercel.app/assets/images/Nuestra_historia.png',
+          image: 'https://proyeccion3-d-9wjy.vercel.app/assets/images/Nuestra_historia.webp',
           type: 'website',
         }
       },
