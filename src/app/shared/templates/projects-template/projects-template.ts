@@ -125,7 +125,7 @@ export class ProjectsTemplate {
       imageAlt: 'Ensamble Mecánico Completo',
       link: '/portfolio/diseno-mecanico-7'
     },
-    {
+    /* {
       id: 'diseno-mecanico-8',
       title: 'Componente Mecánico de Alta Resistencia',
       description: 'Desarrollo de componente mecánico de alta resistencia para aplicaciones industriales exigentes con análisis estructural.',
@@ -142,7 +142,7 @@ export class ProjectsTemplate {
       image: 'assets/images/projects/diseno-mecanico-9.jpeg',
       imageAlt: 'Pieza Mecánica Personalizada',
       link: '/portfolio/diseno-mecanico-9'
-    },
+    }, */
     {
       id: 'diseno-mecanico-10',
       title: 'Componente Mecánico para Automatización',
@@ -172,7 +172,7 @@ export class ProjectsTemplate {
       imageAlt: 'Diseño Conceptual de Proceso',
       link: '/portfolio/concepto-industrial-2'
     },
-    {
+    /* {
       id: 'concepto-industrial-3',
       title: 'Prototipo Conceptual Avanzado',
       description: 'Materialización de concepto innovador mediante prototipado rápido y validación de diseño con pruebas funcionales.',
@@ -180,7 +180,7 @@ export class ProjectsTemplate {
       image: 'assets/images/projects/ingenieria-conceptual-3.bmp',
       imageAlt: 'Prototipo Conceptual Avanzado',
       link: '/portfolio/concepto-industrial-3'
-    },
+    }, */
     {
       id: 'concepto-industrial-4',
       title: 'Ingeniería Básica de Proceso',
@@ -217,7 +217,7 @@ export class ProjectsTemplate {
       imageAlt: 'Simulación de Proceso Industrial',
       link: '/portfolio/concepto-industrial-7'
     },
-    {
+ /*    {
       id: 'concepto-industrial-8',
       title: 'Automatización de Proceso Industrial',
       description: 'Diseño e implementación de soluciones de automatización para optimización de procesos industriales y aumento de productividad.',
@@ -225,7 +225,7 @@ export class ProjectsTemplate {
       image: 'assets/images/projects/ingenieria-conceptual-8.bmp',
       imageAlt: 'Automatización de Proceso Industrial',
       link: '/portfolio/concepto-industrial-8'
-    },
+    }, */
     {
       id: 'concepto-industrial-9',
       title: 'Rediseño de Proceso Existente',
@@ -262,7 +262,7 @@ export class ProjectsTemplate {
       title: 'Layout de Planta de Producción',
       description: 'Diseño optimizado de layout para planta de producción incluyendo flujos de materiales y análisis de capacidad.',
       category: 'industrial-design',
-      image: 'assets/images/projects/diseno-planta.jpg',
+      image: '',
       imageAlt: 'Layout de Planta de Producción',
       link: '/portfolio/diseño-planta-1'
     },

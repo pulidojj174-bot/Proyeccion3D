@@ -171,7 +171,7 @@ myServicesArray = signal<ServiceItemData[]>([
   aboutHeroData = signal({
     title: 'Expertos en Soluciones para la Industria',
     description:
-      'Más de 3 años impulsando la innovación industrial con tecnología de vanguardia. Nuestro equipo de ingenieros certificados ha desarrollado más de 500 modelos 3D, 40 análisis FEA, 25 diseños de plantas industriales y más de 80 escaneos 3D para empresas como: Ternium, Super, Payan & CIA, entre otras.',
+      'Más de 3 años impulsando la innovación industrial con tecnología de vanguardia. Nuestro equipo de ingenieros certificados ha desarrollado más de 500 modelos 3D, 40 análisis FEA, 25 diseños de plantas industriales y más de 80 escaneos 3D.',
     videoSrc: 'assets/images/Equipo_de_trabajo.mp4',
     videoMuted: true,
     videoLoop: true,
