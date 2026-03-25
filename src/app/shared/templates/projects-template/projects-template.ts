@@ -318,7 +318,7 @@ export class ProjectsTemplate {
     {
       id: 'drone-photogrammetry-1',
       title: 'Fotogrametría por Dron - Levantamiento Industrial',
-      description: 'Captura tridimensional de terrenos y estructuras industriales con drones equipados con sensores LiDAR y fotogrametría de alta resolución.',
+      description: 'Captura tridimensional de terrenos y estructuras industriales con drones equipados con sensores y fotogrametría de alta resolución.',
       category: 'drone-photogrammetry',
       image: 'assets/images/service/Dron.png',
       imageAlt: 'Fotogrametría por Dron',
