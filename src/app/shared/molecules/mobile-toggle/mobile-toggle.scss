@@ -10,7 +10,7 @@
   padding: vars.$spacing-sm;
   gap: 4px;
 
-  @include mixins.mobile() {
+  @media screen and (max-width: calc(vars.$desktop - 1px)) {
     display: flex;
   }
 

@@ -7,7 +7,8 @@ import { NavigationLink } from '../../../core/models/interfaces/NavigationLink.i
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './navigation-menu.html',
   styleUrl: './navigation-menu.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { style: 'display: contents' }
 })
 export class NavigationMenu {
   links = input<NavigationLink[]>([]);

@@ -8,7 +8,7 @@
   padding: 0;
   gap: vars.$spacing-lg;
 
-  @include mixins.mobile() {
+  @media screen and (max-width: calc(vars.$desktop - 1px)) {
     display: none;
   }
 

@@ -4,7 +4,8 @@ import { Component, ChangeDetectionStrategy, input, output } from '@angular/core
   selector: 'app-mobile-toggle',
   templateUrl: './mobile-toggle.html',
   styleUrl: './mobile-toggle.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { style: 'display: contents' }
 })
 export class MobileToggle {
   isOpen = input(false);

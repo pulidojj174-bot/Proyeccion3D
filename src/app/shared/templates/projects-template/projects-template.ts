@@ -16,7 +16,7 @@ export class ProjectsTemplate {
 
   // Portfolio
   portfolioHeroData = signal({
-    title: 'Nuestro Portafolio',
+    title: 'Nuestros Proyectos',
     description: 'Explora nuestra diversa gama de proyectos de impresión 3D en varias industrias.',
     config: {
       layout: 'hero-with-background' as const,

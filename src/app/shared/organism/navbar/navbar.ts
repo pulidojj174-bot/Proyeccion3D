@@ -18,7 +18,7 @@ export class Navbar {
 
   navigationLinks: NavigationLink[] = [
     { path: '/', label: 'Inicio' },
-    { path: '/about', label: 'Acerca de' },
+    { path: '/about', label: 'Nosotros' },
     { path: '/service', label: 'Servicios' },
     { path: '/project', label: 'Proyectos' },
     { path: '/contact', label: 'Contacto' }
