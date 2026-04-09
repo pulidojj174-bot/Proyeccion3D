@@ -28,7 +28,7 @@ export class SeoService {
   private readonly siteName = 'Proyección 3D';
   private readonly siteUrl = 'https://proyeccion3-d-9wjy.vercel.app';
   private readonly defaultDescription = 'Proyección 3D S.A.S. BIC: soluciones integrales de ingeniería inversa, impresión 3D profesional, diseño mecánico, simulación FEA y fotogrametría por dron en Colombia.';
-  private readonly defaultImage = `${this.siteUrl}/assets/images/projects/HeaderProyeccion.png`;
+  private readonly defaultImage = `${this.siteUrl}/assets/images/projects/HeaderProyeccion.webp`;
   private readonly defaultAuthor = 'Proyección 3D S.A.S. BIC';
   private readonly locale = 'es_CO';
 

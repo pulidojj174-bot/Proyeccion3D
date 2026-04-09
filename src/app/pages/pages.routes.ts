@@ -51,7 +51,7 @@ export const pagesRoutes: Routes = [
           title: 'Portafolio de Proyectos',
           description: 'Explora +250 proyectos de ingeniería completados: análisis FEA, diseño mecánico de precisión, ingeniería conceptual, planos estructurales, ingeniería inversa, piping, impresión 3D y fotogrametría por dron. Casos de éxito con Ternium, Super y más.',
           keywords: 'portafolio ingeniería, proyectos diseño mecánico, casos éxito FEA, ingeniería inversa Colombia, impresión 3D industrial, Ternium, planos estructurales, proyectos manufactura',
-          image: 'https://proyeccion3-d-9wjy.vercel.app/assets/images/projects/diseno-mecanico-6.jpg',
+          image: 'https://proyeccion3-d-9wjy.vercel.app/assets/images/projects/Diseño_mecanico/diseno-mecanico-6.webp',
           type: 'website',
         }
       },
