@@ -47,7 +47,20 @@ export class ContactForm {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log('Form submitted:', this.contactForm.value);
+      const { firstName, lastName, email, phone, service, message } = this.contactForm.value;
+      const serviceLabel = this.serviceOptions().find(o => o.value === service)?.label || service;
+
+      const text = [
+        `*Nuevo mensaje de contacto*`,
+        `*Nombre:* ${firstName} ${lastName}`,
+        `*Correo:* ${email}`,
+        `*Teléfono:* ${phone}`,
+        `*Servicio:* ${serviceLabel}`,
+        `*Mensaje:* ${message}`
+      ].join('\n');
+
+      const url = `https://wa.me/573165882153?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
       this.contactForm.reset();
     } else {
       this.contactForm.markAllAsTouched();

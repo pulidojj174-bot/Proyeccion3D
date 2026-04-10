@@ -95,18 +95,18 @@ export class AboutTemplate {
       value: '50',
       label: 'Clientes Satisfechos',
     },
-    {
+    /* {
       id: 'clock',
       icon: 'bi-clock',
       value: '2000',
       label:   `  Premios de la
       Industria `,
-    },
+    }, */
     {
       id: 'experience',
       icon: 'bi-calendar-check',
       //icon: 'bi-patch-check',
-      value: '3',
+      value: String(new Date().getFullYear() - 2022),
       label: 'Años de Experiencia',
     },
     {

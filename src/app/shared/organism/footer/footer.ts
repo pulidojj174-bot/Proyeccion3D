@@ -20,7 +20,7 @@ export class Footer {
       { label: 'Inicio', path: '/' },
       { label: 'Nosotros', path: '/about' },
       { label: 'Servicios', path: '/service' },
-      { label: 'Portafolio', path: '/project' },
+      { label: 'Proyectos', path: '/project' },
       { label: 'Contacto', path: '/contact' },
     ],
   });

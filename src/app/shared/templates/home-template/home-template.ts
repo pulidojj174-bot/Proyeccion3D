@@ -13,7 +13,7 @@ import { ClientsSectionData } from '../../../core/models/interfaces/ClientData.i
 @Component({
   selector: 'app-home-template',
   imports: [
-    TestimonialCarousel,
+   /*  TestimonialCarousel, */
     ServiceCarousel,
     HeroHeaderComponent,
     CTASection,

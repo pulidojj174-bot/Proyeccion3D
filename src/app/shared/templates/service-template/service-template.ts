@@ -49,7 +49,7 @@ export class ServiceTemplate implements OnInit {
       title: 'Ingeniería Inversa & Escaneo 3D',
       description: 'Convierte conceptos en prototipos físicos en días, no semanas. Perfecto para probar forma, ajuste y función.',
       icon: 'bi-printer',
-      image: 'assets/images/service/Ingenieria-inversa.webp',
+      image: 'assets/images/projects/Ingenieria_inversa_&_escaneo_3d/ingenieria-inversa-5.webp',
       imageAlt: 'Ingeniería Inversa & Escaneo 3D',
       imagePosition: 'right',
       features: [
@@ -74,7 +74,7 @@ export class ServiceTemplate implements OnInit {
       imagePosition: 'left',
       features: [
         'Metodología:',
-        '   Análisis computacional de tensiones térmicas, mecánicas y fatiga en ANSYS o SolidWorks Simulation.',
+        '   Análisis computacional de tensiones térmicas, mecánicas y fatiga en ANSYS y metodo de Von Mises.',
         '   Validación bajo normas ASME Sección VIII (equipos a presión) o API 650 (tanques de almacenamiento).',
         'Entregables:',
         '   Reportes técnicos con factores de seguridad.',
@@ -88,7 +88,7 @@ export class ServiceTemplate implements OnInit {
       title: 'Diseño de Plantas Industriales',
       description: 'Ofrecemos servicios completos de producción para piezas funcionales y prototipos, desde lotes pequeños hasta producciones masivas.',
       icon: 'bi-lightning',
-      image: 'assets/images/service/Plantas-industriales.png',
+      image: 'assets/images/projects/Diseño_plantas_industriales/diseno-planta-2.webp',
       imageAlt: 'Diseño de Plantas Industriales',
       imagePosition: 'right',
       features: [

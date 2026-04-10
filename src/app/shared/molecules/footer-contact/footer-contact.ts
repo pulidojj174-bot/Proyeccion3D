@@ -15,6 +15,7 @@ export class FooterContact {
       city: 'Caldas, Colombia'
     },
     phone: '+57 316 5882153',
+    whatsapp: '573165882153',
     email: 'productividadydiseno3d@gmail.com'
   };
 }
