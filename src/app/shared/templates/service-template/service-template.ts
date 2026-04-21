@@ -54,7 +54,7 @@ export class ServiceTemplate implements OnInit {
       imagePosition: 'right',
       features: [
         'Digitalización de piezas físicas mediante escáneres láser de alta precisión(hasta 0.01 mm).',
-        'Reconstrucción de modelos CAD editables en software como Geomagic Design X o SolidWorks.',
+        'Reconstrucción de modelos CAD editables en software como Geomagic Design X.',
         'Análisis comparativo entre el modelo 3D y la pieza física para control de calidad.',
         'Replicar componentes obsoletos sin planos.',
         'Rediseñar piezas para mejorar su rendimiento.',
@@ -183,11 +183,6 @@ export class ServiceTemplate implements OnInit {
       imageAlt: 'Impresión 3D Profesional',
       imagePosition: 'left',
       features: [
-        'Tecnologías disponibles:',
-        '  FDM (Fused Deposition Modeling) - ULTEM, ABS, Nylon, TPU.',
-        '  SLS (Selective Laser Sintering) - Nylon PA12, TPU, aluminio.',
-        '  Resinas industriales - Estereolitografía de alta resolución.',
-        'Aplicaciones:',
         '  Prototipos funcionales para validación antes de producción.',
         '  Piezas finales para bajo volumen (1-1000 unidades).',
         '  Herramientas y fixtures especializadas para manufactura.',

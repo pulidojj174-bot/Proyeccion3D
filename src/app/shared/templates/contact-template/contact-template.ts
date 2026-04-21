@@ -50,8 +50,15 @@ export class ContactTemplate {
       { day: 'Domingo', hours: 'Cerrado' }
     ],
     serviceOptions: [
-      { value: 'prototyping', label: 'Prototipado Rápido' },
-      { value: 'production', label: 'Producción en Serie' },
+      { value: 'ingenieria-inversa-escaneo-3d', label: 'Ingeniería Inversa & Escaneo 3D' },
+      { value: 'simulacion-elementos-finitos', label: 'Simulación por Elementos Finitos (FEA)' },
+      { value: 'diseno-plantas-industriales', label: 'Diseño de Plantas Industriales' },
+      { value: 'diseno-mecanico-personalizado', label: 'Diseño Mecánico Personalizado' },
+      { value: 'ingenieria-piping-diagramas-pid', label: 'Ingeniería de Piping & Diagramas P&ID' },
+      { value: 'planos-estructurales-as-built', label: 'Planos Estructurales & As-Built' },
+      { value: 'ingenieria-conceptual-y-basica', label: 'Ingeniería Conceptual y Básica' },
+      { value: 'impresion-3d-profesional', label: 'Impresión 3D Profesional' },
+      { value: 'fotogrametria-por-dron', label: 'Fotogrametría por Dron' },
       { value: 'design', label: 'Servicios de Diseño' },
       { value: 'scanning', label: 'Escaneo 3D' },
       { value: 'other', label: 'Otro' }
